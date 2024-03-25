@@ -1,0 +1,15 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (SDLProject.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  SlimeEnemy.cpp
+C:\Users\LEGION\Documents\GitHub\SDLProject\SDLProject\SDLProject\PlayState.h(29,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\SDLProject\SDLProject\SDLProject\MenuState.h(21,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\SDLProject\SDLProject\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\SDLProject\SDLProject\SDLProject\PauseState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\SDLProject\SDLProject\SDLProject\GameOverState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\SDLProject\SDLProject\SDLProject\SlimeEnemy.cpp(9,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\SDLProject\SDLProject\SDLProject\SlimeEnemy.cpp(10,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\SDLProject\SDLProject\SDLProject\SlimeEnemy.cpp(37,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\SDLProject\SDLProject\SDLProject\SlimeEnemy.cpp(38,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\SDLProject\SDLProject\SDLProject\SlimeEnemy.cpp(96,23): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\SDLProject\SDLProject\SDLProject\SlimeEnemy.cpp(103,22): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\SDLProject\SDLProject\SDLProject\SlimeEnemy.cpp(105,24): warning C4305: 'argument': truncation from 'double' to 'float'
+  SDLProject.vcxproj -> C:\Users\LEGION\Documents\GitHub\SDLProject\SDLProject\x64\Debug\SDL.exe

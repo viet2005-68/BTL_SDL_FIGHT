@@ -1,0 +1,80 @@
+﻿  base64.cpp
+  Enemy.cpp
+G:\C++ Programming\SDLProject\SDLProject\GameObject.h(3,10): error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  (compiling source file 'Enemy.cpp')
+  
+  Game.cpp
+G:\C++ Programming\SDLProject\SDLProject\Game.h(2,10): error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  (compiling source file 'Game.cpp')
+  
+  GameObject.cpp
+  GameOverState.cpp
+G:\C++ Programming\SDLProject\SDLProject\Game.h(2,10): error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  (compiling source file 'GameOverState.cpp')
+  
+  GameState.cpp
+  GameStateMachine.cpp
+  HelpState.cpp
+G:\C++ Programming\SDLProject\SDLProject\Game.h(2,10): error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  (compiling source file 'HelpState.cpp')
+  
+  InputHandler.cpp
+G:\C++ Programming\SDLProject\SDLProject\InputHandler.h(2,10): error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  (compiling source file 'InputHandler.cpp')
+  
+  LoaderParams.cpp
+  main.cpp
+G:\C++ Programming\SDLProject\SDLProject\Game.h(2,10): error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  (compiling source file 'main.cpp')
+  
+  Map.cpp
+G:\C++ Programming\SDLProject\SDLProject\TextureManager.h(3,10): error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  (compiling source file 'Map.cpp')
+  
+  MenuButton.cpp
+G:\C++ Programming\SDLProject\SDLProject\GameObject.h(3,10): error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  (compiling source file 'MenuButton.cpp')
+  
+  MenuState.cpp
+G:\C++ Programming\SDLProject\SDLProject\GameObject.h(3,10): error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  (compiling source file 'MenuState.cpp')
+  
+  PauseState.cpp
+G:\C++ Programming\SDLProject\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  (compiling source file 'PauseState.cpp')
+  
+G:\C++ Programming\SDLProject\SDLProject\Game.h(2,10): error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  (compiling source file 'PauseState.cpp')
+  
+  Player.cpp
+G:\C++ Programming\SDLProject\SDLProject\GameObject.h(3,10): error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  (compiling source file 'Player.cpp')
+  
+  PlayState.cpp
+G:\C++ Programming\SDLProject\SDLProject\GameObject.h(3,10): error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  (compiling source file 'PlayState.cpp')
+  
+  PlayState2.cpp
+G:\C++ Programming\SDLProject\SDLProject\GameObject.h(3,10): error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  (compiling source file 'PlayState2.cpp')
+  
+  SDLGameObject.cpp
+G:\C++ Programming\SDLProject\SDLProject\GameObject.h(3,10): error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  (compiling source file 'SDLGameObject.cpp')
+  
+  SoundManager.cpp
+G:\C++ Programming\SDLProject\SDLProject\SoundManager.h(4,10): error C1083: Cannot open include file: 'SDL_mixer.h': No such file or directory
+  (compiling source file 'SoundManager.cpp')
+  
+  Generating Code...
+  Compiling...
+  TextureManager.cpp
+G:\C++ Programming\SDLProject\SDLProject\TextureManager.h(3,10): error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  (compiling source file 'TextureManager.cpp')
+  
+  tinystr.cpp
+  tinyxml.cpp
+  tinyxmlerror.cpp
+  tinyxmlparser.cpp
+  Vector2D.cpp
+  Generating Code...
