@@ -15,8 +15,8 @@ void Enemy::draw() {
 	SDLGameObject::draw();
 	TextureManager::Instance()->drawChar("assets/healthUnder.png", Game::Instance()->getRenderer(), enemyRect.x, enemyRect.y - 30, barWidth, barHeight, 1, 0, 0);
 	TextureManager::Instance()->drawChar("assets/health.png", Game::Instance()->getRenderer(), enemyRect.x, enemyRect.y - 30, healthBar, 8, 1, 0, 0);
-	SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(enemyRect));
-	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
+	//SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(enemyRect));
+	//SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
 }
 
 void Enemy::update() {
@@ -57,7 +57,7 @@ void Enemy::move(Player* &player) {
 			tick = 150;
 			frame = 8;
 			if (time.getElapsedTime() > 1) {
-				player->healthBar -= 10;
+				player->healthBar -= 10 / player->defense;
 				player->attacked = 1;
 				SoundManager::Instance()->playSound("assets/damaged.wav", 0);
 				
@@ -68,9 +68,9 @@ void Enemy::move(Player* &player) {
 			m_textureID = "assets/enemy1Hit.png";
 			frame = 4;
 			tick = 200;
-			if (time.getElapsedTime() > 0.4) {
-				health -= player->damage;
-				healthBar -= player->damage+7;
+			if (time.getElapsedTime() > player->attackSpeed) {
+				health -= player->damage*player->damageRatio;
+				healthBar -= (player->damage)*player->damageRatio + 7;
 				
 				SoundManager::Instance()->playSound("assets/attack.wav", 0);
 			

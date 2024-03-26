@@ -17,6 +17,17 @@ Player::Player(const LoaderParams* pParams) : SDLGameObject(pParams)
 	playerRect.h = 91;
 	VecX = 0;
 	VecY = 0;
+
+	//Newly added
+	TextureManager::Instance()->load("assets/manaBar.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/mana.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/regeneration.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/attackBoost.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/defenseBoost.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/speedBoost.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/shield.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/aura.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/speedAnimation.png", Game::Instance()->getRenderer());
 }
 
 void Player::draw()
@@ -24,7 +35,42 @@ void Player::draw()
 	SDLGameObject::draw();
 	TextureManager::Instance()->draw("assets/playerHealthUnder.png", Game::Instance()->getRenderer(), 65, 20, 100, 27);
 	TextureManager::Instance()->draw("assets/playerHealth.png", Game::Instance()->getRenderer(), 65, 20, healthBar, 27);
+	TextureManager::Instance()->draw("assets/playerHealthUnder.png", Game::Instance()->getRenderer(), 330, 20, 100, 27);
+	TextureManager::Instance()->draw("assets/manaBar.png", Game::Instance()->getRenderer(), 330, 20, mana, 27);
 	TextureManager::Instance()->draw("assets/heart.png", Game::Instance()->getRenderer(), 4, 20, 28, 28);
+	TextureManager::Instance()->draw("assets/mana.png", Game::Instance()->getRenderer(), 275, 20, 28, 28);
+
+	//DrawBuff
+	if (regen == true) {
+		TextureManager::Instance()->draw("assets/regeneration.png", Game::Instance()->getRenderer(), 70, 80, 16, 16);
+	}
+	if (defenseBoost == true) {
+		TextureManager::Instance()->draw("assets/defenseBoost.png", Game::Instance()->getRenderer(), 102, 80, 16, 16);
+		if (m_velocity.getX() > 0) {
+			TextureManager::Instance()->drawFrame("assets/shield.png", Game::Instance()->getRenderer(), playerRect.x + 20, playerRect.y + 15, 27, 30, 1, shieldFrame, 0);
+		}
+		else {
+			TextureManager::Instance()->drawFrame("assets/shield.png", Game::Instance()->getRenderer(), playerRect.x, playerRect.y + 15, 27, 30, 1, shieldFrame, 1);
+		}
+	}
+	if (atkBoost == true) {
+		TextureManager::Instance()->draw("assets/attackBoost.png", Game::Instance()->getRenderer(), 134, 80, 16, 16);
+		if (m_velocity.getX() > 0) {
+			TextureManager::Instance()->drawFrame("assets/aura.png", Game::Instance()->getRenderer(), playerRect.x + 20, playerRect.y + 40, 32, 32, 1, auraFrame, 0);
+		}
+		else {
+			TextureManager::Instance()->drawFrame("assets/aura.png", Game::Instance()->getRenderer(), playerRect.x, playerRect.y + 40, 32, 32, 1, auraFrame, 1);
+		}
+	}
+	if (speedBoost == true) {
+		TextureManager::Instance()->draw("assets/speedBoost.png", Game::Instance()->getRenderer(), 166, 80, 16, 16);
+		if (m_velocity.getX() > 0) {
+			TextureManager::Instance()->drawFrame("assets/speedAnimation.png", Game::Instance()->getRenderer(), playerRect.x + 20, playerRect.y + 20, 32, 32, 1, (SDL_GetTicks() / 150) % 5, 0);
+		}
+		else {
+			TextureManager::Instance()->drawFrame("assets/speedAnimation.png", Game::Instance()->getRenderer(), playerRect.x - 5, playerRect.y + 20, 32, 32, 1, shieldFrame, 1);
+		}
+	}
 
 	TextureManager::Instance()->drawChar("assets/Arrow.png", Game::Instance()->getRenderer(), playerRect.x + 30, playerRect.y - 20, 13, 13, 1, 0, 0);
 	if (run == 1 && m_velocity.getX() > 0) {
@@ -33,19 +79,22 @@ void Player::draw()
 	else if (run == 1 && m_velocity.getX() < 0) {
 		TextureManager::Instance()->drawFrame("assets/dust.png", Game::Instance()->getRenderer(), playerRect.x + 55, playerRect.y + 60, 16, 12, 1, ((SDL_GetTicks() / 200) % 3), 1);
 	}
-	SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(playerRect));
-	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
+	//SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(playerRect));
+	//SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
 }
 
 void Player::update()
 {
 	VecX = 0;
 	VecY = 0;
+	if (mana < 100 && time.getElapsedTime() > 0.5) {
+		mana += 5;
+		time.reset();
+	}
+	playerRect.x = m_position.m_x + 110;
+	playerRect.y = m_position.m_y + 91;
 
-	//playerRect.x = m_position.getX() + 100;
-	//playerRect.y = m_position.getY();
-
-	int tick = 50;
+	int tick = 100;
 	frame = 11;
 	m_currentRow = 4;
 	run = 0;
@@ -87,11 +136,15 @@ void Player::update()
 		//move();
 
 	}
-	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J)) {
+	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) && mana >= 5) {
 		m_currentRow = 1;
 		frame = 7;
 		attack = 1;
 		//move();
+		if (time.getElapsedTime() > attackSpeed) {
+			mana -= 5;
+			time.reset();
+		}
 	}
 	else if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_K)) {
 		m_currentRow = 2;
@@ -105,6 +158,68 @@ void Player::update()
 		frame = 4;
 		tick = 300;
 	}
+	if (regen == true) {
+		if (regenTime.getElapsedTime() > 1) {
+			if (healthBar <= 97) {
+				SoundManager::Instance()->playSound("assets/regen.wav", 0);
+				healthBar += 3;
+			}
+			stopRegen++;
+			if (stopRegen == 10) {
+				regen = false;
+				stopRegen = 0;
+			}
+			regenTime.reset();
+		}
+	}
+
+	if (defenseBoost == true) {
+		defense = 3;
+		if (defenseTime.getElapsedTime() > 1) {
+			SoundManager::Instance()->playSound("assets/regen.wav", 0);
+			stopDefenseBoost++;
+			if (stopDefenseBoost == 10) {
+				defenseBoost = false;
+				defense = 1;
+				stopDefenseBoost = 0;
+			}
+			defenseTime.reset();
+		}
+	}
+
+	if (atkBoost == true) {
+		if (stopAttackBoost == 0) {
+			damageRatio = 2;
+		}
+		if (attackTime.getElapsedTime() > 1) {
+			SoundManager::Instance()->playSound("assets/regen.wav", 0);
+			stopAttackBoost++;
+			if (stopAttackBoost == 10) {
+				atkBoost = false;
+				damageRatio = 1;
+				stopAttackBoost = 0;
+			}
+			attackTime.reset();
+		}
+	}
+
+	if (speedBoost == true) {
+		speed = 4;
+		attackSpeed = 0.2;
+		tick = 50;
+		if (speedTime.getElapsedTime() > 1) {
+			stopSpeedBoost++;
+			if (stopSpeedBoost == 10) {
+				speedBoost = false;
+				speed = 2;
+				attackSpeed = 0.4;
+				stopSpeedBoost = 0;
+			}
+			speedTime.reset();
+		}
+	}
+	shieldFrame = int(((SDL_GetTicks() / 50) % 6));
+	auraFrame = int(((SDL_GetTicks() / 150) % 4));
 	move();
 	m_currentFrame = int(((SDL_GetTicks() / tick) % frame));
 

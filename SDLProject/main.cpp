@@ -1,9 +1,11 @@
 #include "Game.h"
+#include "cstdlib"
 
 const int FPS = 90;
 const int DELAY_TIME = 1000.0f / FPS;
 
 int main(int argc, char* argv[]) {
+	srand(time(NULL));
 	Uint32 frameStart, frameTime;
 	Game::Instance()->init("Game.exe",SCREEN_WIDTH, SCREEN_HEIGHT, 0);
 	while (Game::Instance()->running()) {

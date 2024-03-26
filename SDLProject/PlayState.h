@@ -5,6 +5,7 @@
 #include "Game.h"
 #include "Enemy.h"
 #include "Portal.h"
+#include "chest.h"
 #include "Time.h"
 
 class GameObject;

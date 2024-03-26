@@ -10,6 +10,7 @@
 
 Map* lvl1 = new Map();
 
+std::vector<chest*> m_chest;
 std::vector<Enemy*> m_enemies;
 std::vector<SlimeEnemy*> m_slimes;
 Player* player = NULL;
@@ -66,6 +67,9 @@ void PlayState::update() {
 	for (int i = 0; i < m_slimes.size(); ++i) {
 		m_slimes[i]->move(player);
 	}
+	for (int i = 0; i < m_chest.size(); ++i) {
+		m_chest[i]->move(player);
+	}
 
 	//Chuyen man
 
@@ -116,16 +120,18 @@ void PlayState::render() {
 
 	Map::getInstance()->DrawMap();
 
-	for (int i = 0; i < m_gameObjects.size(); ++i) {
-		m_gameObjects[i]->draw();
-	}
-
 	for (int i = 0; i < m_enemies.size(); ++i) {
 		m_enemies[i]->draw();
 	}
 
 	for (int i = 0; i < m_slimes.size(); ++i) {
 		m_slimes[i]->draw();
+	}
+	for (int i = 0; i < m_chest.size(); ++i) {
+		m_chest[i]->draw();
+	}
+	for (int i = 0; i < m_gameObjects.size(); ++i) {
+		m_gameObjects[i]->draw();
 	}
 }
 
@@ -146,6 +152,7 @@ bool PlayState::onEnter() {
 	m_gameObjects.clear();
 	m_enemies.clear();
 	m_slimes.clear();
+	//m_chest.clear();
 	TextureManager::Instance()->clearFromTextureMap("assets/player.png");
 	TextureManager::Instance()->clearFromTextureMap("assets/enemy1Run.png");
 	TextureManager::Instance()->clearFromTextureMap("assets/inGamePauseState.png");
@@ -170,6 +177,8 @@ bool PlayState::onEnter() {
 	SoundManager::Instance()->load("assets/damaged.wav", "assets/damaged.wav", SOUND_SFX);
 	SoundManager::Instance()->load("assets/enemy1Damaged.wav", "assets/enemy1Damaged.wav", SOUND_SFX);
 	SoundManager::Instance()->load("assets/portal.wav", "assets/portal.wav", SOUND_SFX);
+	SoundManager::Instance()->load("assets/chestOpen.wav", "assets/chestOpen.wav", SOUND_SFX);
+	SoundManager::Instance()->load("assets/regen.wav", "assets/regen.wav", SOUND_SFX);
 
 	//lvl1->LoadMap();
 	//player->collisionPos = lvl1->getCollisionPos();
@@ -220,7 +229,29 @@ bool PlayState::onEnter() {
 	{
 		return false;
 	}
+	if (!TextureManager::Instance()->load("assets/blankButton.png", Game::Instance()->getRenderer()))
+	{
+		return false;
+	}
+
+	//Load chest
+	if (!TextureManager::Instance()->load("assets/chest.png", Game::Instance()->getRenderer()))
+	{
+		return false;
+	}
 	
+
+	chest* chest1 = new chest(new LoaderParams(1000, 450, 31, 28, "assets/chest.png"));
+	chest* chest2 = new chest(new LoaderParams(1000, 1000, 31, 28, "assets/chest.png"));
+	chest* chest3 = new chest(new LoaderParams(100, 900, 31, 28, "assets/chest.png"));
+	chest* chest4 = new chest(new LoaderParams(560, 300, 31, 28, "assets/chest.png"));
+	chest* chest5 = new chest(new LoaderParams(130, 340, 31, 28, "assets/chest.png"));
+	m_chest.push_back(chest1);
+	m_chest.push_back(chest2);
+	m_chest.push_back(chest3);
+	m_chest.push_back(chest4);
+	m_chest.push_back(chest5);
+
 
 	//Dang thay GameObject* thanh Player*
 	SlimeEnemy* slime = new SlimeEnemy(new LoaderParams(1000, 100, 96, 32, "assets/slimeIdle.png"));
@@ -265,6 +296,7 @@ bool PlayState::onExit() {
 	m_slimes.clear();
 	m_gameObjects.clear();
 	m_enemies.clear();
+	m_chest.clear();
 	TextureManager::Instance()->clearFromTextureMap("assets/player.png");
 	TextureManager::Instance()->clearFromTextureMap("assets/enemy1Run.png");
 	TextureManager::Instance()->clearFromTextureMap("assets/enemy1Hit.png");

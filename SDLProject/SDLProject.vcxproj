@@ -43,7 +43,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -105,13 +105,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\LEGION\Documents\GitHub\SDLProject\SDLProject\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\include;C:\Users\LEGION\Documents\GitHub\SDLProject\SDLProject\SDL2_mixer-devel-2.8.0-VC\SDL2_mixer-2.8.0\include;C:\Users\LEGION\Documents\GitHub\SDLProject\SDLProject\SDL2_ttf-devel-2.0.12-VC\SDL2_ttf-2.0.12\include;C:\Users\LEGION\Documents\GitHub\SDLProject\SDLProject\SDL2-devel-2.30.0-VC\SDL2-2.30.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\git\BTL_SDL_FIGHT\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\include;F:\git\BTL_SDL_FIGHT\SDL2_mixer-devel-2.8.0-VC\SDL2_mixer-2.8.0\include;F:\git\BTL_SDL_FIGHT\SDL2-devel-2.30.0-VC\SDL2-2.30.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\LEGION\Documents\GitHub\SDLProject\SDLProject\SDL2-devel-2.30.0-VC\SDL2-2.30.0\lib\x64;C:\Users\LEGION\Documents\GitHub\SDLProject\SDLProject\SDL2_ttf-devel-2.0.12-VC\SDL2_ttf-2.0.12\lib\x64;C:\Users\LEGION\Documents\GitHub\SDLProject\SDLProject\SDL2_mixer-devel-2.8.0-VC\SDL2_mixer-2.8.0\lib\x64;C:\Users\LEGION\Documents\GitHub\SDLProject\SDLProject\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>F:\git\BTL_SDL_FIGHT\SDL2-devel-2.30.0-VC\SDL2-2.30.0\lib\x64;F:\git\BTL_SDL_FIGHT\SDL2_mixer-devel-2.8.0-VC\SDL2_mixer-2.8.0\lib\x64;F:\git\BTL_SDL_FIGHT\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -133,6 +133,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="chest.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -161,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="chest.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />

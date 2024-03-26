@@ -1,6 +1,4 @@
-#ifndef MAP_H
-#define MAP_H
-
+#pragma once
 #include <SDL.h>
 #include "TextureManager.h"
 
@@ -66,4 +64,3 @@ private:
     Tile* Map_in[60][60];
 };
 
-#endif // MAP_H

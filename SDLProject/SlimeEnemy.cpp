@@ -64,8 +64,8 @@ void SlimeEnemy::move(Player*& player) {
 			m_textureID = "assets/slimeIdle.png";
 			tick = 100;
 			frame = 7;
-			if (time.getElapsedTime() > 1) {
-				player->healthBar -= 10;
+			if (time.getElapsedTime() > 0.5) {
+				player->healthBar -= 5 / player->defense;
 				player->attacked = 1;
 				time.reset();
 			}
@@ -74,9 +74,9 @@ void SlimeEnemy::move(Player*& player) {
 			m_textureID = "assets/slimeHit.png";
 			frame = 11;
 			tick = 80;
-			if (time.getElapsedTime() > 0.4) {
-				health -= player->damage;
-				healthBar -= player->damage;
+			if (time.getElapsedTime() > player->attackSpeed) {
+				health -= player->damage * player->damageRatio;
+				healthBar -= player->damage * player->damageRatio;
 				SoundManager::Instance()->playSound("assets/attack.wav", 0);
 				time.reset();
 			}
