@@ -14,18 +14,23 @@ void PauseState::s_resumePlay()
 
 void PauseState::update()
 {
-	for (int i = 0; i < m_gameObjects.size(); i++) {
-		m_gameObjects[i]->update();
+	if (m_gameObjects.size() != 0) {
+		for (int i = 0; i < m_gameObjects.size(); i++) {
+			if (m_gameObjects[i] != nullptr) {
+				m_gameObjects[i]->update();
+			}
+		}
 	}
-	
 }
 
 void PauseState::render()
 {
 	TextureManager::Instance()->draw("assets/background2.png", Game::Instance()->getRenderer(), 0, 0, 640, 400);
-	for (int i = 0; i < m_gameObjects.size(); i++)
-	{
-		m_gameObjects[i]->draw();
+	if (m_gameObjects.size() != 0) {
+		for (int i = 0; i < m_gameObjects.size(); i++)
+		{
+			if (m_gameObjects[i] != nullptr) m_gameObjects[i]->draw();
+		}
 	}
 }
 
@@ -50,8 +55,10 @@ bool PauseState::onEnter() {
 
 bool PauseState::onExit()
 {
-	for (int i = 0; i < m_gameObjects.size(); i++) {
-		m_gameObjects[i]->clean();
+	if (m_gameObjects.size() != 0) {
+		for (int i = 0; i < m_gameObjects.size(); i++) {
+			if (m_gameObjects[i] != nullptr) m_gameObjects[i]->clean();
+		}
 	}
 	m_gameObjects.clear();
 	TextureManager::Instance()->clearFromTextureMap("assets/continueButton.png");

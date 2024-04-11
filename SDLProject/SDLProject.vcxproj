@@ -105,13 +105,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\LEGION\Documents\GitHub\SDL2_ttf-devel-2.0.12-VC\SDL2_ttf-2.0.12\include;C:\Users\LEGION\Documents\GitHub\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\include;C:\Users\LEGION\Documents\GitHub\SDL2_mixer-devel-2.8.0-VC\SDL2_mixer-2.8.0\include;C:\Users\LEGION\Documents\GitHub\SDL2-devel-2.30.0-VC\SDL2-2.30.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\SDL2_ttf-devel-2.0.12-VC\SDL2_ttf-2.0.12\include;C:\Users\LEGION\Documents\GitHub\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\include;C:\Users\LEGION\Documents\GitHub\SDL2_mixer-devel-2.8.0-VC\SDL2_mixer-2.8.0\include;C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDL2-devel-2.30.0-VC\SDL2-2.30.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\LEGION\Documents\GitHub\SDL2_ttf-devel-2.0.12-VC\SDL2_ttf-2.0.12\lib\x64;C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDL2_mixer-devel-2.8.0-VC\SDL2_mixer-2.8.0\lib\x64;C:\Users\LEGION\Documents\GitHub\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\lib\x64;C:\Users\LEGION\Documents\GitHub\SDL2-devel-2.30.0-VC\SDL2-2.30.0\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\SDL2_ttf-devel-2.0.12-VC\SDL2_ttf-2.0.12\lib\x64;C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDL2_mixer-devel-2.8.0-VC\SDL2_mixer-2.8.0\lib\x64;C:\Users\LEGION\Documents\GitHub\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\lib\x64;C:\Users\LEGION\Documents\GitHub\SDL2-devel-2.30.0-VC\SDL2-2.30.0\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
