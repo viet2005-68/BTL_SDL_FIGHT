@@ -35,7 +35,8 @@ void GameStateMachine::update()
 {
 	if (!m_gameStates.empty())
 	{
-		m_gameStates.back()->update();
+		if (m_gameStates.back() != nullptr) m_gameStates.back()->update();
+		if (m_gameStates.back() != nullptr) m_gameStates.back()->update1();
 	}
 }
 
@@ -43,6 +44,6 @@ void GameStateMachine::render()
 {
 	if (!m_gameStates.empty())
 	{
-		m_gameStates.back()->render();
+		if (m_gameStates.back() != nullptr) m_gameStates.back()->render();
 	}
 }

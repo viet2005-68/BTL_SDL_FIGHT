@@ -6,14 +6,20 @@
 const const char* MenuState::s_menuID = "MENU";
 
 
+
 void MenuState::update()
 {
 
 	for (int i = 0; i < m_gameObjects.size(); ++i) {
 		m_gameObjects[i]->update();
 	}
-	
+
 	button1->update();
+}
+
+void MenuState::update1()
+{
+	button3->update();
 }
 
 
@@ -26,6 +32,8 @@ void MenuState::render() {
 	}
 
 	button1->draw();
+	button3->draw();
+
 }
 
 bool MenuState::onEnter() {
@@ -49,8 +57,10 @@ bool MenuState::onEnter() {
 		return false;
 	}
 	//GameObject* button1 = new MenuButton(new LoaderParams(100, 400, 115, 53, "assets/playButton.png"), s_menuToPlay);
-	GameObject* button2 = new MenuButton(new LoaderParams(100, 560, 115, 53, "assets/exitButton.png"), s_exitFromMenu);
+	GameObject* button2 = new MenuButton(new LoaderParams(100, 640, 115, 53, "assets/exitButton.png"), s_exitFromMenu);
+
 	//GameObject* button3 = new MenuButton(new LoaderParams(100, 520, 115, 53, "assets/helpButton.png"), s_help);
+
 	GameObject* button4 = new MenuButton(new LoaderParams(1200, 10, 36, 36, "assets/Mute.png"), s_volumeMute);
 	GameObject* button5 = new MenuButton(new LoaderParams(1100, 10, 36, 36, "assets/Unmute.png"), s_volumeUnmute);
 	//m_gameObjects.push_back(button1);
@@ -75,7 +85,7 @@ bool MenuState::onExit() {
 	TextureManager::Instance()->clearFromTextureMap("assets/Mute.png");
 	TextureManager::Instance()->clearFromTextureMap("assets/Unmute.png");
 
-	Mix_HaltMusic();
+	//Mix_HaltMusic();
 
 	std::cout << "exiting MenuState...\n";
 	return true;
@@ -83,17 +93,16 @@ bool MenuState::onExit() {
 
 void MenuState::s_menuToPlay()
 {
-	Game::Instance()->getStateMachine()->changeState(new PlayState());
-}
-
-void MenuState::s_exitFromMenu()
-{
-	Game::Instance()->Quit();
+	Game::Instance()->getStateMachine()->changeState(new difficultyState());
 }
 
 void MenuState::s_help()
 {
 	Game::Instance()->getStateMachine()->changeState(new HelpState());
+}
+void MenuState::s_exitFromMenu()
+{
+	Game::Instance()->Quit();
 }
 
 void MenuState::s_volumeMute()

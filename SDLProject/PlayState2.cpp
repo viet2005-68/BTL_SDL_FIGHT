@@ -27,7 +27,9 @@ void PlayState2::update() {
 	}
 
 }
+void PlayState2::update1() {
 
+}
 void PlayState2::render() {
 
 	//lvl1->drawMapLayer1();

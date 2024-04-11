@@ -7,6 +7,7 @@ class GameOverState : public GameState
 {
 public:
 	virtual void update();
+	virtual void update1();
 	virtual void render();
 
 	virtual bool onEnter();
@@ -22,6 +23,6 @@ private:
 
 	static const const char* s_gameOverID;
 	std::vector<GameObject*> m_gameObjects;
-
+	GameObject* noButton = new MenuButton(new LoaderParams(660, 400, 45, 36, "assets/exitHelpButton.png"), s_gameQuit);
 	GameObject* yesButton = new MenuButton(new LoaderParams(510, 400, 45, 36, "assets/yesButton.png"), s_restartPlay);
 };

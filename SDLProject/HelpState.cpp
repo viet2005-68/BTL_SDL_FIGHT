@@ -6,7 +6,10 @@ void HelpState::update()
 {
 	m_gameObjects[0]->update();
 }
+void HelpState::update1()
+{
 
+}
 void HelpState::render()
 {
 	for (int i = 0; i < m_gameObjects.size(); ++i)

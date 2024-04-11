@@ -7,6 +7,7 @@ class PauseState : public GameState
 {
 public:
 	virtual void update();
+	virtual void update1();
 	virtual void render();
 
 	virtual bool onEnter();
@@ -15,7 +16,7 @@ public:
 	virtual const char* getStateID() const{
 		return s_pauseID;
 	}
-
+	~PauseState();
 private:
 	static void s_pauseToMain();
 	static void s_resumePlay();

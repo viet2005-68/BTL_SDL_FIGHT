@@ -7,6 +7,7 @@ class HelpState : public GameState
 {
 public:
 	virtual void update();
+	virtual void update1();
 	virtual void render();
 
 	virtual bool onEnter();

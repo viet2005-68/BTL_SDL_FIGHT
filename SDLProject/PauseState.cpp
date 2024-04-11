@@ -11,6 +11,9 @@ void PauseState::s_resumePlay()
 {
 	Game::Instance()->getStateMachine()->popState();
 }
+void PauseState::update1()
+{
+}
 
 void PauseState::update()
 {
@@ -19,6 +22,7 @@ void PauseState::update()
 			if (m_gameObjects[i] != nullptr) {
 				m_gameObjects[i]->update();
 			}
+			
 		}
 	}
 }
@@ -44,29 +48,32 @@ bool PauseState::onEnter() {
 	{
 		return false;
 	}
-	GameObject* button1 = new MenuButton(new LoaderParams(540, 380, 115, 53, "assets/menuButton.png"), s_pauseToMain);
+	 GameObject* button1 = new MenuButton(new LoaderParams(540, 380, 115, 53, "assets/menuButton.png"), s_pauseToMain);
 	GameObject* button2 = new MenuButton(new LoaderParams(540, 500, 115, 53, "assets/continueButton.png"), s_resumePlay);
 	m_gameObjects.push_back(button1);
 	m_gameObjects.push_back(button2);
-
+	//m_gameObjects.push_back(nullptr);
 	std::cout << "entering PauseState\n";
 	return true;
 }
 
 bool PauseState::onExit()
 {
-	if (m_gameObjects.size() != 0) {
+	/*if (m_gameObjects.size() != 0) {
 		for (int i = 0; i < m_gameObjects.size(); i++) {
 			if (m_gameObjects[i] != nullptr) m_gameObjects[i]->clean();
+			//delete m_gameObjects[i];
 		}
-	}
-	m_gameObjects.clear();
+	}*/
+	//m_gameObjects.clear();
 	TextureManager::Instance()->clearFromTextureMap("assets/continueButton.png");
 	TextureManager::Instance()->clearFromTextureMap("assets/menuButton.png");
 	TextureManager::Instance()->clearFromTextureMap("assets/background2.png");
-
+	
 	InputHandler::Instance()->Reset();
 
 	std::cout << "exiting PauseState\n";
+	//m_gameObjects.clear();
+	
 	return true;
 }

@@ -10,7 +10,7 @@ public:
 	virtual void draw();
 	virtual void update();
 	virtual void clean();
-
+	~MenuButton();
 private:
 	enum button_state {
 		MOUSE_OUT = 0,

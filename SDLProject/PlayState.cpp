@@ -22,6 +22,7 @@ Portal* portal = NULL;
 WriteOnScreen* writer = NULL;
 const const char* PlayState::s_playID = "PLAY";
 int arr[4][2] = { {300,300},{300,250},{300,250},{300,250} };
+void PlayState::update1(){}
 void PlayState::update() {
 	int cnt = 0;
 	if (time.getElapsedTime() > 5) {
@@ -316,7 +317,12 @@ bool PlayState::onEnter() {
 
 
 	//player->collisionPos = lvl1->getCollisionPos();
-
+	if (difficutly == 1) {
+		spawnTime = 7;
+	}
+	else {
+		spawnTime = 5;
+	}
 	std::cout << "entering PlayState\n";
 	return true;
 }

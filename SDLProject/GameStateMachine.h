@@ -10,6 +10,7 @@ public:
 	void popState();
 
 	void update();
+	void update1();
 	void render();
 private:
 	vector<GameState*> m_gameStates;

@@ -57,6 +57,8 @@ void Game::Quit() {
 void Game::clean() {
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
+	delete m_pGameStateMachine;
+	m_gameObjects.clear();
 	SDL_Quit();
 	cout << "Game cleaned..." << endl;
 }

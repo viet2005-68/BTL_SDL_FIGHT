@@ -1,5 +1,6 @@
 F:\git\BTL_SDL_FIGHT\SDLProject\Camera.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\Camera.obj
 F:\git\BTL_SDL_FIGHT\SDLProject\chest.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\chest.obj
+F:\git\BTL_SDL_FIGHT\SDLProject\difficultyState.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\difficultyState.obj
 F:\git\BTL_SDL_FIGHT\SDLProject\Enemy.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\Enemy.obj
 F:\git\BTL_SDL_FIGHT\SDLProject\Game.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\Game.obj
 F:\git\BTL_SDL_FIGHT\SDLProject\GameObject.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\GameObject.obj
@@ -13,6 +14,7 @@ F:\git\BTL_SDL_FIGHT\SDLProject\main.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Deb
 F:\git\BTL_SDL_FIGHT\SDLProject\Map.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\Map.obj
 F:\git\BTL_SDL_FIGHT\SDLProject\MenuButton.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\MenuButton.obj
 F:\git\BTL_SDL_FIGHT\SDLProject\MenuState.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\MenuState.obj
+F:\git\BTL_SDL_FIGHT\SDLProject\mushroom.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\mushroom.obj
 F:\git\BTL_SDL_FIGHT\SDLProject\PauseState.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\PauseState.obj
 F:\git\BTL_SDL_FIGHT\SDLProject\Player.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\Player.obj
 F:\git\BTL_SDL_FIGHT\SDLProject\PlayState.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\PlayState.obj
@@ -20,8 +22,10 @@ F:\git\BTL_SDL_FIGHT\SDLProject\PlayState2.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x
 F:\git\BTL_SDL_FIGHT\SDLProject\Point.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\Point.obj
 F:\git\BTL_SDL_FIGHT\SDLProject\Portal.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\Portal.obj
 F:\git\BTL_SDL_FIGHT\SDLProject\SDLGameObject.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\SDLGameObject.obj
+F:\git\BTL_SDL_FIGHT\SDLProject\shot.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\shot.obj
 F:\git\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\SlimeEnemy.obj
 F:\git\BTL_SDL_FIGHT\SDLProject\SoundManager.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\SoundManager.obj
 F:\git\BTL_SDL_FIGHT\SDLProject\TextureManager.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\TextureManager.obj
 F:\git\BTL_SDL_FIGHT\SDLProject\Time.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\Time.obj
 F:\git\BTL_SDL_FIGHT\SDLProject\Vector2D.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\Vector2D.obj
+F:\git\BTL_SDL_FIGHT\SDLProject\WriteOnScreen.cpp;F:\git\BTL_SDL_FIGHT\SDLProject\x64\Debug\WriteOnScreen.obj

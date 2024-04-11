@@ -13,7 +13,12 @@ class GameObject;
 class PlayState : public GameState
 {
 public: 
+	PlayState(int a) {
+		difficutly = a;
+	}
+	PlayState(){}
 	virtual void update();
+	virtual void update1();
 	virtual void render();
 
 	virtual bool onEnter();
@@ -24,14 +29,15 @@ public:
 	}
 	static void s_pauseState();
 
-
-
+	~PlayState();
+	int difficutly;
 private:
 	static const const char* s_playID;
 	std::vector<GameObject*> m_gameObjects;
 	int score = 0;
 	Time time;
 
+	int spawnTime;
 	int endStage = 0;
 };
 
