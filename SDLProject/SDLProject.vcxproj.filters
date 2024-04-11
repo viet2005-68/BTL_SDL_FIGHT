@@ -96,6 +96,15 @@
     <ClCompile Include="chest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="mushroom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WriteOnScreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="shot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -174,6 +183,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="chest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mushroom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WriteOnScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

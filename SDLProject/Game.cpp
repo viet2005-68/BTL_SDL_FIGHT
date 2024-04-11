@@ -1,10 +1,11 @@
 #include "Game.h"
-
+#include "SDL_ttf.h"
 Game* Game::g_instance = 0;
 
 
 
 void Game::init(const char* title, int w, int h, bool fullscreen) {
+	TTF_Init();
 	int flag = 0;
 	if (fullscreen) {
 		flag = SDL_WINDOW_FULLSCREEN;

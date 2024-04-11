@@ -13,6 +13,8 @@ Player::Player(const LoaderParams* pParams) : SDLGameObject(pParams)
 	TextureManager::Instance()->load("assets/playerHealthUnder.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/playerHealth.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/heart.png", Game::Instance()->getRenderer());
+	playerRect.x = 0;
+	playerRect.y = 0;
 	playerRect.w = 75;
 	playerRect.h = 91;
 	VecX = 0;
@@ -79,8 +81,8 @@ void Player::draw()
 	else if (run == 1 && m_velocity.getX() < 0) {
 		TextureManager::Instance()->drawFrame("assets/dust.png", Game::Instance()->getRenderer(), playerRect.x + 55, playerRect.y + 60, 16, 12, 1, ((SDL_GetTicks() / 200) % 3), 1);
 	}
-	//SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(playerRect));
-	//SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
+	SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(playerRect));
+	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
 }
 
 void Player::update()
@@ -91,8 +93,8 @@ void Player::update()
 		mana += 5;
 		time.reset();
 	}
-	playerRect.x = m_position.m_x + 110;
-	playerRect.y = m_position.m_y + 91;
+	playerRect.x = m_position.m_x ;
+	playerRect.y = m_position.m_y ;
 
 	int tick = 100;
 	frame = 11;
@@ -101,7 +103,7 @@ void Player::update()
 	attack = 0;
 
 	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_A) == true && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
-		m_position.m_x -= 5;
+		m_position.m_x -= 2;
 		//chieu am
 		m_velocity.setX(-0.001);
 		VecX -= 5;
@@ -110,7 +112,7 @@ void Player::update()
 		run = 1;
 	}
 	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_W) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
-		m_position.m_y -= 5;
+		m_position.m_y -= 2;
 		VecY -= 5;
 		m_currentRow = 5;
 		frame = 8;
@@ -119,14 +121,14 @@ void Player::update()
 
 	}
 	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_S) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
-		m_position.m_y += 5;
+		m_position.m_y += 2;
 		m_currentRow = 5;
 		VecY += 5;
 		frame = 8;
 		run = 1;
 	}
 	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_D) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
-		m_position.m_x += 5;
+		m_position.m_x += 2;
 		//chieu duong
 		VecX += 5;
 		m_velocity.setX(0.001);

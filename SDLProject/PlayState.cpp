@@ -7,19 +7,19 @@
 #include <cstdlib>
 #include "SlimeEnemy.h"
 #include "Camera.h"
-
+#include "mushroom.h"
+#include "WriteOnScreen.h"
+ 
 Map* lvl1 = new Map();
 
 std::vector<chest*> m_chest;
 std::vector<Enemy*> m_enemies;
 std::vector<SlimeEnemy*> m_slimes;
+std::vector<mushroom* > m_mush;
 Player* player = NULL;
 //SlimeEnemy* slime = NULL;
 Portal* portal = NULL;
-//Enemy* enemy1 = NULL;
-//Enemy* enemy2 = NULL;
-//Enemy* enemy3 = NULL;
-
+WriteOnScreen *writer = NULL;
 const const char* PlayState::s_playID = "PLAY";
 int arr[4][2] = { {300,300},{300,250},{300,250},{300,250} };
 void PlayState::update() {
@@ -30,11 +30,11 @@ void PlayState::update() {
 		//int j = rand() % 2;
 		int xpos = arr[i][0] - cam.m_x;
 		int ypos = arr[i][1] - cam.m_y;
-		Enemy* newEye =  new Enemy(new LoaderParams(xpos, ypos, 150, 150, "assets/enemy1Run.png"));
+		//Enemy* newEye =  new Enemy(new LoaderParams(xpos, ypos, 150, 150, "assets/enemy1Run.png"));
 		
-		SlimeEnemy* newSlime = new SlimeEnemy(new LoaderParams(xpos / 2, ypos / 2, 96, 32, "assets/slimeIdle.png"));
-		m_enemies.push_back(newEye);
-		m_slimes.push_back(newSlime);
+		//SlimeEnemy* newSlime = new SlimeEnemy(new LoaderParams(xpos / 2, ypos / 2, 96, 32, "assets/slimeIdle.png"));
+		//m_enemies.push_back(newEye);
+		//m_slimes.push_back(newSlime);
 		time.reset();
 	}
 
@@ -50,11 +50,13 @@ void PlayState::update() {
 	for (int i = 0; i < m_enemies.size(); ++i) {
 		m_enemies[i]->update();
 	}
-
+	for (int i = 0; i < m_mush.size(); ++i) {
+		m_mush[i]->update();
+	}
 	for (int i = 0; i < m_slimes.size(); ++i) {
 		m_slimes[i]->update();
 	}
-
+	//mush->update();
 	if (player->healthBar <= 0) {
 	Game::Instance()->getStateMachine()->changeState(new GameOverState());
     }
@@ -67,10 +69,13 @@ void PlayState::update() {
 	for (int i = 0; i < m_slimes.size(); ++i) {
 		m_slimes[i]->move(player);
 	}
+	for (int i = 0; i < m_mush.size(); ++i) {
+		m_mush[i]->move(player);
+	}
 	for (int i = 0; i < m_chest.size(); ++i) {
 		m_chest[i]->move(player);
 	}
-
+	//mush->move(player);
 	//Chuyen man
 
 	if (player->score >= 100) {
@@ -88,6 +93,9 @@ void PlayState::update() {
 				for (int i = 0; i < m_slimes.size(); ++i) {
 					m_slimes[i]->clean();
 				}
+				for (int i = 0; i < m_mush.size(); ++i) {
+					m_mush[i]->clean();
+				}
 				m_slimes.clear();
 				m_gameObjects.clear();
 				m_enemies.clear();
@@ -103,6 +111,7 @@ void PlayState::update() {
 				TextureManager::Instance()->clearFromTextureMap("assets/portal.png");
 				TextureManager::Instance()->clearFromTextureMap("assets/healthUnder.png");
 				TextureManager::Instance()->clearFromTextureMap("assets/health.png");
+				TextureManager::Instance()->clearFromTextureMap("assets/mushroom.png");
 				Mix_HaltMusic();
 
 				Game::Instance()->getStateMachine()->pushState(new PlayState2());
@@ -119,6 +128,8 @@ void PlayState::render() {
 	//lvl1->drawMapLayer2();
 
 	Map::getInstance()->DrawMap();
+	
+	writer->displayText(to_string(player->score), 400, 400);
 
 	for (int i = 0; i < m_enemies.size(); ++i) {
 		m_enemies[i]->draw();
@@ -132,6 +143,9 @@ void PlayState::render() {
 	}
 	for (int i = 0; i < m_gameObjects.size(); ++i) {
 		m_gameObjects[i]->draw();
+	}
+	for (int i = 0; i < m_mush.size(); ++i) {
+		m_mush[i]->draw();
 	}
 }
 
@@ -149,10 +163,13 @@ bool PlayState::onEnter() {
 	for (int i = 0; i < m_slimes.size(); ++i) {
 		m_slimes[i]->clean();
 	}
+	for (int i = 0; i < m_mush.size(); ++i) {
+		m_enemies[i]->clean();
+	}
 	m_gameObjects.clear();
 	m_enemies.clear();
 	m_slimes.clear();
-	//m_chest.clear();
+	m_chest.clear();
 	TextureManager::Instance()->clearFromTextureMap("assets/player.png");
 	TextureManager::Instance()->clearFromTextureMap("assets/enemy1Run.png");
 	TextureManager::Instance()->clearFromTextureMap("assets/inGamePauseState.png");
@@ -251,28 +268,33 @@ bool PlayState::onEnter() {
 	m_chest.push_back(chest3);
 	m_chest.push_back(chest4);
 	m_chest.push_back(chest5);
-
+	
 
 	//Dang thay GameObject* thanh Player*
-	SlimeEnemy* slime = new SlimeEnemy(new LoaderParams(1000, 100, 96, 32, "assets/slimeIdle.png"));
+	SlimeEnemy* slime = new SlimeEnemy(new LoaderParams(500, 400, 96, 32, "assets/slimeIdle.png"));
 	player = new Player(new LoaderParams(50, 50, 180, 182, "assets/player.png"));
-	Enemy* enemy1 = new Enemy(new LoaderParams(1000, 400, 150, 150, "assets/enemy1Run.png"));
-	Enemy* enemy2 = new Enemy(new LoaderParams(100, 200, 150, 150, "assets/enemy1Run.png"));
-	Enemy* enemy3 = new Enemy(new LoaderParams(600, 300, 150, 150, "assets/enemy1Run.png"));
-	
+	//Enemy* enemy1 = new Enemy(new LoaderParams(1000, 400, 150, 150, "assets/enemy1Run.png"));
+	//Enemy* enemy2 = new Enemy(new LoaderParams(100, 200, 150, 150, "assets/enemy1Run.png"));
+	//Enemy* enemy3 = new Enemy(new LoaderParams(600, 300, 150, 150, "assets/enemy1Run.png"));
+	mushroom* mush = new mushroom(new LoaderParams(200,200, 150, 150, "assets/mushattack.png"));
 	portal = new Portal(new LoaderParams(1100, 500, 128, 128, "assets/portal.png"));
 	
+
+	// khoi tao tff
+	writer = new WriteOnScreen("assets/font.ttf", 50);
+
+
 	GameObject* button1 = new MenuButton(new LoaderParams(1150, 10, 45, 36, "assets/inGamePauseButton.png"), s_pauseState);
 	m_gameObjects.push_back(player);
 	//m_gameObjects.push_back(enemy1);
 	//m_gameObjects.push_back(enemy2);
 	//m_gameObjects.push_back(enemy3);
 	//m_slimes.push_back(enemy4);
+	m_mush.push_back(mush);
+	//m_enemies.push_back(enemy1);
+	//m_enemies.push_back(enemy2);
+	//m_enemies.push_back(enemy3);
 	
-	m_enemies.push_back(enemy1);
-	m_enemies.push_back(enemy2);
-	m_enemies.push_back(enemy3);
-
 	m_slimes.push_back(slime);
 	m_gameObjects.push_back(button1);
 	
@@ -293,9 +315,13 @@ bool PlayState::onExit() {
 	for (int i = 0; i < m_slimes.size(); ++i) {
 		m_slimes[i]->clean();
 	}
+	for (int i = 0; i < m_mush.size(); ++i) {
+		m_mush[i]->clean();
+	}
 	m_slimes.clear();
 	m_gameObjects.clear();
 	m_enemies.clear();
+	m_mush.clear();
 	m_chest.clear();
 	TextureManager::Instance()->clearFromTextureMap("assets/player.png");
 	TextureManager::Instance()->clearFromTextureMap("assets/enemy1Run.png");

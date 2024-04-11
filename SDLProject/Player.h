@@ -1,22 +1,4 @@
 #pragma once
-/*#include "GameObject.h"
-
-using namespace std;
-
-class Player : public GameObject {
-public:
-	void load(int x, int y, int width, int height, const char* textureID, SDL_Renderer* ren);
-	void draw(SDL_Renderer* ren);
-	void update();
-	void clean();
-
-private:
-	int flip = 0;
-	int frame;
-	int currentRow = 1;
-
-};
-*/
 
 #include "SDLGameObject.h"
 #include "SoundManager.h"

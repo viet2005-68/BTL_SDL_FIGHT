@@ -5,6 +5,8 @@
 #include "cmath"
 #include "Time.h"
 
+class Player;
+
 class SlimeEnemy : public SDLGameObject
 {
 public:

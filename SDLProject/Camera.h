@@ -28,7 +28,7 @@ public:
     }
     // void Updatefloat() {};
     Camera() {
-        m_ViewBox = { 0,0,1200,800 };
+        m_ViewBox = { 0,0,1280,800 };
     }
 private:
 
