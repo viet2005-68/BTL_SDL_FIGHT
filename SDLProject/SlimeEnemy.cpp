@@ -72,7 +72,7 @@ void SlimeEnemy::move(Player*& player) {
     }
     else {
         Vector2D cam = Camera::GetInstance()->GetPosition();
-        m_position.m_x += 1;
+        //m_position.m_x += 1;
         enemyRect.x = m_position.m_x + 32 - cam.m_x;
         enemyRect.y = m_position.m_y - cam.m_y;
 
