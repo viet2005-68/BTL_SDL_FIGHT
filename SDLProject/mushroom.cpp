@@ -38,7 +38,7 @@ void mushroom::move(Player* player) {
 	int distance = sqrt(pow(m_position.m_x - player->m_position.m_x, 2) - pow(m_position.m_y - player->m_position.m_y, 2));
 	std::pair<int, int> next_tile = Map::getInstance()->FindOptimalPath(mushRect, player->playerRect);
 
-	if (next_tile.first != -1 && next_tile.second != -1) {
+	if (next_tile.first != 0 && next_tile.second != 0) {
 		Vector2D cam = Camera::GetInstance()->GetPosition();
 
 		// Nếu tìm thấy đường đi, tính toán vector vận tốc để di chuyển enemy đến ô tiếp theo
@@ -55,11 +55,17 @@ void mushroom::move(Player* player) {
 		m_position.m_y += velocity_y;
 		mushRect.x = m_position.m_x + 100 - cam.m_x;
 		mushRect.y = m_position.m_y  + 128 - cam.m_y;
+		
 		if (Map::getInstance()->iswall(mushRect)) {
 			m_position.m_x -= velocity_x;
 			m_position.m_y -= velocity_y;
 		}
 	}
+	else {
+
+	}
+	if (mushRect.x < 0) m_position.m_x = 900;
+	if (mushRect.y < 0) m_position.m_y = 900;
 	
 	/*else {
 		// Nếu không tìm thấy đường đi, di chuyển enemy theo hướng mặc định

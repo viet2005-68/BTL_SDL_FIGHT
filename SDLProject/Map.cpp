@@ -202,6 +202,9 @@ std::pair<int, int> Map::FindPath(SDL_Rect& player, SDL_Rect& destination) {
     if (player_x < 0 || player_x > 45) {
         return { 0,0 };
     }
+    if (player.y < 0) {
+        return { 0, 0 };
+    }
     // Khởi tạo mảng visited để đánh dấu các ô đã được thăm
     bool visited[100][100];
     for (int i = 0; i < 40 ; i++) {

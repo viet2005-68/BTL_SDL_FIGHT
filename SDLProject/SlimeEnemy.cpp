@@ -46,9 +46,9 @@ void SlimeEnemy::move(Player*& player) {
     
        // m_position.m_x += 1;
     int distance = sqrt(pow(m_position.m_x - player->m_position.m_x, 2) - pow(m_position.m_y - player->m_position.m_y, 2));
-    std::pair<int, int> next_tile = Map::getInstance()->FindPath(enemyRect, player->playerRect);
+    std::pair<int, int> next_tile = Map::getInstance()->FindOptimalPath(enemyRect, player->playerRect);
 
-    if (next_tile.first != -1 && next_tile.second != -1) {
+    if (next_tile.first != 0 && next_tile.second != 0 && distance >= 50) {
         Vector2D cam = Camera::GetInstance()->GetPosition();
 
         // Nếu tìm thấy đường đi, tính toán vector vận tốc để di chuyển enemy đến ô tiếp theo
@@ -71,6 +71,13 @@ void SlimeEnemy::move(Player*& player) {
         }
     }
     else {
+        Vector2D cam = Camera::GetInstance()->GetPosition();
+        m_position.m_x += 1;
+        enemyRect.x = m_position.m_x + 32 - cam.m_x;
+        enemyRect.y = m_position.m_y - cam.m_y;
+
+    }
+   /* else {
         SDL_Rect rect = { 0,0,32,32 };
         std::pair<int, int> next = Map::getInstance()->FindPath(enemyRect, rect);
         if (next.first != 0 && next.second != 0) {
@@ -88,14 +95,14 @@ void SlimeEnemy::move(Player*& player) {
             // Cập nhật vị trí của enemy
             m_position.m_x += velocity_x;
             m_position.m_y += velocity_y;
-            enemyRect.x = m_position.m_x + 32 - cam.m_x;
-            enemyRect.y = m_position.m_y - cam.m_y;
+            enemyRect.x = m_position.m_x  - cam.m_x;
+            enemyRect.y = m_position.m_y  - cam.m_y;
             if (Map::getInstance()->iswall(enemyRect)) {
                 m_position.m_x -= velocity_x;
                 m_position.m_y -= velocity_y;
             }
         }
-    }
+    }*/
 
     
 }

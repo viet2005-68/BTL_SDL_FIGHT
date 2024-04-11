@@ -1,9 +1,20 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (SDLProject.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Map.cpp
+  SlimeEnemy.cpp
 C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(30,15): warning C4114: same type qualifier used more than once
 C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(21,15): warning C4114: same type qualifier used more than once
 C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(23,15): warning C4114: same type qualifier used more than once
 C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(23,15): warning C4114: same type qualifier used more than once
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Map.cpp(43,21): warning C4154: deletion of an array expression; conversion to pointer supplied
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(12,29): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(13,29): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(36,44): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(37,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(48,18): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(55,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(56,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(59,22): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(66,43): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(67,39): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(76,43): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(77,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   SDLProject.vcxproj -> C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\x64\Debug\SDL.exe
