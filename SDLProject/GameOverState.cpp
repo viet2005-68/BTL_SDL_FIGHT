@@ -15,6 +15,7 @@ void GameOverState::update1() {
 void GameOverState::render() {
 	TextureManager::Instance()->draw("assets/GameOver.png", Game::Instance()->getRenderer(), 140, 200, 500, 88);
 	yesButton->draw();
+	noButton->draw();
 }
 
 void GameOverState::s_gameQuit()

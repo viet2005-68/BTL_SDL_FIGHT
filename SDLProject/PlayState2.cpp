@@ -2,10 +2,10 @@
 #include <iostream>
 #include "TextureManager.h"
 #include "Game.h"
-#include "Map.h"
+
 #include "PlayState.h"
 
-Map* lvl2 = new Map();
+
 
 const const char* PlayState2::s_play2ID = "PLAY2";
 
@@ -19,7 +19,7 @@ void PlayState2::update() {
 	for (int i = 0; i < m_gameObjects.size(); ++i) {
 		m_gameObjects[i]->update();
 	}
-	health-=10;
+	//health-=10;
 	std::cout << "health: " << health << endl;
 	if (health == 0)
 	{
@@ -38,6 +38,7 @@ void PlayState2::render() {
 	for (int i = 0; i < m_gameObjects.size(); ++i) {
 		m_gameObjects[i]->draw();
 	}
+	
 }
 
 bool PlayState2::onEnter() {
@@ -68,6 +69,7 @@ bool PlayState2::onEnter() {
 
 
 	//player->collisionPos = lvl1->getCollisionPos();
+	
 
 	std::cout << "entering PlayState\n";
 	return true;
@@ -83,7 +85,9 @@ bool PlayState2::onExit() {
 	//TextureManager::Instance()->clearFromTextureMap("assets/inGamePauseState.png");
 	Mix_HaltMusic();
 	std::cout << "Exiting PlayState...\n";
+	
 	return true;
+	
 }
 
 //void PlayState::s_pauseState()

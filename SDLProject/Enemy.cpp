@@ -1,6 +1,6 @@
 #include "Enemy.h"
 #include <iostream>
-#include "Map.h"
+
 
 Enemy::Enemy(const LoaderParams* pParams) : SDLGameObject(pParams)
 {
@@ -31,7 +31,7 @@ void Enemy::clean() {
 }
 
 void Enemy::move(Player* &player) {
-	Vector2D cam = Camera::GetInstance()->GetPosition();
+	
 	enemyRect.x = m_position.getX() + 70;
 	enemyRect.y = m_position.getY() + 100;
 	m_textureID = "assets/enemy1Run.png";

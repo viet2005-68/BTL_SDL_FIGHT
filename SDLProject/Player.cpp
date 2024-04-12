@@ -2,8 +2,7 @@
 #include "InputHandler.h"
 #include <cstdlib>
 #include "Game.h"
-#include "Camera.h"
-#include "Map.h"
+
 
 
 Player::Player(const LoaderParams* pParams) : SDLGameObject(pParams)
@@ -13,10 +12,10 @@ Player::Player(const LoaderParams* pParams) : SDLGameObject(pParams)
 	TextureManager::Instance()->load("assets/playerHealthUnder.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/playerHealth.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/heart.png", Game::Instance()->getRenderer());
-	playerRect.x = 0;
-	playerRect.y = 0;
-	playerRect.w = 75;
-	playerRect.h = 91;
+	playerRect.x = m_position.m_x + 40;
+	playerRect.y = m_position.m_y + 40;
+	playerRect.w = 32;
+	playerRect.h = 32;
 	VecX = 0;
 	VecY = 0;
 
@@ -49,37 +48,37 @@ void Player::draw()
 	if (defenseBoost == true) {
 		TextureManager::Instance()->draw("assets/defenseBoost.png", Game::Instance()->getRenderer(), 102, 80, 16, 16);
 		if (m_velocity.getX() > 0) {
-			TextureManager::Instance()->drawFrame("assets/shield.png", Game::Instance()->getRenderer(), playerRect.x + 20, playerRect.y + 15, 27, 30, 1, shieldFrame, 0);
+			TextureManager::Instance()->drawFrame("assets/shield.png", Game::Instance()->getRenderer(), playerRect.x-15, playerRect.y-20, 27, 30, 1, shieldFrame, 0);
 		}
 		else {
-			TextureManager::Instance()->drawFrame("assets/shield.png", Game::Instance()->getRenderer(), playerRect.x, playerRect.y + 15, 27, 30, 1, shieldFrame, 1);
+			TextureManager::Instance()->drawFrame("assets/shield.png", Game::Instance()->getRenderer(), playerRect.x-15, playerRect.y-20, 27, 30, 1, shieldFrame, 1);
 		}
 	}
 	if (atkBoost == true) {
 		TextureManager::Instance()->draw("assets/attackBoost.png", Game::Instance()->getRenderer(), 134, 80, 16, 16);
 		if (m_velocity.getX() > 0) {
-			TextureManager::Instance()->drawFrame("assets/aura.png", Game::Instance()->getRenderer(), playerRect.x + 20, playerRect.y + 40, 32, 32, 1, auraFrame, 0);
+			TextureManager::Instance()->drawFrame("assets/aura.png", Game::Instance()->getRenderer(), playerRect.x-20, playerRect.y-5, 32, 32, 1, auraFrame, 0);
 		}
 		else {
-			TextureManager::Instance()->drawFrame("assets/aura.png", Game::Instance()->getRenderer(), playerRect.x, playerRect.y + 40, 32, 32, 1, auraFrame, 1);
+			TextureManager::Instance()->drawFrame("assets/aura.png", Game::Instance()->getRenderer(), playerRect.x-20, playerRect.y-5, 32, 32, 1, auraFrame, 1);
 		}
 	}
 	if (speedBoost == true) {
 		TextureManager::Instance()->draw("assets/speedBoost.png", Game::Instance()->getRenderer(), 166, 80, 16, 16);
 		if (m_velocity.getX() > 0) {
-			TextureManager::Instance()->drawFrame("assets/speedAnimation.png", Game::Instance()->getRenderer(), playerRect.x + 20, playerRect.y + 20, 32, 32, 1, (SDL_GetTicks() / 150) % 5, 0);
+			TextureManager::Instance()->drawFrame("assets/speedAnimation.png", Game::Instance()->getRenderer(), playerRect.x-20, playerRect.y-25, 32, 32, 1, (SDL_GetTicks() / 150) % 5, 0);
 		}
 		else {
-			TextureManager::Instance()->drawFrame("assets/speedAnimation.png", Game::Instance()->getRenderer(), playerRect.x - 5, playerRect.y + 20, 32, 32, 1, shieldFrame, 1);
+			TextureManager::Instance()->drawFrame("assets/speedAnimation.png", Game::Instance()->getRenderer(), playerRect.x-20, playerRect.y-25, 32, 32, 1, shieldFrame, 1);
 		}
 	}
 
-	TextureManager::Instance()->drawChar("assets/Arrow.png", Game::Instance()->getRenderer(), playerRect.x + 30, playerRect.y - 20, 13, 13, 1, 0, 0);
+	TextureManager::Instance()->drawChar("assets/Arrow.png", Game::Instance()->getRenderer(), playerRect.x + 5, playerRect.y - 40, 13, 13, 1, 0, 0);
 	if (run == 1 && m_velocity.getX() > 0) {
-		TextureManager::Instance()->drawFrame("assets/dust.png", Game::Instance()->getRenderer(), playerRect.x - 5, playerRect.y + 60, 16, 12, 1, ((SDL_GetTicks() / 200) % 3), 0);
+		TextureManager::Instance()->drawFrame("assets/dust.png", Game::Instance()->getRenderer(), playerRect.x - 50, playerRect.y+10, 16, 12, 1, ((SDL_GetTicks() / 200) % 3), 0);
 	}
 	else if (run == 1 && m_velocity.getX() < 0) {
-		TextureManager::Instance()->drawFrame("assets/dust.png", Game::Instance()->getRenderer(), playerRect.x + 55, playerRect.y + 60, 16, 12, 1, ((SDL_GetTicks() / 200) % 3), 1);
+		TextureManager::Instance()->drawFrame("assets/dust.png", Game::Instance()->getRenderer(), playerRect.x + 55, playerRect.y+10, 16, 12, 1, ((SDL_GetTicks() / 200) % 3), 1);
 	}
 	SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(playerRect));
 	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
@@ -93,54 +92,54 @@ void Player::update()
 		mana += 5;
 		time.reset();
 	}
-	playerRect.x = m_position.m_x ;
-	playerRect.y = m_position.m_y ;
+	playerRect.x = m_position.m_x+40;
+	playerRect.y = m_position.m_y+40;
 
 	int tick = 100;
-	frame = 11;
-	m_currentRow = 4;
+	frame = 6;
+	m_currentRow = 1;
 	run = 0;
 	attack = 0;
 
 	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_A) == true && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
-		m_position.m_x -= 2;
+		m_position.m_x -= 5;
 		//chieu am
 		m_velocity.setX(-0.001);
 		VecX -= 5;
-		m_currentRow = 5;
-		frame = 8;
+		m_currentRow = 2;
+		frame = 6;
 		run = 1;
 	}
 	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_W) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
-		m_position.m_y -= 2;
+		m_position.m_y -= 5;
 		VecY -= 5;
-		m_currentRow = 5;
-		frame = 8;
+		m_currentRow = 7;
+		frame = 3;
 		run = 1;
 		//move();
 
 	}
 	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_S) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
-		m_position.m_y += 2;
+		m_position.m_y += 5;
 		m_currentRow = 5;
 		VecY += 5;
-		frame = 8;
+		frame = 3;
 		run = 1;
 	}
 	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_D) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
-		m_position.m_x += 2;
+		m_position.m_x += 5;
 		//chieu duong
 		VecX += 5;
 		m_velocity.setX(0.001);
-		m_currentRow = 5;
-		frame = 8;
+		m_currentRow = 2;
+		frame = 6;
 		run = 1;
 		//move();
 
 	}
 	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) && mana >= 5) {
-		m_currentRow = 1;
-		frame = 7;
+		m_currentRow = 3;
+		frame = 6;
 		attack = 1;
 		//move();
 		if (time.getElapsedTime() > attackSpeed) {
@@ -244,20 +243,7 @@ void Player::update()
 	SDLGameObject::update();
 }
 void Player::move() {
-	Vector2D cam = Camera::GetInstance()->GetPosition();
-	playerRect.x = m_position.m_x + 110;
-	playerRect.y = m_position.m_y + 91;
-	if (playerRect.x < 0 || (playerRect.x > 1440) || Map::getInstance()->iswall(playerRect)) {
-		
-		m_position.m_x -= VecX;
-		std::cout << "ttttttt" << std::endl;
-	}
 	
-	if (playerRect.y < 0 || (playerRect.y > 1440) || Map::getInstance()->iswall(playerRect)) {
-	
-		m_position.m_y -= VecY;
-		std::cout << "ttttttt" << std::endl;
-	}
 }
 void Player::clean()
 {

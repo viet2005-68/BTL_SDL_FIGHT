@@ -1,321 +1,480 @@
-﻿#include "Map.h"
-#include "texturemanager.h"
+#include "Map.h"
+#include "SDL.h"
+#include "TextureManager.h"
 #include "Game.h"
-#include <SDL.h>
-#include <SDL_image.h>
-#include "Camera.h"
-#include <vector>
-#include "SlimeEnemy.h"
-Map* Map::m_Instance = nullptr;
 
-SDL_Rect recthouse = {1152,0,128,192};
+int layer1[25][40] = { 2,2,3,4,5,2,3,4,5,2,3,4,5,2,3,4,5,2,3,4,5,2,3,4,5,2,3,4,5,2,3,2,3,4,5,2,3,4,5,5,
+8,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,8,9,10,11,11,
+14,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,14,15,16,17,17,
+20,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,20,21,22,23,23,
+26,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,26,27,26,27,28,29,29,
+8,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,8,9,10,11,11,
+14,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,8,9,10,11,16,17,17,
+20,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,14,15,16,17,22,23,23,
+26,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,20,21,22,23,28,29,29,
+8,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,26,27,8,9,10,11,11,
+14,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,14,15,16,17,17,
+20,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,20,21,22,23,23,
+26,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,26,27,26,27,28,29,29,
+8,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,8,9,10,11,11,
+14,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,14,15,16,17,17,
+20,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,20,21,22,23,23,
+26,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,26,27,26,27,28,29,29,
+8,8,9,10,11,8,9,10,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,8,9,10,11,11,
+14,14,15,16,17,14,15,16,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,14,15,16,17,17,
+20,20,21,22,23,20,21,22,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,20,21,22,23,23,
+26,8,9,10,11,8,9,10,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,11,8,9,10,8,9,10,11,29,
+26,14,15,16,17,14,15,16,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,17,14,15,16,14,15,16,17,17,
+20,20,21,22,23,20,21,22,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,23,20,21,22,20,21,22,23,23,
+26,26,27,28,29,26,27,28,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,29,26,27,28,26,27,28,29,29,
+32,32,33,34,35,34,35,32,33,34,35,32,33,34,35,32,33,34,35,32,33,34,35,32,33,34,35,32,33,34,35,32,33,34,35,32,33,34,35,35 };
 
-
-
-Map::Map()
-{
-    Grass = TextureManager::Instance()->loadMap("assets/100.png", Game::Instance()->getRenderer());
-    Box = TextureManager::Instance()->loadMap("assets/1004.png", Game::Instance()->getRenderer());
-    Water = TextureManager::Instance()->loadMap("assets/110.png", Game::Instance()->getRenderer());
-    Wall = TextureManager::Instance()->loadMap("assets/107.png", Game::Instance()->getRenderer());
-    row = 40;
-    col = 45;
-    house = TextureManager::Instance()->loadMap("assets/Goblin_House.png", Game::Instance()->getRenderer());
-
-    LoadMap(lv1);
-
-    Map_Src.x = Map_Src.y = 0;
-    Map_Src.w = Map_Src.h = 32;
-
-    MAP_des.x = MAP_des.y = 0;
-    MAP_des.w = MAP_des.h = 32;
-   
-    //tile_queue = new std::queue<Tile*>();
+SDL_Rect srcR, desR;
+void Map::LoadMap() {
+	TextureManager::Instance()->load("assets/decoSet.png", Game::Instance()->getRenderer());
+	if (TextureManager::Instance()->load("assets/groundSet.png", Game::Instance()->getRenderer()) && TextureManager::Instance()->load("assets/rockSet.png", Game::Instance()->getRenderer())) {
+		std::cout << "get tile success...\n";
+	}
+	else {
+		std::cout << "failed to get tile...\n";
+	}
 }
 
-Map::~Map()
-{
-    SDL_DestroyTexture(Grass);
-    SDL_DestroyTexture(Water);
-    SDL_DestroyTexture(Box);
-    SDL_DestroyTexture(Wall);
-    //delete tile_queue;
-    delete [] Map_in;
+void Map::drawMapLayer1() {
+
+	int type = 0;
+	for (int i = 0; i < 25; ++i) {
+		for (int j = 0; j < 40; ++j) {
+			type = layer1[i][j];
+			desR.x = j * 32;
+			desR.y = i * 32;
+			switch (type) {
+			case 1:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 0, 0, desR.x, desR.y);
+				break;
+
+			case 2:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 1, 0, desR.x, desR.y);
+				break;
+
+			case 3:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 2, 0, desR.x, desR.y);
+				break;
+
+			case 4:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 3, 0, desR.x, desR.y);
+				break;
+
+			case 5:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 4, 0, desR.x, desR.y);
+				break;
+
+			case 6:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 5, 0, desR.x, desR.y);
+				break;
+
+			case 7:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 0, 1, desR.x, desR.y);
+				break;
+
+			case 8:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 1, 1, desR.x, desR.y);
+				break;
+
+			case 9:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 2, 1, desR.x, desR.y);
+				break;
+
+			case 10:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 3, 1, desR.x, desR.y);
+				break;
+
+			case 11:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 4, 1, desR.x, desR.y);
+				break;
+
+			case 12:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 5, 1, desR.x, desR.y);
+				break;
+
+			case 13:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 0, 2, desR.x, desR.y);
+				break;
+
+			case 14:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 1, 2, desR.x, desR.y);
+				break;
+
+			case 15:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 2, 2, desR.x, desR.y);
+				break;
+
+			case 16:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 3, 2, desR.x, desR.y);
+				break;
+
+			case 17:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 4, 2, desR.x, desR.y);
+				break;
+
+			case 18:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 5, 2, desR.x, desR.y);
+				break;
+
+			case 19:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 0, 3, desR.x, desR.y);
+				break;
+
+			case 20:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 1, 3, desR.x, desR.y);
+				break;
+
+			case 21:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 2, 3, desR.x, desR.y);
+				break;
+
+			case 22:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 3, 3, desR.x, desR.y);
+				break;
+
+			case 23:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 4, 3, desR.x, desR.y);
+				break;
+
+			case 24:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 5, 3, desR.x, desR.y);
+				break;
+
+			case 25:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 0, 4, desR.x, desR.y);
+				break;
+
+			case 26:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 1, 4, desR.x, desR.y);
+				break;
+
+			case 27:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 2, 4, desR.x, desR.y);
+				break;
+
+			case 28:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 3, 4, desR.x, desR.y);
+				break;
+
+			case 29:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 4, 4, desR.x, desR.y);
+				break;
+
+			case 30:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 5, 4, desR.x, desR.y);
+				break;
+
+			case 31:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 0, 5, desR.x, desR.y);
+				break;
+
+			case 32:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 1, 5, desR.x, desR.y);
+				break;
+
+			case 33:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 2, 5, desR.x, desR.y);
+				break;
+
+			case 34:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 3, 5, desR.x, desR.y);
+				break;
+
+			case 35:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 4, 5, desR.x, desR.y);
+				break;
+			case 36:
+				TextureManager::Instance()->drawMap("assets/groundSet.png", Game::Instance()->getRenderer(), 5, 5, desR.x, desR.y);
+				break;
+
+			}
+		}
+	}
+
 }
-void Map::LoadMap(int arr[40][45])
-{
-    // std::ifstream map_file(filename);
+int layer2[25][40] = { 67,68,69,70,71,68,69,70,71,68,69,70,71,68,69,70,71,68,69,70,71,68,69,70,71,68,69,70,71,68,69,70,71,68,69,70,71,70,71,72,
+					   73,74,75,76,77,74,75,76,77,74,75,76,77,74,75,76,77,74,75,76,77,74,75,76,77,74,75,76,77,74,75,76,77,74,75,76,77,76,77,78,
+					   79,80,81,82,83,80,81,82,83,80,81,82,83,80,81,82,83,80,81,82,83,80,81,82,83,80,81,82,83,80,81,82,83,80,81,82,83,82,83,84,
+					   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,87,88,
+0,0,0,85,86,0,0,0,0,0,0,0,0,0,0,0,0,0,0,85,86,0,0,0,0,0,0,0,0,0,0,0,0,0,0,85,86,0,91,92,
+0,0,0,89,90,0,0,0,0,0,0,0,0,0,0,0,0,0,0,89,90,0,0,0,0,0,0,0,0,0,0,0,0,0,0,89,90,0,0,0,
+87,88,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+91,92,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,87,88,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,85,86,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,91,92,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,89,90,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,85,86,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,89,90,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,85,86,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,89,90,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,85,86,0,
+0,0,0,0,0,0,0,87,88,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,89,90,0,
+0,0,0,0,0,0,0,91,92,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+37,38,39,40,41,38,39,40,41,38,39,40,41,38,39,40,41,38,39,40,41,38,39,40,38,39,40,41,38,39,40,41,38,39,40,38,39,40,41,42,
+43,44,45,46,47,44,45,46,47,44,45,46,47,44,45,46,47,44,45,46,47,44,45,46,44,45,46,47,44,45,46,47,44,45,46,44,45,46,47,48 };
 
-    int x;
-    for (int i = 0; i < row; i++) {
-        for (int j = 0; j < col; j++) {
-            Vector2D cam = Camera::GetInstance()->GetPosition();
-            x = arr[i][j];
-            //std::cout << x << "      FKKFD" << endl;
-            Map_in[i][j] = new Tile(j * 32, i * 32, x);
-            if (x == 0) {
-                Map_in[i][j]->Text(Grass);
-            }
-            else if (x == 3) {
-                Map_in[i][j]->Text(Water);
-            }
-            else if (x == 4) {
-                Map_in[i][j]->Text(Box);
-            }
-            else {
-                Map_in[i][j]->Text(Wall);
-            }
 
-        }
-    }
-    
-
-}
-
-void Map::DrawMap()
-{
-
-    for (int i = 0; i < row; i++) {
-        for (int j = 0; j < col; j++) {
-            Map_in[i][j]->draw();
-        }
-    }
-    TextureManager::Instance()->drawMap(house, recthouse);
-   // tile_queue = new std::queue<Tile*>();
-}
-void Map::CleanMap()
-{
-
-}
-bool Map::checkwall(SDL_Rect a, SDL_Rect b) {
-    int left_a = a.x;
-    int right_a = a.x + a.w;
-    int top_a = a.y;
-    int bottom_a = a.y + a.h;
-
-    int left_b = b.x;
-    int right_b = b.x + b.w;
-    int top_b = b.y;
-    int bottom_b = b.y + b.h;
-
-    // Case 1: size object 1 < size object 2
-    if (left_a > left_b && left_a < right_b)
-    {
-        if (top_a > top_b && top_a < bottom_b)
-        {
-            return true;
-        }
-    }
-
-    if (left_a > left_b && left_a < right_b)
-    {
-        if (bottom_a > top_b && bottom_a < bottom_b)
-        {
-            return true;
-        }
-    }
-
-    if (right_a > left_b && right_a < right_b)
-    {
-        if (top_a > top_b && top_a < bottom_b)
-        {
-            return true;
-        }
-    }
-
-    if (right_a > left_b && right_a < right_b)
-    {
-        if (bottom_a > top_b && bottom_a < bottom_b)
-        {
-            return true;
-        }
-    }
-
-    // Case 2: size object 1 < size object 2
-    if (left_b > left_a && left_b < right_a)
-    {
-        if (top_b > top_a && top_b < bottom_a)
-        {
-            return true;
-        }
-    }
-
-    if (left_b > left_a && left_b < right_a)
-    {
-        if (bottom_b > top_a && bottom_b < bottom_a)
-        {
-            return true;
-        }
-    }
-
-    if (right_b > left_a && right_b < right_a)
-    {
-        if (top_b > top_a && top_b < bottom_a)
-        {
-            return true;
-        }
-    }
-
-    if (right_b > left_a && right_b < right_a)
-    {
-        if (bottom_b > top_a && bottom_b < bottom_a)
-        {
-            return true;
-        }
-    }
-
-    // Case 3: size object 1 = size object 2
-    if (top_a == top_b && right_a == right_b && bottom_a == bottom_b)
-    {
-        return true;
-    }
-
-    return false;
-}
-
-bool Map::iswall(SDL_Rect player) {
-    for (int i = 0; i < row; i++) {
-        for (int j = 0; j < col; j++) {
-            if (Map_in[i][j]->type() == 1 || Map_in[i][j]->type() == 4) {
-                if (checkwall(player, Map_in[i][j]->getRect())) {
-                    return true;
-                }
-            }
-        }
-    }
-    return false;
-}
-bool Map::check_x_y(int x, int y) {
-    if (Map_in[x][y]->type() == 1 || Map_in[x][y]->type() == 4) {
-        return false;
-    }
-    return true;
-}
-std::pair<int, int> Map::FindPath(SDL_Rect& player, SDL_Rect& destination) {
-    // Khởi tạo hàng đợi và thêm vị trí người chơi vào hàng đợi
-    
-    std::queue<std::pair<int, int>> tile_queue;
-    int player_x = player.x / 32;
-    int player_y = player.y / 32;
-    std::cout << player_x << " " << player_y << std::endl;
-    tile_queue.push({ player_x, player_y });
-    if (player_x < 0 || player_x > 45) {
-        return { 0,0 };
-    }
-    if (player.y < 0) {
-        return { 0, 0 };
-    }
-    // Khởi tạo mảng visited để đánh dấu các ô đã được thăm
-    bool visited[100][100];
-    for (int i = 0; i < 40 ; i++) {
-        for (int j = 0; j < 45; j++) {
-            visited[i][j] = false;
-        }
-    }
-    visited[player_x][player_y] = true;
-
-    while (!tile_queue.empty()) {
-        std::pair<int, int> current = tile_queue.front();
-        tile_queue.pop();
-
-        // Kiểm tra xem ô hiện tại có phải là đích hay không
-        if (current.first == destination.x / 32 && current.second == destination.y / 32) {
-            // Nếu tìm thấy đích, trả về true
-            return current;
-        }
-
-        // Duyệt các ô lân cận của ô hiện tại
-        for (int i = -1; i <= 2; i++) {
-            for (int j = -1; j <= 1; j++) {
-                int neighbor_x = current.first + i;
-                int neighbor_y = current.second + j;
-
-                // Kiểm tra xem ô lân cận có hợp lệ hay không
-                if (neighbor_x >= 0 && neighbor_x < row &&
-                    neighbor_y >= 0 && neighbor_y < col &&
-                    !visited[neighbor_x][neighbor_y] &&
-                    (lv1_check[neighbor_x][neighbor_y] != 1)) {
-                    // Đánh dấu ô lân cận là đã được thăm và thêm vào hàng đợi
-                    visited[neighbor_x][neighbor_y] = true;
-                    tile_queue.push({ neighbor_x, neighbor_y });
-                }
-            }
-        }
-    }
-
-    // Nếu không tìm thấy đích, trả về false
-    return { 0,0 };
+int** Map::getCollisionPos() {
+	int** collision = new int* [25];
+	for (int i = 0; i < 25; ++i) {
+		collision[i] = new int[40];
+	}
+	for (int i = 0; i < 25; ++i) {
+		for (int j = 0; j < 40; ++j) {
+			if (layer2[i][j] != 0) {
+				collision[i][j] = 1;
+			}
+			else {
+				collision[i][j] = 0;
+			}
+		}
+	}
+	return collision;
 }
 
-std::pair<int, int> Map::FindOptimalPath(SDL_Rect& player, SDL_Rect& destination) {
 
-    // Khởi tạo priority_queue và thêm vị trí người chơi vào
-    std::priority_queue<std::pair<int, std::pair<int, int>>,
-        std::vector<std::pair<int, std::pair<int, int>>>,
-        std::greater<std::pair<int, std::pair<int, int>>>>
-        tile_queue;
-    destination.w = 32;
-    destination.h = 32;
-    int player_x = player.x  / 32;
-    int player_y = player.y / 32;
+void Map::drawMapLayer2() {
+	int type = 0;
+	for (int i = 0; i < 25; ++i) {
+		for (int j = 0; j < 40; ++j) {
+			type = layer2[i][j];
+			desR.x = j * 32;
+			desR.y = i * 32;
+			switch (type) {
+			case 37:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 0, 0, desR.x, desR.y);
+				break;
 
-    int g = 0;
-    int h = heuristic(player_x, player_y, destination.x / 32, destination.y / 32);
-    tile_queue.push({ g + h, {player_x, player_y} });
+			case 38:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 1, 0, desR.x, desR.y);
+				break;
 
-    // Khởi tạo mảng visited để đánh dấu các ô đã được thăm
-    
-    bool visited[100][100];
-    for (int i = 0; i < 40; i++) {
-        for (int j = 0; j < 45; j++) {
-            visited[i][j] = false;
-        }
-    }
-    if (player_x > 100) player.x = 0;
-    if (player_y > 1000 || player.y < 0) player.y = 1;
-    if (player_x < 0 || player_x > 45) {
-        return { 0,0 };
-    }
-    if (player_y < 0 || player_y > 40) {
-        return { 0,0 };
-    }
-    visited[player_x][player_y] = true;
+			case 39:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 2, 0, desR.x, desR.y);
+				break;
 
-    while (!tile_queue.empty()) {
-        std::pair<int, int> current = tile_queue.top().second;
-        tile_queue.pop();
+			case 40:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 3, 0, desR.x, desR.y);
+				break;
 
-        // Kiểm tra xem ô hiện tại có phải là đích hay không
-        if (isDestination(destination,player)) {
-            // Nếu tìm thấy đích, trả về true
-            return current;
-        }
+			case 41:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 4, 0, desR.x, desR.y);
+				break;
 
-        // Duyệt các ô lân cận của ô hiện tại
-        for (int i = -1; i <= 1; i++) {
-            for (int j = -1; j <= 1; j++) {
-                int neighbor_x = current.first + i;
-                int neighbor_y = current.second + j;
+			case 42:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 5, 0, desR.x, desR.y);
+				break;
 
-                // Kiểm tra xem ô lân cận có hợp lệ hay không
-                if (neighbor_x >= 0 && neighbor_x < row &&
-                    neighbor_y >= 0 && neighbor_y < col &&
-                    !visited[neighbor_x][neighbor_y] &&
-                    (lv1_check[neighbor_x][neighbor_y] != 1)) {
-                    // Đánh dấu ô lân cận là đã được thăm
-                    visited[neighbor_x][neighbor_y] = true;
+			case 43:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 0, 1, desR.x, desR.y);
+				break;
 
-                    // Tính toán giá trị g và h cho ô lân cận
-                    int g_neighbor = g + 1;
-                    int h_neighbor = heuristic(neighbor_x, neighbor_y, destination.x / 32, destination.y / 32);
+			case 44:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 1, 1, desR.x, desR.y);
+				break;
 
-                    // Thêm ô lân cận vào priority_queue
-                    tile_queue.push({ g_neighbor + h_neighbor, {neighbor_x, neighbor_y} });
-                }
-            }
-        }
-    }
+			case 45:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 2, 1, desR.x, desR.y);
+				break;
 
-    // Nếu không tìm thấy đích, trả về {0, 0}
-    return { 0, 0 };
+			case 46:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 3, 1, desR.x, desR.y);
+				break;
+
+			case 47:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 4, 1, desR.x, desR.y);
+				break;
+
+			case 48:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 5, 1, desR.x, desR.y);
+				break;
+
+			case 49:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 0, 2, desR.x, desR.y);
+				break;
+
+			case 50:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 1, 2, desR.x, desR.y);
+				break;
+
+			case 51:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 2, 2, desR.x, desR.y);
+				break;
+
+			case 52:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 3, 2, desR.x, desR.y);
+				break;
+
+			case 53:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 4, 2, desR.x, desR.y);
+				break;
+
+			case 54:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 5, 2, desR.x, desR.y);
+				break;
+
+			case 55:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 0, 3, desR.x, desR.y);
+				break;
+
+			case 56:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 1, 3, desR.x, desR.y);
+				break;
+
+			case 57:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 2, 3, desR.x, desR.y);
+				break;
+
+			case 58:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 3, 3, desR.x, desR.y);
+				break;
+
+			case 59:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 4, 3, desR.x, desR.y);
+				break;
+
+			case 60:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 5, 3, desR.x, desR.y);
+				break;
+
+			case 61:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 0, 4, desR.x, desR.y);
+				break;
+
+			case 62:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 1, 4, desR.x, desR.y);
+				break;
+
+			case 63:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 2, 4, desR.x, desR.y);
+				break;
+
+			case 64:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 3, 4, desR.x, desR.y);
+				break;
+
+			case 65:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 4, 4, desR.x, desR.y);
+				break;
+
+			case 66:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 5, 4, desR.x, desR.y);
+				break;
+
+			case 67:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 0, 5, desR.x, desR.y);
+				break;
+
+			case 68:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 1, 5, desR.x, desR.y);
+				break;
+
+			case 69:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 2, 5, desR.x, desR.y);
+				break;
+
+			case 70:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 3, 5, desR.x, desR.y);
+				break;
+
+			case 71:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 4, 5, desR.x, desR.y);
+				break;
+
+			case 72:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 5, 5, desR.x, desR.y);
+				break;
+
+			case 73:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 0, 6, desR.x, desR.y);
+				break;
+
+			case 74:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 1, 6, desR.x, desR.y);
+				break;
+
+			case 75:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 2, 6, desR.x, desR.y);
+				break;
+
+			case 76:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 3, 6, desR.x, desR.y);
+				break;
+
+			case 77:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 4, 6, desR.x, desR.y);
+				break;
+
+			case 78:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 5, 6, desR.x, desR.y);
+				break;
+
+			case 79:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 0, 7, desR.x, desR.y);
+				break;
+
+			case 80:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 1, 7, desR.x, desR.y);
+				break;
+
+			case 81:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 2, 7, desR.x, desR.y);
+				break;
+
+			case 82:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 3, 7, desR.x, desR.y);
+				break;
+
+			case 83:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 4, 7, desR.x, desR.y);
+				break;
+
+			case 84:
+				TextureManager::Instance()->drawMap("assets/rockSet.png", Game::Instance()->getRenderer(), 5, 7, desR.x, desR.y);
+				break;
+
+			case 85:
+				TextureManager::Instance()->drawMap("assets/decoSet.png", Game::Instance()->getRenderer(), 0, 0, desR.x, desR.y);
+				break;
+
+			case 86:
+				TextureManager::Instance()->drawMap("assets/decoSet.png", Game::Instance()->getRenderer(), 1, 0, desR.x, desR.y);
+				break;
+
+			case 87:
+				TextureManager::Instance()->drawMap("assets/decoSet.png", Game::Instance()->getRenderer(), 2, 0, desR.x, desR.y);
+				break;
+
+			case 88:
+				TextureManager::Instance()->drawMap("assets/decoSet.png", Game::Instance()->getRenderer(), 3, 0, desR.x, desR.y);
+				break;
+
+			case 89:
+				TextureManager::Instance()->drawMap("assets/decoSet.png", Game::Instance()->getRenderer(), 0, 1, desR.x, desR.y);
+				break;
+
+			case 90:
+				TextureManager::Instance()->drawMap("assets/decoSet.png", Game::Instance()->getRenderer(), 1, 1, desR.x, desR.y);
+				break;
+
+			case 91:
+				TextureManager::Instance()->drawMap("assets/decoSet.png", Game::Instance()->getRenderer(), 2, 1, desR.x, desR.y);
+				break;
+
+			case 92:
+				TextureManager::Instance()->drawMap("assets/decoSet.png", Game::Instance()->getRenderer(), 3, 1, desR.x, desR.y);
+				break;
+			}
+		}
+	}
 }

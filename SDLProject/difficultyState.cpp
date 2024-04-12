@@ -53,7 +53,7 @@ bool difficultyState::onExit() {
 
 void difficultyState::s_easy()
 {
-	Game::Instance()->getStateMachine()->changeState(new PlayState(1));
+	Game::Instance()->getStateMachine()->changeState(new PlayState());
 }
 
 void difficultyState::s_hard()

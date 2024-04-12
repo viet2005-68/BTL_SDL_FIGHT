@@ -1,6 +1,6 @@
 #include "TextureManager.h"
 #include "Game.h"
-#include "Camera.h"
+
 
 TextureManager* TextureManager::instance = 0;
 
@@ -79,14 +79,14 @@ void TextureManager::drawChar(const char* fileName, SDL_Renderer* ren, int x, in
 	}
 	SDL_Rect sourceR, desR;
 
-	Vector2D cam = Camera::GetInstance()->GetPosition();
+	
 
 	sourceR.x = w * currentFrame;
 	sourceR.y = h * (currentRow - 1);
 	sourceR.h = h;
 	sourceR.w = w;
-	desR.x = x - cam.m_x;
-	desR.y = y - cam.m_y;
+	desR.x = x;
+	desR.y = y;
 	desR.h = h*3/2;
 	desR.w = w*3/2;
 	SDL_RenderCopyEx(ren, textureMap[fileName], &sourceR, &desR, 0, 0, flag);
@@ -98,12 +98,15 @@ void TextureManager::clearFromTextureMap(const char* fileName)
 	textureMap.erase(fileName);
 }
 
-void TextureManager::drawMap(SDL_Texture* tex, SDL_Rect des) {
-	Vector2D cam = Camera::GetInstance()->GetPosition();
-
-	des.x -= cam.m_x;
-	des.y -= cam.m_y;
-	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
-	SDL_RenderDrawRect(Game::Instance()->getRenderer(), &des);
-	SDL_RenderCopyEx(Game::Instance()->getRenderer(), tex, 0, &des, 0, 0, SDL_FLIP_NONE);
+void TextureManager::drawMap(const char* fileName, SDL_Renderer* ren, int x, int y, int w, int h) {
+	SDL_Rect sourceR, desR;
+	sourceR.x = 32 * x;
+	sourceR.y = 32 * y;
+	sourceR.h = 32;
+	sourceR.w = 32;
+	desR.x = w;
+	desR.y = h;
+	desR.h = 32;
+	desR.w = 32;
+	SDL_RenderCopy(ren, textureMap[fileName], &sourceR, &desR);
 }

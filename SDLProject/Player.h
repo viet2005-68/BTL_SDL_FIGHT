@@ -2,8 +2,7 @@
 
 #include "SDLGameObject.h"
 #include "SoundManager.h"
-#include "Map.h"
-#include "Camera.h"
+
 #include "Point.h"
 #include "Time.h"
 class Player : public SDLGameObject
@@ -49,7 +48,15 @@ public:
 
 	int shieldFrame = 0;
 	int auraFrame = 0;
+	void getLevel1(bool a) {
+		lvl1 = a;
+	}
+	void getLevel2(bool a) {
+		lvl2 = a;
+	}
 private:
+	bool lvl1 = false;
+	bool lvl2 = false;
 	int VecX;
 	int VecY;
 	int run = 0;
