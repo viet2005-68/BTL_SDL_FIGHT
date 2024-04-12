@@ -3,6 +3,46 @@
   "WorkspaceRootPath": "F:\\git\\BTL_SDL_FIGHT\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PlayState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|solutionrelative:SDLProject\\PlayState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|F:\\git\\BTL_SDL_FIGHT\\SDLProject\\difficultyState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|solutionrelative:SDLProject\\difficultyState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PlayState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|solutionrelative:SDLProject\\PlayState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|F:\\git\\BTL_SDL_FIGHT\\SDLProject\\boss1.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|solutionrelative:SDLProject\\boss1.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|F:\\git\\BTL_SDL_FIGHT\\SDLProject\\boss1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|solutionrelative:SDLProject\\boss1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PauseState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|solutionrelative:SDLProject\\PauseState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|F:\\git\\BTL_SDL_FIGHT\\SDLProject\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|solutionrelative:SDLProject\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|F:\\git\\BTL_SDL_FIGHT\\SDLProject\\SDLGameObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|solutionrelative:SDLProject\\SDLGameObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|F:\\git\\BTL_SDL_FIGHT\\SDLProject\\SDLGameObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|solutionrelative:SDLProject\\SDLGameObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|F:\\git\\BTL_SDL_FIGHT\\SDLProject\\TextureManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|solutionrelative:SDLProject\\TextureManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|F:\\git\\BTL_SDL_FIGHT\\SDLProject\\GameOverState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|solutionrelative:SDLProject\\GameOverState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -11,24 +51,12 @@
       "RelativeMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|solutionrelative:SDLProject\\GameOverState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PauseState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|solutionrelative:SDLProject\\PauseState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PlayState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|solutionrelative:SDLProject\\PlayState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|F:\\git\\BTL_SDL_FIGHT\\SDLProject\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|solutionrelative:SDLProject\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PlayState2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|solutionrelative:SDLProject\\PlayState2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PlayState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|solutionrelative:SDLProject\\PlayState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|F:\\git\\BTL_SDL_FIGHT\\SDLProject\\MenuState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -51,10 +79,6 @@
       "RelativeMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|solutionrelative:SDLProject\\GameObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|F:\\git\\BTL_SDL_FIGHT\\SDLProject\\difficultyState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|solutionrelative:SDLProject\\difficultyState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|F:\\git\\BTL_SDL_FIGHT\\SDLProject\\difficultyState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|solutionrelative:SDLProject\\difficultyState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -69,10 +93,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PlayState2.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|solutionrelative:SDLProject\\PlayState2.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|F:\\git\\BTL_SDL_FIGHT\\SDLProject\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|solutionrelative:SDLProject\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{029E1C45-9CE5-4E0B-8C98-BE26EB109015}|SDLProject\\SDLProject.vcxproj|F:\\git\\BTL_SDL_FIGHT\\SDLProject\\MenuButton.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -154,7 +174,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -162,7 +182,137 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "boss1.cpp",
+              "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\boss1.cpp",
+              "RelativeDocumentMoniker": "SDLProject\\boss1.cpp",
+              "ToolTip": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\boss1.cpp",
+              "RelativeToolTip": "SDLProject\\boss1.cpp",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAAE0AAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-12T08:09:07.704Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "boss1.h",
+              "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\boss1.h",
+              "RelativeDocumentMoniker": "SDLProject\\boss1.h",
+              "ToolTip": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\boss1.h",
+              "RelativeToolTip": "SDLProject\\boss1.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-12T08:08:52.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PlayState.cpp",
+              "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PlayState.cpp",
+              "RelativeDocumentMoniker": "SDLProject\\PlayState.cpp",
+              "ToolTip": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PlayState.cpp",
+              "RelativeToolTip": "SDLProject\\PlayState.cpp",
+              "ViewState": "AQIAAIIBAAAAAAAAAAAUwGoAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-03-26T07:35:20.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Player.h",
+              "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\Player.h",
+              "RelativeDocumentMoniker": "SDLProject\\Player.h",
+              "ToolTip": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\Player.h",
+              "RelativeToolTip": "SDLProject\\Player.h",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAACEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-03-26T07:43:50.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PauseState.cpp",
+              "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PauseState.cpp",
+              "RelativeDocumentMoniker": "SDLProject\\PauseState.cpp",
+              "ToolTip": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PauseState.cpp",
+              "RelativeToolTip": "SDLProject\\PauseState.cpp",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAABUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-11T17:27:40.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PlayState.h",
+              "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PlayState.h",
+              "RelativeDocumentMoniker": "SDLProject\\PlayState.h",
+              "ToolTip": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PlayState.h",
+              "RelativeToolTip": "SDLProject\\PlayState.h",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAACYAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-11T18:23:25.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "difficultyState.cpp",
+              "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\difficultyState.cpp",
+              "RelativeDocumentMoniker": "SDLProject\\difficultyState.cpp",
+              "ToolTip": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\difficultyState.cpp",
+              "RelativeToolTip": "SDLProject\\difficultyState.cpp",
+              "ViewState": "AQIAACEAAAAAAAAAAAAcwDcAAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-11T18:25:41.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "SDLGameObject.cpp",
+              "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\SDLGameObject.cpp",
+              "RelativeDocumentMoniker": "SDLProject\\SDLGameObject.cpp",
+              "ToolTip": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\SDLGameObject.cpp",
+              "RelativeToolTip": "SDLProject\\SDLGameObject.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-12T08:13:16.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SDLGameObject.h",
+              "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\SDLGameObject.h",
+              "RelativeDocumentMoniker": "SDLProject\\SDLGameObject.h",
+              "ToolTip": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\SDLGameObject.h",
+              "RelativeToolTip": "SDLProject\\SDLGameObject.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-12T08:13:03.351Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TextureManager.cpp",
+              "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\TextureManager.cpp",
+              "RelativeDocumentMoniker": "SDLProject\\TextureManager.cpp",
+              "ToolTip": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\TextureManager.cpp",
+              "RelativeToolTip": "SDLProject\\TextureManager.cpp",
+              "ViewState": "AQIAADYAAAAAAAAAAAAAAE4AAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-12T08:12:02.232Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "MenuState.cpp",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\MenuState.cpp",
               "RelativeDocumentMoniker": "SDLProject\\MenuState.cpp",
@@ -174,32 +324,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PauseState.cpp",
-              "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PauseState.cpp",
-              "RelativeDocumentMoniker": "SDLProject\\PauseState.cpp",
-              "ToolTip": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PauseState.cpp",
-              "RelativeToolTip": "SDLProject\\PauseState.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-11T17:27:40.715Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PlayState.cpp",
-              "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PlayState.cpp",
-              "RelativeDocumentMoniker": "SDLProject\\PlayState.cpp",
-              "ToolTip": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PlayState.cpp",
-              "RelativeToolTip": "SDLProject\\PlayState.cpp",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAABgAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-26T07:35:20.856Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 13,
               "Title": "PlayState2.cpp",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PlayState2.cpp",
               "RelativeDocumentMoniker": "SDLProject\\PlayState2.cpp",
@@ -211,20 +336,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 10,
               "Title": "GameOverState.cpp",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\GameOverState.cpp",
               "RelativeDocumentMoniker": "SDLProject\\GameOverState.cpp",
               "ToolTip": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\GameOverState.cpp",
               "RelativeToolTip": "SDLProject\\GameOverState.cpp",
-              "ViewState": "AQIAACwAAAAAAAAAAAAowB0AAAAAAAAA",
+              "ViewState": "AQIAACwAAAAAAAAAAAAowDgAAABJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-11T18:23:38.507Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 12,
               "Title": "Game.h",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\Game.h",
               "RelativeDocumentMoniker": "SDLProject\\Game.h",
@@ -236,7 +361,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 16,
               "Title": "GameStateMachine.cpp",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\GameStateMachine.cpp",
               "RelativeDocumentMoniker": "SDLProject\\GameStateMachine.cpp",
@@ -248,19 +373,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "PlayState.h",
-              "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PlayState.h",
-              "RelativeDocumentMoniker": "SDLProject\\PlayState.h",
-              "ToolTip": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PlayState.h",
-              "RelativeToolTip": "SDLProject\\PlayState.h",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABIAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-11T18:23:25.068Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 17,
               "Title": "GameState.cpp",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\GameState.cpp",
               "RelativeDocumentMoniker": "SDLProject\\GameState.cpp",
@@ -272,7 +385,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 18,
               "Title": "GameObject.cpp",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\GameObject.cpp",
               "RelativeDocumentMoniker": "SDLProject\\GameObject.cpp",
@@ -284,19 +397,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "difficultyState.cpp",
-              "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\difficultyState.cpp",
-              "RelativeDocumentMoniker": "SDLProject\\difficultyState.cpp",
-              "ToolTip": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\difficultyState.cpp",
-              "RelativeToolTip": "SDLProject\\difficultyState.cpp",
-              "ViewState": "AQIAABsAAAAAAAAAAAAcwDcAAABEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-11T18:25:41.068Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 19,
               "Title": "difficultyState.h",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\difficultyState.h",
               "RelativeDocumentMoniker": "SDLProject\\difficultyState.h",
@@ -308,7 +409,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 22,
               "Title": "PlayState2.h",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PlayState2.h",
               "RelativeDocumentMoniker": "SDLProject\\PlayState2.h",
@@ -320,7 +421,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 11,
               "Title": "GameOverState.h",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\GameOverState.h",
               "RelativeDocumentMoniker": "SDLProject\\GameOverState.h",
@@ -328,12 +429,11 @@
               "RelativeToolTip": "SDLProject\\GameOverState.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-11T18:22:48.968Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-11T18:22:48.968Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 15,
               "Title": "HelpState.cpp",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\HelpState.cpp",
               "RelativeDocumentMoniker": "SDLProject\\HelpState.cpp",
@@ -345,7 +445,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 21,
               "Title": "MenuState.h",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\MenuState.h",
               "RelativeDocumentMoniker": "SDLProject\\MenuState.h",
@@ -357,7 +457,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 20,
               "Title": "PauseState.h",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\PauseState.h",
               "RelativeDocumentMoniker": "SDLProject\\PauseState.h",
@@ -369,7 +469,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 24,
               "Title": "HelpState.h",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\HelpState.h",
               "RelativeDocumentMoniker": "SDLProject\\HelpState.h",
@@ -381,7 +481,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 25,
               "Title": "GameStateMachine.h",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\GameStateMachine.h",
               "RelativeDocumentMoniker": "SDLProject\\GameStateMachine.h",
@@ -393,7 +493,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 34,
               "Title": "Map.cpp",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\Map.cpp",
               "RelativeDocumentMoniker": "SDLProject\\Map.cpp",
@@ -405,19 +505,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Player.h",
-              "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\Player.h",
-              "RelativeDocumentMoniker": "SDLProject\\Player.h",
-              "ToolTip": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\Player.h",
-              "RelativeToolTip": "SDLProject\\Player.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-03-26T07:43:50.611Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 35,
               "Title": "Camera.h",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\Camera.h",
               "RelativeDocumentMoniker": "SDLProject\\Camera.h",
@@ -429,7 +517,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 29,
               "Title": "main.cpp",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\main.cpp",
               "RelativeDocumentMoniker": "SDLProject\\main.cpp",
@@ -441,7 +529,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 23,
               "Title": "MenuButton.h",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\MenuButton.h",
               "RelativeDocumentMoniker": "SDLProject\\MenuButton.h",
@@ -453,7 +541,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 36,
               "Title": "Map.h",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\Map.h",
               "RelativeDocumentMoniker": "SDLProject\\Map.h",
@@ -465,7 +553,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 27,
               "Title": "Game.cpp",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\Game.cpp",
               "RelativeDocumentMoniker": "SDLProject\\Game.cpp",
@@ -477,7 +565,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 26,
               "Title": "GameState.h",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\GameState.h",
               "RelativeDocumentMoniker": "SDLProject\\GameState.h",
@@ -489,7 +577,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 37,
               "Title": "Enemy.h",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\Enemy.h",
               "RelativeDocumentMoniker": "SDLProject\\Enemy.h",
@@ -501,7 +589,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 33,
               "Title": "chest.h",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\chest.h",
               "RelativeDocumentMoniker": "SDLProject\\chest.h",
@@ -513,7 +601,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 31,
               "Title": "Player.cpp",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\Player.cpp",
               "RelativeDocumentMoniker": "SDLProject\\Player.cpp",
@@ -525,7 +613,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 32,
               "Title": "chest.cpp",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\chest.cpp",
               "RelativeDocumentMoniker": "SDLProject\\chest.cpp",
@@ -537,7 +625,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 39,
               "Title": "SoundManager.cpp",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\SoundManager.cpp",
               "RelativeDocumentMoniker": "SDLProject\\SoundManager.cpp",
@@ -549,7 +637,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 30,
               "Title": "SlimeEnemy.cpp",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\SlimeEnemy.cpp",
               "RelativeDocumentMoniker": "SDLProject\\SlimeEnemy.cpp",
@@ -561,7 +649,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 28,
               "Title": "Enemy.cpp",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\Enemy.cpp",
               "RelativeDocumentMoniker": "SDLProject\\Enemy.cpp",
@@ -573,7 +661,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 40,
               "Title": "MenuButton.cpp",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\MenuButton.cpp",
               "RelativeDocumentMoniker": "SDLProject\\MenuButton.cpp",
@@ -585,7 +673,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 38,
               "Title": "SlimeEnemy.h",
               "DocumentMoniker": "F:\\git\\BTL_SDL_FIGHT\\SDLProject\\SlimeEnemy.h",
               "RelativeDocumentMoniker": "SDLProject\\SlimeEnemy.h",

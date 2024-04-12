@@ -9,6 +9,7 @@
 #include "Camera.h"
 #include "mushroom.h"
 #include "WriteOnScreen.h"
+#include "boss1.h"
 
 Map* lvl1 = new Map();
 
@@ -17,6 +18,7 @@ std::vector<Enemy*> m_enemies;
 std::vector<SlimeEnemy*> m_slimes;
 std::vector<mushroom* > m_mush;
 Player* player = NULL;
+boss1* boss = NULL;
 //SlimeEnemy* slime = NULL;
 Portal* portal = NULL;
 WriteOnScreen* writer = NULL;
@@ -79,7 +81,10 @@ void PlayState::update() {
 	//mush->move(player);
 	//Chuyen man
 
-	if (player->score >= 100) {
+	if (player->score >= 0) {
+		boss->update();
+		boss->move(player);
+		if(boss->death){
 		if (endStage == 0) {
 			m_gameObjects.push_back(portal);
 			endStage = 1;
@@ -116,6 +121,7 @@ void PlayState::update() {
 			Mix_HaltMusic();
 
 			Game::Instance()->getStateMachine()->pushState(new PlayState2());
+		}
 		}
 	}
 
@@ -156,6 +162,7 @@ void PlayState::render() {
 			m_mush[i]->draw();
 		}
 	}
+	boss->draw();
 }
 
 bool PlayState::onEnter() {
@@ -267,13 +274,30 @@ bool PlayState::onEnter() {
 	{
 		return false;
 	}
-
+	//Load boss
+	if (!TextureManager::Instance()->load("assets/boss1Run.png", Game::Instance()->getRenderer()))
+	{
+		return false;
+	}
+	if (!TextureManager::Instance()->load("assets/boss1Attack2.png", Game::Instance()->getRenderer()))
+	{
+		return false;
+	}
+	if (!TextureManager::Instance()->load("assets/boss1TakeHit.png", Game::Instance()->getRenderer()))
+	{
+		return false;
+	}
+	if (!TextureManager::Instance()->load("assets/boss1Death.png", Game::Instance()->getRenderer()))
+	{
+		return false;
+	}
 	//Load chest
 	if (!TextureManager::Instance()->load("assets/chest.png", Game::Instance()->getRenderer()))
 	{
 		return false;
 	}
 
+	boss = new boss1(new LoaderParams(500, 500, 250, 250, "assets/boss1Run.png"));
 
 	chest* chest1 = new chest(new LoaderParams(1000, 450, 31, 28, "assets/chest.png"));
 	chest* chest2 = new chest(new LoaderParams(1000, 1000, 31, 28, "assets/chest.png"));
@@ -302,6 +326,8 @@ bool PlayState::onEnter() {
 
 
 	GameObject* button1 = new MenuButton(new LoaderParams(1150, 10, 45, 36, "assets/inGamePauseButton.png"), s_pauseState);
+	GameObject* scoreButton = new MenuButton(new LoaderParams(990, 10, 78, 36, "assets/blankButton.png"), s_none);
+	GameObject* timeButton = new MenuButton(new LoaderParams(830, 10, 78, 36, "assets/blankButton.png"), s_none);
 	m_gameObjects.push_back(player);
 	//m_gameObjects.push_back(enemy1);
 	//m_gameObjects.push_back(enemy2);
@@ -314,7 +340,8 @@ bool PlayState::onEnter() {
 
 	m_slimes.push_back(slime);
 	m_gameObjects.push_back(button1);
-
+	m_gameObjects.push_back(scoreButton);
+	m_gameObjects.push_back(timeButton);
 
 	//player->collisionPos = lvl1->getCollisionPos();
 	if (difficutly == 1) {
@@ -370,4 +397,8 @@ bool PlayState::onExit() {
 void PlayState::s_pauseState()
 {
 	Game::Instance()->getStateMachine()->pushState(new PauseState());
+}
+
+void PlayState::s_none()
+{
 }

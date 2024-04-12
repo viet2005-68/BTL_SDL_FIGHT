@@ -21,9 +21,9 @@ F:\git\BTL_SDL_FIGHT\SDLProject\GameOverState.h(24,15): warning C4114: same type
 F:\git\BTL_SDL_FIGHT\SDLProject\PlayState.h(35,15): warning C4114: same type qualifier used more than once
   (compiling source file 'PlayState.cpp')
   
-F:\git\BTL_SDL_FIGHT\SDLProject\PlayState.cpp(23,7): warning C4114: same type qualifier used more than once
-F:\git\BTL_SDL_FIGHT\SDLProject\PlayState.cpp(32,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-F:\git\BTL_SDL_FIGHT\SDLProject\PlayState.cpp(33,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-F:\git\BTL_SDL_FIGHT\SDLProject\PlayState.cpp(122,80): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-F:\git\BTL_SDL_FIGHT\SDLProject\PlayState.cpp(122,53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+F:\git\BTL_SDL_FIGHT\SDLProject\PlayState.cpp(25,7): warning C4114: same type qualifier used more than once
+F:\git\BTL_SDL_FIGHT\SDLProject\PlayState.cpp(34,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+F:\git\BTL_SDL_FIGHT\SDLProject\PlayState.cpp(35,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+F:\git\BTL_SDL_FIGHT\SDLProject\PlayState.cpp(128,80): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+F:\git\BTL_SDL_FIGHT\SDLProject\PlayState.cpp(128,53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   SDLProject.vcxproj -> F:\git\BTL_SDL_FIGHT\x64\Debug\SDL.exe

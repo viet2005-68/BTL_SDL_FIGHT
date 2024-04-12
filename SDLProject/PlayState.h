@@ -28,15 +28,15 @@ public:
 		return s_playID;
 	}
 	static void s_pauseState();
+	static void s_none();
 
 	~PlayState();
-	int difficutly;
 private:
 	static const const char* s_playID;
 	std::vector<GameObject*> m_gameObjects;
 	int score = 0;
 	Time time;
-
+	int difficutly;
 	int spawnTime;
 	int endStage = 0;
 };

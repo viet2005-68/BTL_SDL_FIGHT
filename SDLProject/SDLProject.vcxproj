@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="boss1.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="chest.cpp" />
     <ClCompile Include="difficultyState.cpp" />
@@ -165,6 +166,7 @@
     <ClCompile Include="WriteOnScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="boss1.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="chest.h" />
     <ClInclude Include="difficultyState.h" />
