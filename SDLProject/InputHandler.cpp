@@ -34,7 +34,6 @@ void InputHandler::handleEvent() {
 	case SDL_MOUSEMOTION:
 		m_MousePosition.x = event.button.x;
 		m_MousePosition.y = event.button.y;
-		std::cout << m_MousePosition.x << "   " << m_MousePosition.y << std::endl;
 	default:
 		break;
 	}

@@ -77,7 +77,7 @@ void Enemy::move(Player* &player) {
 				time.reset();
 			}
 
-			if (health <= 0) {
+			if (healthBar <= 0) {
 				player->score += 10;
 				std::cout << player->score << std::endl;
 				death = true;

@@ -10,7 +10,7 @@
 #include "mushroom.h"
 #include "WriteOnScreen.h"
 
-Map* lvl1 = new Map();
+//Map* lvl1 = new Map();
 
 std::vector<chest*> m_chest;
 std::vector<Enemy*> m_enemies;
@@ -25,7 +25,7 @@ int arr[4][2] = { {300,300},{300,250},{300,250},{300,250} };
 void PlayState::update1(){}
 void PlayState::update() {
 	int cnt = 0;
-	if (time.getElapsedTime() > 5) {
+	if (time.getElapsedTime() > spawnTime) {
 		
 		int i = rand() % 4;
 		//int j = rand() % 2;
@@ -125,8 +125,9 @@ void PlayState::update() {
 
 void PlayState::render() {
 
-	lvl1->drawMapLayer1();
-	lvl1->drawMapLayer2();
+	Map::getInstance()->drawMapLayer1();
+	Map::getInstance()->drawMapLayer2();
+	
 
 	
 
@@ -161,7 +162,7 @@ void PlayState::render() {
 bool PlayState::onEnter() {
 
 	endStage = 0;
-	lvl1->LoadMap();
+	Map::getInstance()->LoadMap();
 	//erase all old objects
 	if (m_gameObjects.size() != 0) {
 		for (int i = 0; i < m_gameObjects.size(); ++i) {
@@ -316,13 +317,14 @@ bool PlayState::onEnter() {
 	m_slimes.push_back(slime);
 	m_gameObjects.push_back(button1);
 
-	if (difficutly == 1) {
-		spawnTime = 7;
-	}
-	else {
+	if (difficulty == 1) {
+		std::cout << "Entering easy PlayState...\n";
 		spawnTime = 5;
 	}
-	std::cout << "entering PlayState\n";
+	else {
+		spawnTime = 2;
+		std::cout << "Entering hard PlayState...\n";
+	}
 	return true;
 }
 

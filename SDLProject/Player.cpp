@@ -2,7 +2,7 @@
 #include "InputHandler.h"
 #include <cstdlib>
 #include "Game.h"
-
+#include "Map.h"
 
 
 Player::Player(const LoaderParams* pParams) : SDLGameObject(pParams)
@@ -92,8 +92,8 @@ void Player::update()
 		mana += 5;
 		time.reset();
 	}
-	playerRect.x = m_position.m_x+40;
-	playerRect.y = m_position.m_y+40;
+	//playerRect.x = m_position.m_x+40;
+	//playerRect.y = m_position.m_y+40;
 
 	int tick = 100;
 	frame = 6;
@@ -113,7 +113,7 @@ void Player::update()
 	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_W) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
 		m_position.m_y -= 5;
 		VecY -= 5;
-		m_currentRow = 7;
+		m_currentRow = 8;
 		frame = 3;
 		run = 1;
 		//move();
@@ -121,13 +121,13 @@ void Player::update()
 	}
 	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_S) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
 		m_position.m_y += 5;
-		m_currentRow = 5;
+		m_currentRow = 6;
 		VecY += 5;
 		frame = 3;
 		run = 1;
 	}
 	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_D) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
-		m_position.m_x += 5;
+		m_position.m_x += speed;
 		//chieu duong
 		VecX += 5;
 		m_velocity.setX(0.001);
@@ -155,9 +155,9 @@ void Player::update()
 	}
 
 	if (attacked == 1) {
-		m_currentRow = 6;
-		frame = 4;
-		tick = 300;
+		m_currentRow = 5;
+		frame = 3;
+		tick = 400;
 	}
 	if (regen == true) {
 		if (regenTime.getElapsedTime() > 1) {
@@ -243,7 +243,18 @@ void Player::update()
 	SDLGameObject::update();
 }
 void Player::move() {
-	
+	if (lvl1 == true) {
+		playerRect.x = m_position.m_x;
+		playerRect.y = m_position.m_y;
+		if (Map::getInstance()->iswall(playerRect)) {
+			m_position.m_x -= VecX;
+			
+		}
+		if (Map::getInstance()->iswall(playerRect)) {
+			m_position.m_y -= VecY;
+
+		}
+	}
 }
 void Player::clean()
 {
