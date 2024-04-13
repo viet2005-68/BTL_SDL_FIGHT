@@ -266,7 +266,7 @@ bool Map_lv2::check_x_y(int x, int y) {
     return true;
 }
 std::pair<int, int> Map_lv2::FindPath(SDL_Rect& player, SDL_Rect& destination) {
-    // Khởi tạo hàng đợi và thêm vị trí người chơi vào hàng đợi
+    // Khởi tạo 
 
     std::queue<std::pair<int, int>> tile_queue;
     int player_x = player.x / 32;
@@ -287,9 +287,9 @@ std::pair<int, int> Map_lv2::FindPath(SDL_Rect& player, SDL_Rect& destination) {
         std::pair<int, int> current = tile_queue.front();
         tile_queue.pop();
 
-        // Kiểm tra xem ô hiện tại có phải là đích hay không
+        // Kiểm tra xem ô hiện tại là đích ??
         if (current.first == destination.x / 32 && current.second == destination.y / 32) {
-            // Nếu tìm thấy đích, trả về true
+          
             return current;
         }
 
@@ -299,12 +299,12 @@ std::pair<int, int> Map_lv2::FindPath(SDL_Rect& player, SDL_Rect& destination) {
                 int neighbor_x = current.first + i;
                 int neighbor_y = current.second + j;
 
-                // Kiểm tra xem ô lân cận có hợp lệ hay không
+                // check 
                 if (neighbor_x >= 0 && neighbor_x < 25 &&
                     neighbor_y >= 0 && neighbor_y < 40 &&
                     !visited[neighbor_x][neighbor_y] &&
                     (check_lv2[neighbor_x][neighbor_y] != 1)) {
-                    // Đánh dấu ô lân cận là đã được thăm và thêm vào hàng đợi
+                    // tick valid box
                     visited[neighbor_x][neighbor_y] = true;
                     tile_queue.push({ neighbor_x, neighbor_y });
                 }
@@ -312,13 +312,13 @@ std::pair<int, int> Map_lv2::FindPath(SDL_Rect& player, SDL_Rect& destination) {
         }
     }
 
-    // Nếu không tìm thấy đích, trả về false
+   
     return { 0,0 };
 }
 
 std::pair<int, int> Map_lv2::FindOptimalPath(SDL_Rect& player, SDL_Rect& destination) {
 
-    // Khởi tạo priority_queue và thêm vị trí người chơi vào
+   // khởi tạo
     std::priority_queue<std::pair<int, std::pair<int, int>>,
         std::vector<std::pair<int, std::pair<int, int>>>,
         std::greater<std::pair<int, std::pair<int, int>>>>
@@ -331,7 +331,7 @@ std::pair<int, int> Map_lv2::FindOptimalPath(SDL_Rect& player, SDL_Rect& destina
     int h = heuristic(player_x, player_y, destination.x / 32, destination.y / 32);
     tile_queue.push({ g + h, {player_x, player_y} });
 
-    // Khởi tạo mảng visited để đánh dấu các ô đã được thăm
+    // Khởi tạo mảng visited đánh dấu các ô đã được thăm
 
     bool visited[100][100];
     for (int i = 0; i < 25; i++) {
@@ -346,48 +346,48 @@ std::pair<int, int> Map_lv2::FindOptimalPath(SDL_Rect& player, SDL_Rect& destina
         std::pair<int, int> current = tile_queue.top().second;
         tile_queue.pop();
 
-        // Kiểm tra xem ô hiện tại có phải là đích hay không
+        // Kiểm tra xem ô hiện tại phải là đích ?
         if (current.first == destination.x / 32 && current.second == destination.y / 32) {
             // Nếu tìm thấy đích, trả về true
             return current;
         }
 
-        // Duyệt các ô lân cận của ô hiện tại
+        // Duyệt các ô lân cận 
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
                 int neighbor_x = current.first + i;
                 int neighbor_y = current.second + j;
 
-                // Kiểm tra xem ô lân cận có hợp lệ hay không
+                // Kiểm tra xem ô lân cận
                 if (neighbor_x >= 0 && neighbor_x < 25 &&
                     neighbor_y >= 0 && neighbor_y < 40 &&
                     !visited[neighbor_x][neighbor_y] &&
                     (check_lv2[neighbor_x][neighbor_y] != 1)) {
-                    // Đánh dấu ô lân cận là đã được thăm
+                    // Đánh dấu ô lân cận 
                     visited[neighbor_x][neighbor_y] = true;
 
                     // Tính toán giá trị g và h cho ô lân cận
                     int g_neighbor = g + 1;
                     int h_neighbor = heuristic(neighbor_x, neighbor_y, destination.x / 32, destination.y / 32);
 
-                    // Thêm ô lân cận vào priority_queue
+                    // Thêm ô lân cận vào 
                     tile_queue.push({ g_neighbor + h_neighbor, {neighbor_x, neighbor_y} });
                 }
             }
         }
     }
 
-    // Nếu không tìm thấy đích, trả về {0, 0}
+  
     return { 0, 0 };
 }
 std::pair<int, int> Map_lv2::FindPathAStar(SDL_Rect& player, SDL_Rect& destination) {
-    // Khởi tạo hàng đợi ưu tiên và thêm vị trí người chơi vào hàng đợi
+    // Khởi tạo  
     std::priority_queue<std::pair<int, std::pair<int, int>>, std::vector<std::pair<int, std::pair<int, int>>>, std::greater<std::pair<int, std::pair<int, int>>>> tile_queue;
     int player_x = player.x / 32;
     int player_y = player.y / 32;
     tile_queue.push({ 0, {player_x, player_y} }); // Chi phí ban đầu là 0
 
-    // Khởi tạo mảng visited để đánh dấu các ô đã được thăm
+    // Khởi tạo mảng visited
     bool visited[40][40];
     for (int i = 0; i < 25; i++) {
         for (int j = 0; j < 40; j++) {
@@ -408,7 +408,7 @@ std::pair<int, int> Map_lv2::FindPathAStar(SDL_Rect& player, SDL_Rect& destinati
     int g_cost[100][100];
     for (int i = 0; i < 25; i++) {
         for (int j = 0; j < 40; j++) {
-            g_cost[i][j] = INT_MAX; // Khởi tạo chi phí ban đầu là vô cực
+            g_cost[i][j] = INT_MAX; // Khởi tạo chi phí ban đầu
         }
     }
     g_cost[player_x][player_y] = 0; // Chi phí di chuyển đến ô người chơi là 0
@@ -432,7 +432,6 @@ std::pair<int, int> Map_lv2::FindPathAStar(SDL_Rect& player, SDL_Rect& destinati
 
         // Kiểm tra xem ô hiện tại có phải là đích hay không
         if (current_x == destination.x / 32 && current_y == destination.y / 32) {
-            // Nếu tìm thấy đích, trả về vị trí đích
             return { current_x, current_y };
         }
 
@@ -458,7 +457,7 @@ std::pair<int, int> Map_lv2::FindPathAStar(SDL_Rect& player, SDL_Rect& destinati
                         g_cost[neighbor_x][neighbor_y] = new_g_cost;
                         int new_f_cost = g_cost[neighbor_x][neighbor_y] + h_cost[neighbor_x][neighbor_y];
 
-                        // Cập nhật vị trí trong hàng đợi với chi phí f mới
+                        // Cập nhật vị trí với chi phí f mới
                         tile_queue.push({ new_f_cost, {neighbor_x, neighbor_y} });
                     }
                 }
