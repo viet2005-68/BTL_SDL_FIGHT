@@ -9,7 +9,7 @@ public:
     WriteOnScreen(const std::string& fontPath, int fontSize);
     ~WriteOnScreen();
 
-    void displayText(const std::string& message, int x, int y);
+    void displayText(const std::string& message, int x, int y, int w, int h);
 
 private:
     SDL_Renderer* renderer;

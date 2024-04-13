@@ -198,6 +198,7 @@
     <ClInclude Include="PlayState2.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Portal.h" />
+    <ClInclude Include="scorePlayer.h" />
     <ClInclude Include="SDLGameObject.h" />
     <ClInclude Include="shot.h" />
     <ClInclude Include="SlimeEnemy.h" />

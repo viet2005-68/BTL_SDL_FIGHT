@@ -1,11 +1,20 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (SDLProject.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  PlayState2.cpp
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(34,15): warning C4114: same type qualifier used more than once
+  Enemy2.cpp
 C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(22,15): warning C4114: same type qualifier used more than once
 C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(21,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(26,15): warning C4114: same type qualifier used more than once
 C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(24,15): warning C4114: same type qualifier used more than once
 C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(24,15): warning C4114: same type qualifier used more than once
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(26,15): warning C4114: same type qualifier used more than once
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.cpp(10,7): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(34,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(11,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(12,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(19,124): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(45,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(46,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(67,33): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(209,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(211,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(213,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(215,19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   SDLProject.vcxproj -> C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\x64\Debug\SDL.exe

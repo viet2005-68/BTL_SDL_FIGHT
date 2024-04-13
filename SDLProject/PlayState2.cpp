@@ -93,7 +93,7 @@ void PlayState2::render() {
 	player->draw();
 	enemy->draw();
 	mush->draw();
-	
+	Game::Instance()->m_score->draw();
 }
 
 bool PlayState2::onEnter() {

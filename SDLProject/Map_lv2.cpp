@@ -11,32 +11,7 @@ Map_lv2* Map_lv2::m_Instance = nullptr;
 SDL_Rect recthouse = { 102,0,128,192 };
 
 SDL_Rect src, des;
-int check_lv2[25][40] =
-{{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1},
-{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1},
-{1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1},
-{1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1},
-{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1},
-{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1},
-{1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1},
-{1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1},
-{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,1},
-{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1},
-{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1},
-{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1},
-{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1},
-{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1},
-{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,1,1,0,0,0,1},
-{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,1,1,0,0,0,1},
-{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}};
+
 Map_lv2::Map_lv2()
 {
     
@@ -47,6 +22,7 @@ Map_lv2::Map_lv2()
     for (int i = 0; i < 25; i++) {
         for (int j = 0; j < 40; j++) {
             Map_in[i][j] = new Tile(j * 32, i * 32, check_lv2[i][j]);
+
         }
     }
 }
@@ -250,7 +226,7 @@ bool Map_lv2::iswall(SDL_Rect player) {
    
     for (int i = 0; i < 25; i++) {
         for (int j = 0; j < 40; j++) {
-            if (Map_in[i][j]->type() != 0) {
+            if (Map_in[i][j]->type() == 1) {
                 if (checkwall(player, Map_in[i][j]->getRect())) {
                     return true;
                 }
@@ -265,7 +241,7 @@ bool Map_lv2::check_x_y(int x, int y) {
     }
     return true;
 }
-std::pair<int, int> Map_lv2::FindPath(SDL_Rect& player, SDL_Rect& destination) {
+int Map_lv2::FindBFSPath(SDL_Rect& player, SDL_Rect& destination,int x) {
     // Khởi tạo 
 
     std::queue<std::pair<int, int>> tile_queue;
@@ -275,6 +251,79 @@ std::pair<int, int> Map_lv2::FindPath(SDL_Rect& player, SDL_Rect& destination) {
     tile_queue.push({ player_x, player_y });
    
     // Khởi tạo mảng visited để đánh dấu các ô đã được thăm
+    bool visited[100][100];
+    int distance[100][100];
+    for (int i = 0; i < 25; i++) {
+        for (int j = 0; j < 40; j++) {
+            visited[i][j] = false;
+            distance[i][j] = 0;
+        }
+    }
+    visited[player_x][player_y] = true;
+    if (x == 5) {
+        visited[player_x - 1][player_y] = 1;
+        visited[player_x + 1][player_y] = 1;
+        visited[player_x][player_y + 1] = 1;
+    }
+    else if (x == 2) {
+        visited[player_x - 1][player_y] = 1;
+        visited[player_x + 1][player_y] = 1;
+        visited[player_x][player_y - 1] = 1;
+    }
+    else if (x == 1) {
+        visited[player_x + 1][player_y] = 1;
+        visited[player_x][player_y - 1] = 1;
+        visited[player_x][player_y + 1] = 1;
+    }
+    else {
+        visited[player_x - 1][player_y] = 1;
+        visited[player_x][player_y - 1] = 1;
+        visited[player_x][player_y + 1] = 1;
+    }
+    distance[player_x][player_y] = 0;
+    
+    while (!tile_queue.empty()) {
+        std::pair<int, int> current = tile_queue.front();
+        tile_queue.pop();
+
+        // Kiểm tra xem ô hiện tại là đích ??
+        /*if (current.first == destination.x / 32 && current.second == destination.y / 32) {
+          
+            return current;
+        }*/
+
+        // Duyệt các ô lân cận của ô hiện tại
+        for (int i = -1; i <= 1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                int neighbor_x = current.first + i;
+                int neighbor_y = current.second + j;
+
+                // check 
+                if (neighbor_x >= 0 && neighbor_x < 25 &&
+                    neighbor_y >= 0 && neighbor_y < 40 &&
+                    visited[neighbor_x][neighbor_y]==0 &&
+                    (check_lv2[neighbor_x][neighbor_y] != 1)) {
+                    // tick valid box
+                    distance[neighbor_x][neighbor_y] = distance[current.first][current.second] + 1;
+                    if (distance[(int)destination.x / 32][(int)destination.y / 32] != 0) break;
+                    visited[neighbor_x][neighbor_y] = true;
+                    tile_queue.push({ neighbor_x, neighbor_y });
+                }
+            }
+        }
+    }
+
+    return distance[(int)destination.x / 32][(int)destination.y / 32];
+}
+
+std::pair<int, int> Map_lv2::FindPath(SDL_Rect& player, SDL_Rect& destination) {
+
+    std::queue<std::pair<int, int>> tile_queue;
+    int player_x = player.x / 32;
+    int player_y = player.y / 32;
+    std::cout << player_x << " " << player_y << std::endl;
+    tile_queue.push({ player_x, player_y });
+
     bool visited[100][100];
     for (int i = 0; i < 25; i++) {
         for (int j = 0; j < 40; j++) {
@@ -287,13 +336,11 @@ std::pair<int, int> Map_lv2::FindPath(SDL_Rect& player, SDL_Rect& destination) {
         std::pair<int, int> current = tile_queue.front();
         tile_queue.pop();
 
-        // Kiểm tra xem ô hiện tại là đích ??
         if (current.first == destination.x / 32 && current.second == destination.y / 32) {
-          
+
             return current;
         }
 
-        // Duyệt các ô lân cận của ô hiện tại
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
                 int neighbor_x = current.first + i;
@@ -312,10 +359,9 @@ std::pair<int, int> Map_lv2::FindPath(SDL_Rect& player, SDL_Rect& destination) {
         }
     }
 
-   
+
     return { 0,0 };
 }
-
 std::pair<int, int> Map_lv2::FindOptimalPath(SDL_Rect& player, SDL_Rect& destination) {
 
    // khởi tạo

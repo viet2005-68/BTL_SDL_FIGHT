@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "SDL_ttf.h"
+#include "scorePlayer.h"
 Game* Game::g_instance = 0;
 
 
@@ -17,7 +18,8 @@ void Game::init(const char* title, int w, int h, bool fullscreen) {
 	renderer = SDL_CreateRenderer(window, -1, 0);
 	cout << "Renderer created..." << endl;
 	SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
-
+	
+	m_score = new ScorePlayer();
 
 	TextureManager::Instance()->load("assets/background.png", Game::Instance()->getRenderer());
 

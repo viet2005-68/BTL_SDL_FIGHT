@@ -131,7 +131,7 @@ void PlayState::render() {
 
 	
 
-	writer->displayText(to_string(player->score), 400, 400);
+	//writer->displayText(to_string(player->score), 400, 400);
 	if (m_enemies.size() != 0) {
 		for (int i = 0; i < m_enemies.size(); ++i) {
 			m_enemies[i]->draw();
@@ -157,6 +157,7 @@ void PlayState::render() {
 			m_mush[i]->draw();
 		}
 	}
+	Game::Instance()->m_score->draw();
 }
 
 bool PlayState::onEnter() {

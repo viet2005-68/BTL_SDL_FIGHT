@@ -78,6 +78,7 @@ void Enemy::move(Player* &player) {
 			}
 
 			if (healthBar <= 0) {
+				Game::Instance()->m_score->Setscore(10);
 				player->score += 10;
 				std::cout << player->score << std::endl;
 				death = true;

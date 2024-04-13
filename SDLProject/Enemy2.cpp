@@ -1,6 +1,8 @@
 ﻿#include "Enemy2.h"
 #include <iostream>
 #include "Map_lv2.h"
+#include <vector>
+#include <algorithm>
 
 Enemy2::Enemy2(const LoaderParams* pParams) : SDLGameObject(pParams)
 {
@@ -16,6 +18,15 @@ void Enemy2::draw() {
 	TextureManager::Instance()->drawChar("assets/healthUnder.png", Game::Instance()->getRenderer(), enemyRect.x, enemyRect.y - 30, barWidth, barHeight, 1, 0, 0);
 	TextureManager::Instance()->drawChar("assets/health.png", Game::Instance()->getRenderer(), enemyRect.x, enemyRect.y - 30, healthBar, 8, 1, 0, 0);
 	SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(enemyRect));
+	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
+	SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(upRect));
+	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
+	SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(downRect));
+	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
+	SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(rightRect));
+	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
+	SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(leftRect));
+	//SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
 	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
 }
 
@@ -86,6 +97,7 @@ void Enemy2::move(Player*& player) {
 			}
 
 			if (healthBar <= 0) {
+				Game::Instance()->m_score->Setscore(10);
 				player->score += 10;
 				std::cout << player->score << std::endl;
 				death = true;
@@ -98,7 +110,7 @@ void Enemy2::move(Player*& player) {
 		frame = 4;
 		//player->attacked = 0;
 		//Timer::getInstance()->reset();
-		int distance = sqrt(pow(m_position.m_x - player->m_position.m_x, 2) - pow(m_position.m_y - player->m_position.m_y, 2));
+		/*int distance = sqrt(pow(m_position.m_x - player->m_position.m_x, 2) - pow(m_position.m_y - player->m_position.m_y, 2));
 		enemyRect.x = m_position.getX() + 80;
 		enemyRect.y = m_position.getY() + 80;
 		std::pair<int, int> next_tile = Map_lv2::getInstance()->FindPath(enemyRect, player->playerRect);
@@ -161,8 +173,131 @@ void Enemy2::move(Player*& player) {
 				}
 			}
 		}
-	}
+	}*/
+		int player_x = player->playerRect.x / 32;
+		int player_y = player->playerRect.y / 32;
+		//int distance = Map_lv2::getInstance()->FindBFSPath(enemyRect, player->playerRect, status); // 5 cho phép di chuyển chéo
 
-	time.reset();
+		// Xác định hướng di chuyển dựa trên đường đi
+
+
+		// Xác định hướng di chuyển dựa trên đường đi
+		float up_move = 1000000;
+		float down_move = 1000000;
+		float right_move = 1000000;
+		float left_move = 10000000;
+
+		upRect = { enemyRect.x, enemyRect.y - 1, enemyRect.w,enemyRect.h };
+
+		//if (!Map_lv2::getInstance()->iswall(upRect)) up_move = Map_lv2::getInstance()->FindBFSPath(enemyRect, player->playerRect, 5);
+
+		downRect = { enemyRect.x, enemyRect.y +1, enemyRect.w,enemyRect.h };
+
+		//if (!Map_lv2::getInstance()->iswall(downRect)) down_move = Map_lv2::getInstance()->FindBFSPath(enemyRect, player->playerRect, 2);
+
+		rightRect = { enemyRect.x + 1, enemyRect.y, enemyRect.w,enemyRect.h };
+
+		//if (!Map_lv2::getInstance()->iswall(rightRect)) right_move = Map_lv2::getInstance()->FindBFSPath(enemyRect, player->playerRect, 3);
+
+		leftRect = { enemyRect.x - 1, enemyRect.y, enemyRect.w,enemyRect.h };
+
+		//if (!Map_lv2::getInstance()->iswall(leftRect)) left_move = Map_lv2::getInstance()->FindBFSPath(enemyRect, player->playerRect, 1);
+		
+		//SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
+		//SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
+		//SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
+		up_move = sqrt(pow(upRect.x - player->playerRect.x, 2) + pow(upRect.y - player->playerRect.y, 2));
+
+		down_move = sqrt(pow(downRect.x - player->playerRect.x, 2) + pow(downRect.y - player->playerRect.y, 2));
+
+		right_move = sqrt(pow(rightRect.x - player->playerRect.x, 2) + pow(rightRect.y - player->playerRect.y, 2));
+
+		left_move = sqrt(pow(leftRect.x - player->playerRect.x, 2) + pow(leftRect.y - player->playerRect.y, 2));
+
+		//float min_dis_move = std::min(up_move, std::min(down_move, std::min(right_move, left_move)));
+
+		std::vector<float> moves;
+
+		moves.push_back(up_move);
+		moves.push_back(down_move);
+		moves.push_back(right_move);
+		moves.push_back(left_move);
+		
+		std::sort(moves.begin(), moves.end());
+
+		bool flag = false;
+
+		if (up_move == moves[0] && Map_lv2::getInstance()->iswall(upRect) == false) {
+			move_UP();
+			flag = true;
+		}
+		else if (down_move == moves[0] && Map_lv2::getInstance()->iswall(downRect) == false) {
+			move_DOWN();
+			flag = true;
+		}
+		else if (right_move == moves[0] && Map_lv2::getInstance()->iswall(rightRect) == false) {
+			move_RIGHT();
+			flag = true;
+		}
+		else if (left_move == moves[0] && Map_lv2::getInstance()->iswall(leftRect) == false) {
+			move_LEFT();
+			flag = true;
+		}
+		if (flag == false && up_move == moves[1] && Map_lv2::getInstance()->iswall(upRect) == false) {
+			move_UP();
+			flag = true;
+		}
+		else if (flag == false &&down_move == moves[1] && Map_lv2::getInstance()->iswall(downRect) == false) {
+			move_DOWN();
+			flag = true;
+		}
+		else if (flag == false && right_move == moves[1] && Map_lv2::getInstance()->iswall(rightRect) == false) {
+			move_RIGHT();
+			flag = true;
+		}
+		else if (flag == false && left_move == moves[1] && Map_lv2::getInstance()->iswall(leftRect) == false) {
+			move_LEFT();
+			flag = true;
+		}
+		if (flag == false && up_move == moves[2] && Map_lv2::getInstance()->iswall(upRect) == false) {
+			move_UP();
+			flag = true;
+		}
+		else if (flag == false && down_move == moves[2] && Map_lv2::getInstance()->iswall(downRect) == false) {
+			move_DOWN();
+			flag = true;
+		}
+		else if (flag == false && right_move == moves[2] && Map_lv2::getInstance()->iswall(rightRect) == false) {
+			move_RIGHT();
+			flag = true;
+		}
+		else if (flag == false && left_move == moves[2] && Map_lv2::getInstance()->iswall(leftRect) == false) {
+			move_LEFT();
+			flag = true;
+		}
+		if (flag == false && up_move == moves[3] && Map_lv2::getInstance()->iswall(upRect) == false) {
+			move_UP();
+			flag = true;
+		}
+		else if (flag == false && down_move == moves[3] && Map_lv2::getInstance()->iswall(downRect) == false) {
+			move_DOWN();
+			flag = true;
+		}
+		else if (flag == false && right_move == moves[3] && Map_lv2::getInstance()->iswall(rightRect) == false) {
+			move_RIGHT();
+			flag = true;
+		}
+		else if (flag == false && left_move == moves[3] && Map_lv2::getInstance()->iswall(leftRect) == false) {
+			move_LEFT();
+			flag = true;
+		}
+
+		time.reset();
+	}
 }
+
+		
+		
+	
+    
 	

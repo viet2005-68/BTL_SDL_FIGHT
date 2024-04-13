@@ -24,7 +24,7 @@
 #include "GameOverState.h"
 #include "SoundManager.h"
 #include "MenuButton.h"
-
+#include "scorePlayer.h"
 using namespace std;
 
 #define SCREEN_WIDTH 1280
@@ -56,7 +56,7 @@ public:
 	GameStateMachine* getStateMachine() {
 		return m_pGameStateMachine;
 	}
-
+	ScorePlayer* m_score;
 private:
 	SDL_Window* window;
 	SDL_Renderer* renderer;
@@ -69,7 +69,7 @@ private:
 	//GameObject* m_boss;
 	vector<GameObject*> m_gameObjects;
 	//TextureManager texture;
-
+	
 	GameStateMachine* m_pGameStateMachine;
 
 };
