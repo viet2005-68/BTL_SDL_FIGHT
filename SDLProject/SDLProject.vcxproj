@@ -43,7 +43,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -135,6 +135,9 @@
     <ClCompile Include="chest.cpp" />
     <ClCompile Include="difficultyState.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Enemy2.cpp" />
+    <ClCompile Include="Enemy3.cpp" />
+    <ClCompile Include="FireBall.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameOverState.cpp" />
@@ -163,6 +166,7 @@
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Time.cpp" />
+    <ClCompile Include="tower.cpp" />
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="WriteOnScreen.cpp" />
   </ItemGroup>
@@ -170,6 +174,9 @@
     <ClInclude Include="chest.h" />
     <ClInclude Include="difficultyState.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Enemy2.h" />
+    <ClInclude Include="Enemy3.h" />
+    <ClInclude Include="FireBall.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameOverState.h" />
@@ -197,6 +204,7 @@
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Time.h" />
+    <ClInclude Include="tower.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="WriteOnScreen.h" />
   </ItemGroup>

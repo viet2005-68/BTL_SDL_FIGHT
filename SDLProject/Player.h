@@ -22,6 +22,7 @@ public:
 	int frame;
 	int attacked = 0;
 	int attack = 0;
+	int dash = 0;
 
 	int damage = 10;
 	int healthBar = 100;

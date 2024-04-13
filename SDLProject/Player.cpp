@@ -103,19 +103,20 @@ void Player::update()
 	m_currentRow = 1;
 	run = 0;
 	attack = 0;
+	dash = 0;
 
 	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_A) == true && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
-		m_position.m_x -= 5;
+		m_position.m_x -= speed;
 		//chieu am
 		m_velocity.setX(-0.001);
-		VecX -= 5;
+		VecX -= speed;
 		m_currentRow = 2;
 		frame = 6;
 		run = 1;
 	}
 	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_W) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
-		m_position.m_y -= 5;
-		VecY -= 5;
+		m_position.m_y -= speed;
+		VecY -= speed;
 		m_currentRow = 8;
 		frame = 3;
 		run = 1;
@@ -123,16 +124,16 @@ void Player::update()
 
 	}
 	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_S) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
-		m_position.m_y += 5;
+		m_position.m_y += speed;
 		m_currentRow = 6;
-		VecY += 5;
+		VecY += speed;
 		frame = 3;
 		run = 1;
 	}
 	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_D) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
 		m_position.m_x += speed;
 		//chieu duong
-		VecX += 5;
+		VecX += speed;
 		m_velocity.setX(0.001);
 		m_currentRow = 2;
 		frame = 6;
@@ -151,13 +152,50 @@ void Player::update()
 			time.reset();
 		}
 	}
-	else if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_K)) {
-		m_currentRow = 2;
-		frame = 7;
-		tick = 100;
-		//mana -= 5;
-		
-		//move();
+
+	//Dash
+	if (mana > 0) {
+		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_D)) {
+			m_position.m_x += 10;
+			m_currentRow = 2;
+			frame = 6;
+			tick = 50;
+			mana -= 1;
+			dash = 1;
+			run = 0;
+			time.reset();
+			//move();
+		}
+		else if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_W)) {
+			m_position.m_y -= 10;
+			m_currentRow = 8;
+			frame = 3;
+			tick = 50;
+			mana -= 1;
+			dash = 1;
+			run = 0;
+			//move();
+		}
+		else if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_S)) {
+			m_position.m_y += 10;
+			m_currentRow = 6;
+			frame = 3;
+			tick = 50;
+			mana -= 1;
+			dash = 1;
+			run = 0;
+			//move();
+		}
+		else if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_A)) {
+			m_position.m_x -= 10;
+			m_currentRow = 2;
+			frame = 6;
+			tick = 50;
+			mana -= 1;
+			dash = 1;
+			run = 0;
+			//move();
+		}
 	}
 
 	if (attacked == 1) {
@@ -229,7 +267,6 @@ void Player::update()
 	auraFrame = int(((SDL_GetTicks() / 150) % 4));
 	move();
 	m_currentFrame = int(((SDL_GetTicks() / tick) % frame));
-
 	//Sound
 	if (run == 1) {
 		attacked = 0;
@@ -241,6 +278,9 @@ void Player::update()
 	}
 	else if (attacked == 1) {
 		SoundManager::Instance()->playSound("assets/damaged.wav", 0);
+	}
+	else if (dash == 1) {
+		SoundManager::Instance()->playSound("assets/dash.wav", 0);
 	}
 	else {
 		Mix_HaltChannel(-1);

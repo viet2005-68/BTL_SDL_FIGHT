@@ -208,6 +208,7 @@ bool PlayState::onEnter() {
 
 
 	SoundManager::Instance()->load("assets/walk1.mp3", "assets/walk.wav", SOUND_SFX);
+	SoundManager::Instance()->load("assets/dash.wav", "assets/dash.wav", SOUND_SFX);
 	SoundManager::Instance()->load("assets/attack.wav", "assets/attack.wav", SOUND_SFX);
 	SoundManager::Instance()->load("assets/damaged.wav", "assets/damaged.wav", SOUND_SFX);
 	SoundManager::Instance()->load("assets/enemy1Damaged.wav", "assets/enemy1Damaged.wav", SOUND_SFX);
@@ -274,6 +275,7 @@ bool PlayState::onEnter() {
 	{
 		return false;
 	}
+
 
 
 	chest* chest1 = new chest(new LoaderParams(1000, 450, 31, 28, "assets/chest.png"));
@@ -365,9 +367,6 @@ bool PlayState::onExit() {
 	TextureManager::Instance()->clearFromTextureMap("assets/slimeDeath.png");
 	TextureManager::Instance()->clearFromTextureMap("assets/slimeHit.png");
 	TextureManager::Instance()->clearFromTextureMap("assets/slimeIdle.png");
-	TextureManager::Instance()->clearFromTextureMap("assets/portal.png");
-	TextureManager::Instance()->clearFromTextureMap("assets/healthUnder.png");
-	TextureManager::Instance()->clearFromTextureMap("assets/health.png");
 	Mix_HaltMusic();
 	std::cout << "Exiting PlayState...\n";
 	return true;
