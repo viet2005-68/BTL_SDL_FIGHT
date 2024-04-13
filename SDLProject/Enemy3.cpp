@@ -1,6 +1,6 @@
 #include "Enemy3.h"
 #include <iostream>
-
+#include "Map_lv2.h"
 
 Enemy3::Enemy3(const LoaderParams* pParams) : SDLGameObject(pParams)
 {
@@ -8,20 +8,22 @@ Enemy3::Enemy3(const LoaderParams* pParams) : SDLGameObject(pParams)
 	enemyRect.h = 70;
 	enemyRect.x = m_position.getX();
 	enemyRect.y = m_position.getY();
-
+	des_X_left = enemyRect.x - 60;
+	des_X_right = enemyRect.x + 60;
 }
 
 void Enemy3::draw() {
 	SDLGameObject::draw();
 	TextureManager::Instance()->drawChar("assets/healthUnder.png", Game::Instance()->getRenderer(), enemyRect.x, enemyRect.y - 30, barWidth, barHeight, 1, 0, 0);
 	TextureManager::Instance()->drawChar("assets/health.png", Game::Instance()->getRenderer(), enemyRect.x, enemyRect.y - 30, healthBar, 8, 1, 0, 0);
-	//SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(enemyRect));
-	//SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
+	SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(enemyRect));
+	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
 }
 
 void Enemy3::update() {
 	m_currentFrame = int(((SDL_GetTicks() / tick) % frame));
-
+	enemyRect.x = m_position.m_x + 80;
+	enemyRect.y = m_position.m_y + 80;
 	SDLGameObject::update();
 
 }
@@ -51,11 +53,11 @@ void Enemy3::move(Player*& player) {
 			time.reset();
 		}
 	}
-	else if (abs(player->playerRect.x - enemyRect.x) <= 70 && player->playerRect.y + 91 >= enemyRect.y && player->playerRect.y <= enemyRect.y + 40 && death != true) {
+	else if (abs(player->playerRect.x - enemyRect.x) <= 70 && player->playerRect.y + 32 >= enemyRect.y && player->playerRect.y <= enemyRect.y + 40 && death != true) {
 		if (player->playerRect.x + 70 >= enemyRect.x && player->playerRect.x + 80 < enemyRect.x + 120) {
 			m_velocity.setX(-0.0000000001);
 		}
-		else if (player->playerRect.x <= enemyRect.x + 70 && player->playerRect.x + 80 > enemyRect.x + 120) {
+		else if (player->playerRect.x <= enemyRect.x + 70 && player->playerRect.x + 32 > enemyRect.x + 120) {
 			m_velocity.setX(0);
 		}
 
@@ -92,37 +94,35 @@ void Enemy3::move(Player*& player) {
 			}
 		}
 	}
-	else if (player->playerRect.x + 70 < enemyRect.x) {
-		tick = 100;
-		frame = 8;
-		m_velocity.setX(-1.5);
-		//player->attacked = 0;
-		//Timer::getInstance()->reset();
-		time.reset();
-	}
-	else if (player->playerRect.x > enemyRect.x + 70) {
-		tick = 100;
-		frame = 8;
-		m_velocity.setX(1.5);
-		//player->attacked = 0;
-		//Timer::getInstance()->reset();
-		time.reset();
-	}
+	
 	else {
-		tick = 100;
+		tick = 90;
 		frame = 8;
 		//player->attacked = 0;
 		//Timer::getInstance()->reset();
-		time.reset();
+		if (enemyRect.x <= des_X_left) {
+			m_velocity.setX(0.001);
+		}
+		if (enemyRect.x >= des_X_right) {
+			m_velocity.setX(-0.01);
+		}
+		enemyRect.x = m_position.m_x + 80;
+		enemyRect.y = m_position.m_y + 80;
+		if (Map_lv2::getInstance()->iswall(enemyRect)) {
+			m_velocity.setX(-1 * m_velocity.m_x);
+		}
+		
+		if (m_velocity.getX() <= 0) {
+			m_position.m_x -= 0.8;
+			time.reset();
+		}
+		if (m_velocity.getX() >= 0) {
+			m_position.m_x += 0.8;
+			time.reset();
+		}
+		//time.reset();
+
+
 	}
 
-	if (player->playerRect.y < enemyRect.y && death == false) {
-		m_velocity.setY(-1.5);
-	}
-	else if (player->playerRect.y > enemyRect.y && death == false) {
-		m_velocity.setY(1.5);
-	}
-	else {
-		m_velocity.setY(0);
-	}
 }
