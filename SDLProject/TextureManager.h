@@ -21,6 +21,7 @@ public:
 	void drawFrame(const char* fileName, SDL_Renderer* ren, int x, int y, int w, int h, int currentRow, int currentFrame, int flag);
 	void drawChar(const char* fileName, SDL_Renderer* ren, int x, int y, int w, int h, int currentRow, int currentFrame, int flag);
 	void drawMap(const char* fileName, SDL_Renderer* ren, int x, int y, int w, int h);
+	void drawMap_Update(SDL_Texture *tex, SDL_Rect src, SDL_Rect des);
 	SDL_Texture* loadMap(const char* fileName, SDL_Renderer* ren);
 	void clearFromTextureMap(const char* fileName);
 

@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include "Game.h"
 #include "Map.h"
-
+#include "Map_lv2.h"
 
 Player::Player(const LoaderParams* pParams) : SDLGameObject(pParams)
 {
@@ -12,10 +12,11 @@ Player::Player(const LoaderParams* pParams) : SDLGameObject(pParams)
 	TextureManager::Instance()->load("assets/playerHealthUnder.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/playerHealth.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/heart.png", Game::Instance()->getRenderer());
-	playerRect.x = m_position.m_x + 40;
-	playerRect.y = m_position.m_y + 40;
+	
 	playerRect.w = 32;
 	playerRect.h = 32;
+	playerRect.x = m_position.m_x + playerRect.w;
+	playerRect.y = m_position.m_y + playerRect.h;
 	VecX = 0;
 	VecY = 0;
 
@@ -94,6 +95,8 @@ void Player::update()
 	}
 	//playerRect.x = m_position.m_x+40;
 	//playerRect.y = m_position.m_y+40;
+	playerRect.x = m_position.m_x + playerRect.w;
+	playerRect.y = m_position.m_y + playerRect.h;
 
 	int tick = 100;
 	frame = 6;
@@ -133,6 +136,7 @@ void Player::update()
 		m_velocity.setX(0.001);
 		m_currentRow = 2;
 		frame = 6;
+		
 		run = 1;
 		//move();
 
@@ -150,14 +154,16 @@ void Player::update()
 	else if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_K)) {
 		m_currentRow = 2;
 		frame = 7;
-		tick = 300;
+		tick = 100;
+		//mana -= 5;
+		
 		//move();
 	}
 
 	if (attacked == 1) {
 		m_currentRow = 5;
 		frame = 3;
-		tick = 400;
+		tick = 300;
 	}
 	if (regen == true) {
 		if (regenTime.getElapsedTime() > 1) {
@@ -244,13 +250,25 @@ void Player::update()
 }
 void Player::move() {
 	if (lvl1 == true) {
-		playerRect.x = m_position.m_x;
-		playerRect.y = m_position.m_y;
+		playerRect.x = m_position.m_x + playerRect.w;
+		playerRect.y = m_position.m_y + playerRect.h;
 		if (Map::getInstance()->iswall(playerRect)) {
 			m_position.m_x -= VecX;
 			
 		}
 		if (Map::getInstance()->iswall(playerRect)) {
+			m_position.m_y -= VecY;
+
+		}
+	}
+	else if (lvl2 == true) {
+		playerRect.x = m_position.m_x + playerRect.w;
+		playerRect.y = m_position.m_y + playerRect.h;
+		if (Map_lv2::getInstance()->iswall(playerRect)) {
+			m_position.m_x -= VecX;
+
+		}
+		if (Map_lv2::getInstance()->iswall(playerRect)) {
 			m_position.m_y -= VecY;
 
 		}

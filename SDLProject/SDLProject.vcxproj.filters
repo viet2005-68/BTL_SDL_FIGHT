@@ -105,6 +105,15 @@
     <ClCompile Include="Map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="house.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Map_lv2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="housebot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -192,6 +201,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="house.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Map_lv2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="housebot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

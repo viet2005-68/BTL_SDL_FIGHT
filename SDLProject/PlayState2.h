@@ -20,7 +20,7 @@ public:
 		return s_play2ID;
 	}
 	//static void s_pauseState();
-
+    Player* player;
 
 private:
 	static const const char* s_play2ID;

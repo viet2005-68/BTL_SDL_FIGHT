@@ -1,2 +1,27 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (SDLProject.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  mushroom.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(22,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(21,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(34,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\mushroom.cpp(10,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\mushroom.cpp(11,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\mushroom.cpp(26,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\mushroom.cpp(27,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\mushroom.cpp(99,16): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\mushroom.cpp(100,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\mushroom.cpp(101,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\mushroom.cpp(106,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\mushroom.cpp(107,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\mushroom.cpp(110,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\mushroom.cpp(119,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\mushroom.cpp(120,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\mushroom.cpp(137,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\mushroom.cpp(138,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\mushroom.cpp(141,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\mushroom.cpp(150,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\mushroom.cpp(151,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   SDLProject.vcxproj -> C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\x64\Debug\SDL.exe

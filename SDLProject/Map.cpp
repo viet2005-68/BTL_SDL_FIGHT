@@ -68,7 +68,7 @@ void Map::LoadMap() {
 	for (int i = 0; i < 25; i++) {
 		for (int j = 0; j < 40; j++) {
 
-			Map_in[i][j] = new Tile_map( j * 32, i * 32,1);
+			Map_in[i][j] = new Tile_map( j * 32, i * 32, lv_check[i][j]);
 			//Map_in[i][j]->type = lv_check[i][j];
 		}
 	}

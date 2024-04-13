@@ -1,6 +1,6 @@
 #include "Enemy.h"
 #include <iostream>
-
+#include "Map_lv2.h"
 
 Enemy::Enemy(const LoaderParams* pParams) : SDLGameObject(pParams)
 {
@@ -15,8 +15,8 @@ void Enemy::draw() {
 	SDLGameObject::draw();
 	TextureManager::Instance()->drawChar("assets/healthUnder.png", Game::Instance()->getRenderer(), enemyRect.x, enemyRect.y - 30, barWidth, barHeight, 1, 0, 0);
 	TextureManager::Instance()->drawChar("assets/health.png", Game::Instance()->getRenderer(), enemyRect.x, enemyRect.y - 30, healthBar, 8, 1, 0, 0);
-	//SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(enemyRect));
-	//SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
+	SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(enemyRect));
+	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
 }
 
 void Enemy::update() {
@@ -35,7 +35,7 @@ void Enemy::move(Player* &player) {
 	enemyRect.x = m_position.getX() + 70;
 	enemyRect.y = m_position.getY() + 100;
 	m_textureID = "assets/enemy1Run.png";
-	
+	double distance = sqrt(pow(m_position.m_x - player->m_position.m_x, 2) + pow(m_position.m_y - player->m_position.m_y, 2));
 	if (death) {
 		m_velocity.setX(0);
 		m_velocity.setY(0);
@@ -84,18 +84,23 @@ void Enemy::move(Player* &player) {
 			}
 		}
 	}
-	else if(player->playerRect.x + 70 < enemyRect.x) {
+	else if(player->playerRect.x + 70 < enemyRect.x && distance < 220) {
 		tick = 100;
 		frame = 8;
-
+		if (distance < 32) {
+			m_velocity.setX(-5);
+		}
 		m_velocity.setX(-1);
 		
 		time.reset();
+		
 	}
-	else if (player->playerRect.x > enemyRect.x + 70) {
+	else if (player->playerRect.x > enemyRect.x + 70 && distance < 220) {
 		tick = 100;
 		frame = 8;
-
+		if (distance < 32) {
+			m_velocity.setX(5);
+		}
 		m_velocity.setX(1);
 	
 		time.reset();
@@ -103,14 +108,27 @@ void Enemy::move(Player* &player) {
 	else {
 		tick = 100;
 		frame = 8;
+		m_velocity.setX(0);
 		time.reset();
 	}
 
-	if (player->playerRect.y <= enemyRect.y && death == false) {
+	if (player->playerRect.y <= enemyRect.y && death == false && distance < 220) {
+		if (distance < 32) {
+			m_velocity.setY(-10);
+		}
 		m_velocity.setY(-1);
 		
 	}
-	else if (player->playerRect.y >= enemyRect.y && death == false) {
+	else if (player->playerRect.y >= enemyRect.y && death == false && distance < 220) {
+		if (distance < 32) {
+			m_velocity.setY(10);
+		}
 		m_velocity.setY(1);
 	}
+	else {
+		m_velocity.setY(0);
+		
+	}
+	
+
 }

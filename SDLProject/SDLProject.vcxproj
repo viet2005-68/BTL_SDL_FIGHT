@@ -141,10 +141,13 @@
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameStateMachine.cpp" />
     <ClCompile Include="HelpState.cpp" />
+    <ClCompile Include="house.cpp" />
+    <ClCompile Include="housebot.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="LoaderParams.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Map_lv2.cpp" />
     <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="mushroom.cpp" />
@@ -173,9 +176,12 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStateMachine.h" />
     <ClInclude Include="HelpState.h" />
+    <ClInclude Include="house.h" />
+    <ClInclude Include="housebot.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="LoaderParams.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="Map_lv2.h" />
     <ClInclude Include="MenuButton.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="mushroom.h" />

@@ -110,3 +110,6 @@ void TextureManager::drawMap(const char* fileName, SDL_Renderer* ren, int x, int
 	desR.w = 32;
 	SDL_RenderCopy(ren, textureMap[fileName], &sourceR, &desR);
 }
+void TextureManager::drawMap_Update(SDL_Texture* tex, SDL_Rect src, SDL_Rect des) {
+	SDL_RenderCopy(Game::Instance()->getRenderer(), tex, &src, &des);
+}

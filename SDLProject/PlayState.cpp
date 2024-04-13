@@ -351,6 +351,11 @@ bool PlayState::onExit() {
 	m_enemies.clear();
 	m_mush.clear();
 	m_chest.clear();
+
+	//delete map 1
+
+	player->getLevel1(0);
+
 	TextureManager::Instance()->clearFromTextureMap("assets/player.png");
 	TextureManager::Instance()->clearFromTextureMap("assets/enemy1Run.png");
 	TextureManager::Instance()->clearFromTextureMap("assets/enemy1Hit.png");
