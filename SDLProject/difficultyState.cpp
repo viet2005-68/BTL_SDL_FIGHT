@@ -18,7 +18,7 @@ void difficultyState::update1()
 
 
 void difficultyState::render() {
-	TextureManager::Instance()->draw("assets/background3.png", Game::Instance()->getRenderer(), 0, 0, 640, 400);
+	TextureManager::Instance()->drawOG("assets/background3.png", Game::Instance()->getRenderer(), 0, 0, 1280, 800);
 	button2->draw();
 	button1->draw();
 }
@@ -53,11 +53,11 @@ bool difficultyState::onExit() {
 
 void difficultyState::s_easy()
 {
-	Game::Instance()->getStateMachine()->changeState(new PlayState2());
+	Game::Instance()->getStateMachine()->changeState(new CharacterState());
 }
 
 void difficultyState::s_hard()
 {
-	Game::Instance()->getStateMachine()->changeState(new PlayState(2));
+	Game::Instance()->getStateMachine()->changeState(new CharacterStateHard());
 }
 

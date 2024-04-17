@@ -34,7 +34,7 @@ void tower::clean() {
 
 }
 
-void tower::move(Player*& player) {
+void tower::move(Player*& player, int map) {
 	enemyRect.x = m_position.getX() + 70;
 	enemyRect.y = m_position.getY() + 100;
 	m_textureID = "assets/tower.png";
@@ -69,6 +69,6 @@ void tower::move(Player*& player) {
 	}
 	for (int i = 0; i < m_fire.size(); ++i) {
 		m_fire[i]->update();
-		m_fire[i]->move(player, i);
+		m_fire[i]->move(player, i, map);
 	}
 }

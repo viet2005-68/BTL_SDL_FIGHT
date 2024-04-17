@@ -8,14 +8,17 @@
 #include "GameObject.h"
 #include "Player.h"
 #include "Enemy.h"
-#include "tower.h"
 #include "Enemy2.h"
 #include "Enemy3.h"
+#include "Enemy4.h"
+#include "tower.h"
 #include "InputHandler.h"
 #include "LoaderParams.h"
 #include "GameStateMachine.h"
 #include "MenuState.h"
 #include "difficultyState.h"
+#include "CharacterState.h"
+#include "CharacterStateHard.h"
 #include "PlayState.h"
 #include "PlayState2.h"
 #include "PauseState.h"
@@ -24,7 +27,8 @@
 #include "GameOverState.h"
 #include "SoundManager.h"
 #include "MenuButton.h"
-#include "scorePlayer.h"
+#include "Map_lv2.h"
+#include "ScorePlayer.h"
 using namespace std;
 
 #define SCREEN_WIDTH 1280

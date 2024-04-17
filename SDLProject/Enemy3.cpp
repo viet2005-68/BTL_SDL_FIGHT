@@ -36,7 +36,53 @@ void Enemy3::move(Player*& player) {
 	enemyRect.x = m_position.getX() + 80;
 	enemyRect.y = m_position.getY() + 80;
 	m_textureID = "assets/enemy3Run.png";
-	//cout << time.getElapsedTime() << endl;
+
+	//LightningBird skill
+
+	if (death != 1) {
+		for (int i = 0; i < player->m_birds.size(); ++i) {
+			if (player->m_birds[i]->death != 1 && Map_lv2::getInstance()->checkwall(player->m_birds[i]->birdRect, enemyRect)) {
+				if (birdTime.getElapsedTime() < 0.2) {
+					SoundManager::Instance()->playSound("assets/lightningBird.wav", 0);
+				}
+				if (birdTime.getElapsedTime() > 0.5) {
+					health -= player->damage * 2 * player->damageRatio / damageRes;
+					healthBar -= ((player->damage + 7) * 2 * player->damageRatio) / damageRes;
+					if (health <= 0) {
+						player->score += 10;
+						std::cout << player->score << std::endl;
+						death = true;
+					}
+					birdTime.reset();
+					break;
+				}
+			}
+		}
+
+		for (int i = 0; i < player->m_fireBalls.size(); ++i) {
+			if (player->m_fireBalls[i]->death != 1 && Map_lv2::getInstance()->checkwall(player->m_fireBalls[i]->fireRect, enemyRect)) {
+				health -= player->damage * player->damageRatio / damageRes;
+				healthBar -= ((player->damage + 7) * player->damageRatio) / damageRes;
+				player->m_fireBalls[i]->death = 1;
+				if (health <= 0) {
+					player->score += 10;
+					std::cout << player->score << std::endl;
+					death = true;
+				}
+			}
+		}
+
+		if (player->explosion == 1) {
+			healthBar -= 1;
+			if (healthBar <= 0) {
+				player->score += 10;
+				std::cout << player->score << std::endl;
+				death = true;
+			}
+		}
+	}
+
+
 	if (death) {
 		m_velocity.setX(0);
 		m_velocity.setY(0);
@@ -61,6 +107,32 @@ void Enemy3::move(Player*& player) {
 			m_velocity.setX(0);
 		}
 
+		if (player->skill == 1) {
+			if (lightning.getElapsedTime() > player->attackSpeed) {
+				health -= player->damage * 3 * player->damageRatio / damageRes;
+				healthBar -= ((player->damage + 7) * 3 * player->damageRatio) / damageRes;
+				lightning.reset();
+			}
+			if (health <= 0) {
+				player->score += 10;
+				std::cout << player->score << std::endl;
+				death = true;
+			}
+		}
+
+		if (player->lightning == 1) {
+			if (time.getElapsedTime() > 0.1) {
+				health -= 1 * player->damageRatio / damageRes;
+				healthBar -= 2 * player->damageRatio / damageRes;
+				time.reset();
+			}
+			if (health <= 0) {
+				player->score += 10;
+				std::cout << player->score << std::endl;
+				death = true;
+			}
+		}
+
 		if (player->attack != 1 || (player->playerRect.x + 80 > enemyRect.x + 70 && player->getVelocity().getX() > 0) || (player->playerRect.x + 80 < enemyRect.x + 70 && player->getVelocity().getX() < 0)) {
 			m_textureID = "assets/enemy3Attack.png";
 			tick = 50;
@@ -83,7 +155,7 @@ void Enemy3::move(Player*& player) {
 				//std::cout << "Flying eye health: " << health << std::endl;
 				SoundManager::Instance()->playSound("assets/attack.wav", 0);
 				//player->attacked = 0;
-				//Timer::getInstance()->reset();
+								//Timer::getInstance()->reset();
 				time.reset();
 			}
 
@@ -95,7 +167,7 @@ void Enemy3::move(Player*& player) {
 			}
 		}
 	}
-	
+
 	else {
 		tick = 90;
 		frame = 8;
@@ -112,7 +184,7 @@ void Enemy3::move(Player*& player) {
 		if (Map_lv2::getInstance()->iswall(enemyRect)) {
 			m_velocity.setX(-1 * m_velocity.m_x);
 		}
-		
+
 		if (m_velocity.getX() <= 0) {
 			m_position.m_x -= 0.8;
 			time.reset();

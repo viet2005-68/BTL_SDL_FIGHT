@@ -18,7 +18,7 @@ public:
 	virtual void update();
 	virtual void clean();
 
-	void move(Player*& player);
+	void move(Player*& player, int map);
 	bool death = 0;
 	double damageRes = 1;
 private:

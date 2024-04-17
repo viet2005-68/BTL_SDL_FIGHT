@@ -30,12 +30,57 @@ void Enemy::clean() {
 
 }
 
-void Enemy::move(Player* &player) {
-	
+void Enemy::move(Player*& player) {
 	enemyRect.x = m_position.getX() + 70;
 	enemyRect.y = m_position.getY() + 100;
 	m_textureID = "assets/enemy1Run.png";
-	double distance = sqrt(pow(m_position.m_x - player->m_position.m_x, 2) + pow(m_position.m_y - player->m_position.m_y, 2));
+	//cout << time.getElapsedTime() << endl;
+
+		//LightningBird skill
+
+	if (death != 1) {
+		for (int i = 0; i < player->m_birds.size(); ++i) {
+			if (player->m_birds[i]->death != 1 && Map_lv2::getInstance()->checkwall(player->m_birds[i]->birdRect, enemyRect)) {
+				if (birdTime.getElapsedTime() < 0.2) {
+					SoundManager::Instance()->playSound("assets/lightningBird.wav", 0);
+				}
+				if (birdTime.getElapsedTime() > 0.5) {
+					health -= player->damage * 2 * player->damageRatio / damageRes;
+					healthBar -= ((player->damage + 7) * 2 * player->damageRatio) / damageRes;
+					if (health <= 0) {
+						player->score += 10;
+						std::cout << player->score << std::endl;
+						death = true;
+					}
+					birdTime.reset();
+					break;
+				}
+			}
+		}
+
+		for (int i = 0; i < player->m_fireBalls.size(); ++i) {
+			if (player->m_fireBalls[i]->death != 1 && Map_lv2::getInstance()->checkwall(player->m_fireBalls[i]->fireRect, enemyRect)) {
+				health -= player->damage * player->damageRatio / damageRes;
+				healthBar -= ((player->damage + 7) * player->damageRatio) / damageRes;
+				player->m_fireBalls[i]->death = 1;
+				if (health <= 0) {
+					player->score += 10;
+					std::cout << player->score << std::endl;
+					death = true;
+				}
+			}
+		}
+
+		if (player->explosion == 1) {
+			healthBar -= 1;
+			if (healthBar <= 0) {
+				player->score += 10;
+				std::cout << player->score << std::endl;
+				death = true;
+			}
+		}
+	}
+
 	if (death) {
 		m_velocity.setX(0);
 		m_velocity.setY(0);
@@ -43,24 +88,60 @@ void Enemy::move(Player* &player) {
 		frame = 4;
 		tick = 200;
 		if (time.getElapsedTime() > 0.3) {
-			
+			//TextureManager::Instance()->clearFromTextureMap("assets/enemy1Death.png");
+			//Timer::getInstance()->reset();
 			m_width = 0;
 			m_height = 0;
 			barHeight = barWidth = 0;
-			time.reset();
+			healthBar = 0;
+			//time.reset();
 		}
 	}
 	else if (abs(player->playerRect.x - enemyRect.x) <= 70 && player->playerRect.y + 91 >= enemyRect.y && player->playerRect.y <= enemyRect.y + 40 && death != true) {
-	
-		if (player->attack != 1 || (player->playerRect.x + 80 > enemyRect.x+70 && player->getVelocity().getX()>0) || (player->playerRect.x + 80 < enemyRect.x+70 && player->getVelocity().getX() < 0)) {
+		/*if (player->playerRect.x + 70 >= enemyRect.x) {
+			m_velocity.setX(-0.0000000001);
+		}
+		else if(player->playerRect.x <= enemyRect.x + 70)  {
+			m_velocity.setX(0);
+		}*/
+
+		if (player->skill == 1) {
+			if (time.getElapsedTime() > player->attackSpeed) {
+				health -= player->damage * 3 * player->damageRatio / damageRes;
+				healthBar -= ((player->damage + 7) * 3 * player->damageRatio) / damageRes;
+				time.reset();
+			}
+			if (health <= 0) {
+				Game::Instance()->m_score->Setscore(10);
+				player->score += 10;
+				std::cout << player->score << std::endl;
+				death = true;
+			}
+		}
+
+		if (player->lightning == 1) {
+			if (lightning.getElapsedTime() > 0.1) {
+				health -= 1 * player->damageRatio / damageRes;
+				healthBar -= 2 * player->damageRatio / damageRes;
+				lightning.reset();
+			}
+			if (health <= 0) {
+				Game::Instance()->m_score->Setscore(10);
+				player->score += 10;
+				std::cout << player->score << std::endl;
+				death = true;
+			}
+		}
+
+		if (player->attack != 1 || (player->playerRect.x + 80 > enemyRect.x + 70 && player->getVelocity().getX() > 0) || (player->playerRect.x + 80 < enemyRect.x + 70 && player->getVelocity().getX() < 0)) {
 			m_textureID = "assets/enemy1Attack.png";
 			tick = 150;
 			frame = 8;
 			if (time.getElapsedTime() > 1) {
-				player->healthBar -= 10 / player->defense;
+				player->healthBar -= (10 / player->defense);
 				player->attacked = 1;
 				SoundManager::Instance()->playSound("assets/damaged.wav", 0);
-				
+				//Timer::getInstance()->reset();
 				time.reset();
 			}
 		}
@@ -69,67 +150,54 @@ void Enemy::move(Player* &player) {
 			frame = 4;
 			tick = 200;
 			if (time.getElapsedTime() > player->attackSpeed) {
-				health -= player->damage*player->damageRatio;
-				healthBar -= (player->damage)*player->damageRatio + 7;
-				
+				health -= player->damage * player->damageRatio / damageRes;
+				healthBar -= (player->damage * player->damageRatio + 7) / damageRes;
+				//std::cout << "Flying eye health: " << health << std::endl;
 				SoundManager::Instance()->playSound("assets/attack.wav", 0);
-			
+				//player->attacked = 0;
+				//Timer::getInstance()->reset();
 				time.reset();
 			}
 
-			if (healthBar <= 0) {
+			if (health <= 0) {
 				Game::Instance()->m_score->Setscore(10);
-				player->score += 10;
+				;				player->score += 10;
 				std::cout << player->score << std::endl;
 				death = true;
 			}
 		}
 	}
-	else if(player->playerRect.x + 70 < enemyRect.x && distance < 220) {
+	else if (player->playerRect.x + 70 < enemyRect.x) {
 		tick = 100;
 		frame = 8;
-		if (distance < 32) {
-			m_velocity.setX(-5);
-		}
 		m_velocity.setX(-1);
-		
+		//player->attacked = 0;
+		//Timer::getInstance()->reset();
 		time.reset();
-		
 	}
-	else if (player->playerRect.x > enemyRect.x + 70 && distance < 220) {
+	else if (player->playerRect.x > enemyRect.x + 70) {
 		tick = 100;
 		frame = 8;
-		if (distance < 32) {
-			m_velocity.setX(5);
-		}
 		m_velocity.setX(1);
-	
+		//player->attacked = 0;
+		//Timer::getInstance()->reset();
 		time.reset();
 	}
 	else {
 		tick = 100;
 		frame = 8;
-		m_velocity.setX(0);
+		//player->attacked = 0;
+		//Timer::getInstance()->reset();
 		time.reset();
 	}
 
-	if (player->playerRect.y <= enemyRect.y && death == false && distance < 220) {
-		if (distance < 32) {
-			m_velocity.setY(-10);
-		}
+	if (player->playerRect.y < enemyRect.y && death == false) {
 		m_velocity.setY(-1);
-		
 	}
-	else if (player->playerRect.y >= enemyRect.y && death == false && distance < 220) {
-		if (distance < 32) {
-			m_velocity.setY(10);
-		}
+	else if (player->playerRect.y > enemyRect.y && death == false) {
 		m_velocity.setY(1);
 	}
 	else {
 		m_velocity.setY(0);
-		
 	}
-	
-
 }

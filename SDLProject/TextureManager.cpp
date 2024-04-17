@@ -113,3 +113,15 @@ void TextureManager::drawMap(const char* fileName, SDL_Renderer* ren, int x, int
 void TextureManager::drawMap_Update(SDL_Texture* tex, SDL_Rect src, SDL_Rect des) {
 	SDL_RenderCopy(Game::Instance()->getRenderer(), tex, &src, &des);
 }
+void TextureManager::drawOG(const char* fileName, SDL_Renderer* ren, int x, int y, int w, int h) {
+	SDL_Rect sourceR, desR;
+	sourceR.x = 0;
+	sourceR.y = 0;
+	sourceR.h = h;
+	sourceR.w = w;
+	desR.x = x;
+	desR.y = y;
+	desR.h = h;
+	desR.w = w;
+	SDL_RenderCopy(ren, textureMap[fileName], &sourceR, &desR);
+}

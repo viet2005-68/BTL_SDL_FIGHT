@@ -23,6 +23,7 @@ public:
 	void drawMap(const char* fileName, SDL_Renderer* ren, int x, int y, int w, int h);
 	void drawMap_Update(SDL_Texture *tex, SDL_Rect src, SDL_Rect des);
 	SDL_Texture* loadMap(const char* fileName, SDL_Renderer* ren);
+	void drawOG(const char* fileName, SDL_Renderer* ren, int x, int y, int w, int h);
 	void clearFromTextureMap(const char* fileName);
 
 	static TextureManager* Instance()

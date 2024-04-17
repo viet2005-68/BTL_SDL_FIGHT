@@ -24,9 +24,11 @@ private:
 	double health = 30;
 	SDL_Rect enemyRect;
 	Time time;
+	Time lightning;
 	double healthBar = 50;
 	int barWidth = 50;
 	int barHeight = 8;
 	int des_X_left;
 	int des_X_right;
+	Time birdTime;
 };

@@ -18,16 +18,20 @@ public:
 
 	void move(Player*& player);
 	bool death = 0;
+	double damageRes = 1;
 private:
 	int frame = 7;
 	int tick = 100;
 	int health = 50;
 	SDL_Rect enemyRect;
 	Time time;
+	//Time Lightning;
 	int healthBar = 50;
 	int barWidth = 50;
 	int barHeight = 8;
 	int VecX;
 	int VecY;
+	Time lightning;
+	Time birdTime;
 };
 

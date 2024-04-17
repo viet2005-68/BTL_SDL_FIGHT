@@ -13,8 +13,9 @@ class GameObject;
 class PlayState : public GameState
 {
 public: 
-	PlayState(int a) {
+	PlayState(int a, int b) {
 		difficulty = a;
+		character = b;
 	}
 	PlayState(){}
 	virtual void update();
@@ -35,7 +36,7 @@ private:
 	std::vector<GameObject*> m_gameObjects;
 	int score = 0;
 	Time time;
-
+	int character;
 	int difficulty = 1;
 	int spawnTime;
 	int endStage = 0;

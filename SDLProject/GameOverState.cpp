@@ -13,6 +13,7 @@ void GameOverState::update1() {
 }
 
 void GameOverState::render() {
+	TextureManager::Instance()->draw("assets/background2.png", Game::Instance()->getRenderer(), 0, 0, 640, 400);
 	TextureManager::Instance()->draw("assets/GameOver.png", Game::Instance()->getRenderer(), 140, 200, 500, 88);
 	yesButton->draw();
 	noButton->draw();
@@ -49,6 +50,10 @@ bool GameOverState::onEnter()
 	{
 		return false;
 	}
+	if (!TextureManager::Instance()->load("assets/background2.png", Game::Instance()->getRenderer()))
+	{
+		return false;
+	}
 	std::cout << "entering GameOverState...\n";
 	return true;
 }
@@ -57,6 +62,7 @@ bool GameOverState::onExit() {
 	TextureManager::Instance()->clearFromTextureMap("assets/exitHelpButton.png");
 	TextureManager::Instance()->clearFromTextureMap("assets/yesButton.png");
 	TextureManager::Instance()->clearFromTextureMap("assets/GameOver.png");
+	
 	std::cout << "exiting GameOverState...\n";
 	return true;
 }
