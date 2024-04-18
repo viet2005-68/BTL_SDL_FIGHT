@@ -1,1 +1,1 @@
-![Uploading image.png…]()
+![Alt text](https://imgur.com/afMYeYR)
