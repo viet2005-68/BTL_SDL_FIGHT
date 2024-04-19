@@ -336,7 +336,8 @@ std::pair<int, int> Map_lv2::FindPath(SDL_Rect& player, SDL_Rect& destination) {
         std::pair<int, int> current = tile_queue.front();
         tile_queue.pop();
 
-        if (current.first == destination.x / 32 && current.second == destination.y / 32) {
+        SDL_Rect check = {current.first *32,current.second*32,32,32 };
+        if (checkwall(check,destination)) {
 
             return current;
         }
@@ -393,8 +394,9 @@ std::pair<int, int> Map_lv2::FindOptimalPath(SDL_Rect& player, SDL_Rect& destina
         tile_queue.pop();
 
         // Kiểm tra xem ô hiện tại phải là đích ?
-        if (current.first == destination.x / 32 && current.second == destination.y / 32) {
-            // Nếu tìm thấy đích, trả về true
+        SDL_Rect check = { current.first * 32,current.second * 32,32,32 };
+        if (checkwall(check, destination)) {
+
             return current;
         }
 
@@ -477,9 +479,12 @@ std::pair<int, int> Map_lv2::FindPathAStar(SDL_Rect& player, SDL_Rect& destinati
         int current_f_cost = current.first;
 
         // Kiểm tra xem ô hiện tại có phải là đích hay không
-        if (current_x == destination.x / 32 && current_y == destination.y / 32) {
+        SDL_Rect check = { current_x * 32,current_y * 32,32,32 };
+        if (checkwall(check, destination)) {
+
             return { current_x, current_y };
         }
+        
 
         // Duyệt các ô lân cận của ô hiện tại
         for (int i = -1; i <= 1; i++) {

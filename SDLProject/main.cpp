@@ -2,7 +2,7 @@
 #include "cstdlib"
 #include "Player.h"
 
-const int FPS = 90;
+const int FPS = 120;
 const int DELAY_TIME = 1000.0f / FPS;
 //Player* player;
 int main(int argc, char* argv[]) {

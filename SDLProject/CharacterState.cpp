@@ -5,9 +5,9 @@ const const char* CharacterState::s_characterID = "CHARACTER";
 void CharacterState::update()
 {
 	//player1->update();
-	if (m_char.size() != 0) {
+	if (m_char.size() > 0) {
 		for (int i = 0; i < m_char.size(); ++i) {
-			if (m_char[i] != NULL) {
+			if (m_char[i] != nullptr) {
 				m_char[i]->update();
 			}
 		}
@@ -86,19 +86,19 @@ bool CharacterState::onExit()
 
 void CharacterState::s_player1()
 {
-	Game::Instance()->getStateMachine()->changeState(new PlayState(1, 1));
+	Game::Instance()->getStateMachine()->changeState(new PlayState2(1, 1));
 }
 
 void CharacterState::s_player2()
 {
-	Game::Instance()->getStateMachine()->changeState(new PlayState(1, 2));
+	Game::Instance()->getStateMachine()->changeState(new PlayState2(1, 2));
 }
 
 void CharacterState::s_player3()
 {
-	Game::Instance()->getStateMachine()->changeState(new PlayState(1, 3));
+	Game::Instance()->getStateMachine()->changeState(new PlayState2(1, 3));
 }
 void CharacterState::s_player4()
 {
-	Game::Instance()->getStateMachine()->changeState(new PlayState(1, 4));
+	Game::Instance()->getStateMachine()->changeState(new PlayState2(1, 4));
 }

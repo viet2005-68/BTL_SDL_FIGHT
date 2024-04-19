@@ -2,6 +2,7 @@
 #include <iostream>
 #include "TextureManager.h"
 #include "Game.h"
+#include "BestScore.h"
 
 const const char* MenuState::s_menuID = "MENU";
 
@@ -25,8 +26,8 @@ void MenuState::update1()
 
 
 void MenuState::render() {
-	TextureManager::Instance()->draw("assets/background.png", Game::Instance()->getRenderer(), 0, 0, 640, 400);
-
+	TextureManager::Instance()->drawOG("assets/background.png", Game::Instance()->getRenderer(), 0, 0,1280 , 800);
+	TextureManager::Instance()->draw("assets/scorePanel.png", Game::Instance()->getRenderer(), 350, 630, 192, 64);
 	for (int i = 0; i < m_gameObjects.size(); ++i) {
 		m_gameObjects[i]->draw();
 	}
@@ -34,6 +35,7 @@ void MenuState::render() {
 	button1->draw();
 	button3->draw();
 
+	BestScore::GetInstance()->draw();
 }
 
 bool MenuState::onEnter() {
@@ -56,6 +58,9 @@ bool MenuState::onEnter() {
 	if (!TextureManager::Instance()->load("assets/exitButton.png", Game::Instance()->getRenderer())) {
 		return false;
 	}
+	if (!TextureManager::Instance()->load("assets/scorePanel.png", Game::Instance()->getRenderer())) {
+		return false;
+	}
 	//GameObject* button1 = new MenuButton(new LoaderParams(100, 400, 115, 53, "assets/playButton.png"), s_menuToPlay);
 	GameObject* button2 = new MenuButton(new LoaderParams(100, 640, 115, 53, "assets/exitButton.png"), s_exitFromMenu);
 
@@ -63,9 +68,9 @@ bool MenuState::onEnter() {
 
 	GameObject* button4 = new MenuButton(new LoaderParams(1200, 10, 36, 36, "assets/Mute.png"), s_volumeMute);
 	GameObject* button5 = new MenuButton(new LoaderParams(1100, 10, 36, 36, "assets/Unmute.png"), s_volumeUnmute);
-	//m_gameObjects.push_back(button1);
+	
+	// push button to menu pause
 	m_gameObjects.push_back(button2);
-	//m_gameObjects.push_back(button3);
 	m_gameObjects.push_back(button4);
 	m_gameObjects.push_back(button5);
 
@@ -115,6 +120,6 @@ void MenuState::s_volumeMute()
 void MenuState::s_volumeUnmute()
 {
 	std::cout << "Unmute" << endl;
-	Mix_VolumeMusic(100);
-	Mix_Volume(-1, 100);
+	Mix_VolumeMusic(128);
+	Mix_Volume(-1, 128);
 }

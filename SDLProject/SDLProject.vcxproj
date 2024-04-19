@@ -105,13 +105,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\SDL2_ttf-devel-2.0.12-VC\SDL2_ttf-2.0.12\include;$(SolutionDir)\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\include;$(SolutionDir)\SDL2_mixer-devel-2.8.0-VC\SDL2_mixer-2.8.0\include;$(SolutionDir)\SDL2-devel-2.30.0-VC\SDL2-2.30.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Lib\SDL2_ttf-devel-2.0.12-VC\SDL2_ttf-2.0.12\include;$(SolutionDir)\Lib\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\include;$(SolutionDir)\Lib\SDL2_mixer-devel-2.8.0-VC\SDL2_mixer-2.8.0\include;$(SolutionDir)\Lib\SDL2-devel-2.30.0-VC\SDL2-2.30.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>Default</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)\SDL2_ttf-devel-2.0.12-VC\SDL2_ttf-2.0.12\lib\x64;$(SolutionDir)\SDL2_mixer-devel-2.8.0-VC\SDL2_mixer-2.8.0\lib\x64;$(SolutionDir)\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\lib\x64;$(SolutionDir)\SDL2-devel-2.30.0-VC\SDL2-2.30.0\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Lib\SDL2_ttf-devel-2.0.12-VC\SDL2_ttf-2.0.12\lib\x64;$(SolutionDir)\Lib\SDL2_mixer-devel-2.8.0-VC\SDL2_mixer-2.8.0\lib\x64;$(SolutionDir)\Lib\SDL2_image-devel-2.8.2-VC\SDL2_image-2.8.2\lib\x64;$(SolutionDir)\Lib\SDL2-devel-2.30.0-VC\SDL2-2.30.0\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -132,11 +132,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AStarFindPath.cpp" />
+    <ClCompile Include="BestScore.cpp" />
+    <ClCompile Include="boss1.cpp" />
+    <ClCompile Include="boss2.cpp" />
+    <ClCompile Include="Bot.cpp" />
+    <ClCompile Include="CharacterState.cpp" />
+    <ClCompile Include="CharacterStateHard.cpp" />
     <ClCompile Include="chest.cpp" />
     <ClCompile Include="difficultyState.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Enemy2.cpp" />
     <ClCompile Include="Enemy3.cpp" />
+    <ClCompile Include="Enemy4.cpp" />
     <ClCompile Include="FireBall.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -147,19 +155,23 @@
     <ClCompile Include="house.cpp" />
     <ClCompile Include="housebot.cpp" />
     <ClCompile Include="InputHandler.cpp" />
+    <ClCompile Include="lightningBird.cpp" />
     <ClCompile Include="LoaderParams.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Map_lv2.cpp" />
+    <ClCompile Include="Map_lv3.cpp" />
     <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="mushroom.cpp" />
     <ClCompile Include="PauseState.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="playerFireBall.cpp" />
     <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="PlayState2.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Portal.cpp" />
+    <ClCompile Include="princess.cpp" />
     <ClCompile Include="SDLGameObject.cpp" />
     <ClCompile Include="shot.cpp" />
     <ClCompile Include="SlimeEnemy.cpp" />
@@ -171,11 +183,19 @@
     <ClCompile Include="WriteOnScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AStarFindPath.h" />
+    <ClInclude Include="BestScore.h" />
+    <ClInclude Include="boss1.h" />
+    <ClInclude Include="boss2.h" />
+    <ClInclude Include="Bot.h" />
+    <ClInclude Include="CharacterState.h" />
+    <ClInclude Include="CharacterStateHard.h" />
     <ClInclude Include="chest.h" />
     <ClInclude Include="difficultyState.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Enemy2.h" />
     <ClInclude Include="Enemy3.h" />
+    <ClInclude Include="Enemy4.h" />
     <ClInclude Include="FireBall.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
@@ -186,18 +206,22 @@
     <ClInclude Include="house.h" />
     <ClInclude Include="housebot.h" />
     <ClInclude Include="InputHandler.h" />
+    <ClInclude Include="lightningBird.h" />
     <ClInclude Include="LoaderParams.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Map_lv2.h" />
+    <ClInclude Include="Map_lv3.h" />
     <ClInclude Include="MenuButton.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="mushroom.h" />
     <ClInclude Include="PauseState.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="playerFireBall.h" />
     <ClInclude Include="PlayState.h" />
     <ClInclude Include="PlayState2.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Portal.h" />
+    <ClInclude Include="princess.h" />
     <ClInclude Include="scorePlayer.h" />
     <ClInclude Include="SDLGameObject.h" />
     <ClInclude Include="shot.h" />
@@ -205,6 +229,7 @@
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Time.h" />
+    <ClInclude Include="TimeOnPlay.h" />
     <ClInclude Include="tower.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="WriteOnScreen.h" />

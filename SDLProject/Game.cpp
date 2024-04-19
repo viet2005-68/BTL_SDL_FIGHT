@@ -13,7 +13,7 @@ void Game::init(const char* title, int w, int h, bool fullscreen) {
 	}
 	(SDL_Init(SDL_INIT_EVERYTHING));
 	cout << "Game initialized..." << endl;
-	window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, flag);
+	window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, SDL_WINDOW_SHOWN);
 	cout << "Window created..." << endl;
 	renderer = SDL_CreateRenderer(window, -1, 0);
 	cout << "Renderer created..." << endl;

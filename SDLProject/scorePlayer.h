@@ -23,6 +23,9 @@ public:
 	void reset() {
 		scorePlayer = 0;
 	}
+	int getScore() {
+		return scorePlayer;
+	}
 private:
 	int scorePlayer;
 	SDL_Rect m_score;
