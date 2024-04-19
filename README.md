@@ -17,7 +17,7 @@
   - Bạn có thể sử dụng các skill của nhân vật để đánh bại quái vật của quân đoàn hắc ám
 
 
-
+## Tự đánh giá : 9 đ
 
 
   
