@@ -28,6 +28,8 @@
 - Chức năng chọn nhân vật
 - Chức năng chọn độ khó hay dễ
 - Mỗi nhân vật đều có skill riêng của mình
+- Chuyển level khi hoàn thành xong một level nhất định
+- Chức năng tắt âm nhạc của game
   
 ## Tự đánh giá : 9 đ
 
