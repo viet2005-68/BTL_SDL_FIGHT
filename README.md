@@ -1,7 +1,7 @@
 # GAME KNIGHT
 ## GIỚI THIỆU
 - Họ và tên: Hoàng Thành Vinh && Nguyễn Hoàng Việt
-- MSSV: 23020170 & 23020174
+- MSSV: 23020174 & 23020170
 - C-D K68, Trường Đại học Công nghệ, Đại học Quốc gia Hà Nội (UET-VNU)
 
 ![background3](https://github.com/viet2005-68/BTL_SDL_FIGHT/assets/149287510/181ccc4f-8515-437f-a3e4-129919bb4fa0)
