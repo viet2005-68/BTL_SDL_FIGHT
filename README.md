@@ -30,6 +30,7 @@
 - Mỗi nhân vật đều có skill riêng của mình
 - Chuyển level khi hoàn thành xong một level nhất định
 - Chức năng tắt âm nhạc của game
+- Chức năng đếm thời gian chỉ khi chơi game khi pause sẽ tự động dừng lại
   
 ## Tự đánh giá : 9 đ
 
