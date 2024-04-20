@@ -10,6 +10,8 @@ class difficultyState : public GameState
 public:
 	virtual void update();
 	virtual void update1();
+	virtual void update2();
+	virtual void update3();
 	virtual void render();
 
 	virtual bool onEnter();

@@ -7,10 +7,12 @@
 #include "TextureManager.h"
 #include "GameObject.h"
 #include "Player.h"
+#include "Bot.h"
 #include "Enemy.h"
 #include "Enemy2.h"
 #include "Enemy3.h"
 #include "Enemy4.h"
+#include "finalBoss.h"
 #include "tower.h"
 #include "InputHandler.h"
 #include "LoaderParams.h"
@@ -25,14 +27,16 @@
 #include "HelpState.h"
 #include "Vector2D.h"
 #include "GameOverState.h"
+#include "VictoryState.h"
 #include "SoundManager.h"
 #include "MenuButton.h"
 #include "Map_lv2.h"
+#include "Map_lv3.h"
 #include "ScorePlayer.h"
-using namespace std;
+#include "BestScore.h"
+#include "Time.h"
 
-#define SCREEN_WIDTH 1280
-#define SCREEN_HEIGHT 800
+using namespace std;
 
 class Game {
 public:
@@ -44,7 +48,6 @@ public:
 	void handleEvent();
 	void clean();
 	void Quit();
-
 	SDL_Renderer* getRenderer() const { return renderer; }
 
 	bool running(){
@@ -60,7 +63,9 @@ public:
 	GameStateMachine* getStateMachine() {
 		return m_pGameStateMachine;
 	}
+	
 	ScorePlayer* m_score;
+	Time playTime;
 private:
 	SDL_Window* window;
 	SDL_Renderer* renderer;
@@ -73,7 +78,7 @@ private:
 	//GameObject* m_boss;
 	vector<GameObject*> m_gameObjects;
 	//TextureManager texture;
-	
+
 	GameStateMachine* m_pGameStateMachine;
 
 };

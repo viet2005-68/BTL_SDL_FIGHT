@@ -2,19 +2,20 @@
 #include <iostream>
 
 
-boss2::boss2(const LoaderParams* pParams) : SDLGameObject(pParams)
+boss2::boss2(const LoaderParams* pParams, int a) : SDLGameObject(pParams)
 {
+	map = a;
 	enemyRect.w = 120;
 	enemyRect.h = 80;
-	enemyRect.x = m_position.getX() + 20;
-	enemyRect.y = m_position.getY() + 50;
+	enemyRect.x = m_position.getX()+20;
+	enemyRect.y = m_position.getY()+50;
 
 }
 
 void boss2::draw() {
 	SDLGameObject::drawBig();
-	TextureManager::Instance()->drawChar("assets/healthUnder.png", Game::Instance()->getRenderer(), enemyRect.x - 20, enemyRect.y - 50, barWidth, barHeight, 1, 0, 0);
-	TextureManager::Instance()->drawChar("assets/health.png", Game::Instance()->getRenderer(), enemyRect.x - 20, enemyRect.y - 50, healthBar, barHeight, 1, 0, 0);
+	TextureManager::Instance()->drawChar("assets/finalBoss/Bar.png", Game::Instance()->getRenderer(), enemyRect.x - 40, enemyRect.y - 70, barWidth, barHeight, 1, 0, 0);
+	TextureManager::Instance()->drawChar("assets/finalBoss/Health.png", Game::Instance()->getRenderer(), enemyRect.x + 10, enemyRect.y-22, healthBar, healthHeight, 1, 0, 0);
 	//SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(enemyRect));
 	//SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
 	for (int i = 0; i < m_fireBalls.size(); ++i) {
@@ -34,9 +35,56 @@ void boss2::clean() {
 }
 
 void boss2::move(Player*& player) {
-	enemyRect.x = m_position.getX() + 20;
-	enemyRect.y = m_position.getY() + 50;
+	enemyRect.x = m_position.getX()+20;
+	enemyRect.y = m_position.getY()+50;
 	tick = 100;
+
+	if (death != 1) {
+		for (int i = 0; i < player->m_birds.size(); ++i) {
+			if (player->m_birds[i]->death != 1 && Map_lv2::getInstance()->checkwall(player->m_birds[i]->birdRect, enemyRect)) {
+				if (birdTime.getElapsedTime() < 0.2) {
+					SoundManager::Instance()->playSound("assets/lightningBird.wav", 0);
+				}
+				if (birdTime.getElapsedTime() > 0.5) {
+					health -= player->damage * 2 * player->damageRatio / (damageRes*3);
+					healthBar -= ((player->damage) * 2 * player->damageRatio) / (damageRes*3);
+					if (healthBar <= 0) {
+						Game::Instance()->m_score->Setscore(50);
+						player->score += 50;
+						std::cout << player->score << std::endl;
+						death = true;
+					}
+					birdTime.reset();
+					break;
+				}
+			}
+		}
+
+		for (int i = 0; i < player->m_fireBalls.size(); ++i) {
+			if (player->m_fireBalls[i]->death != 1 && Map_lv2::getInstance()->checkwall(player->m_fireBalls[i]->fireRect, enemyRect)) {
+				health -= player->damage * player->damageRatio / (damageRes*3);
+				healthBar -= ((player->damage) * player->damageRatio) / (damageRes*3);
+				player->m_fireBalls[i]->death = 1;
+				if (healthBar <= 0) {
+					Game::Instance()->m_score->Setscore(50);
+					player->score += 50;
+					std::cout << player->score << std::endl;
+					death = true;
+				}
+			}
+		}
+
+		if (player->explosion == 1) {
+			healthBar -= 1;
+			if (healthBar <= 0) {
+				Game::Instance()->m_score->Setscore(50);
+				player->score += 50;
+				std::cout << player->score << std::endl;
+				death = true;
+			}
+		}
+	}
+
 	if (death) {
 		m_velocity.setX(0);
 		m_velocity.setY(0);
@@ -58,17 +106,18 @@ void boss2::move(Player*& player) {
 
 		if (((enemyRect.x + 100 <= player->playerRect.x + 32 && enemyRect.x + 100 >= player->playerRect.x) || (enemyRect.x <= player->playerRect.x + 32 && enemyRect.x + 100 >= player->playerRect.x)) && ((enemyRect.y + 80 >= player->playerRect.y && enemyRect.y <= player->playerRect.y + 32) || (enemyRect.y <= player->playerRect.y + 32) && (enemyRect.y + 80 >= player->playerRect.y))) {
 			if (player->attack == 1 && attackTime.getElapsedTime() > player->attackSpeed) {
-				healthBar -= (player->damage * player->damageRatio) / 2;
+				healthBar -= (player->damage * player->damageRatio)/2;
 				attackTime.reset();
 			}
 			if (player->skill == 1) {
 				if (time.getElapsedTime() > player->attackSpeed) {
-					health -= (player->damage * 3 * player->damageRatio) / 2;
-					healthBar -= ((player->damage + 7) * 3 * player->damageRatio) / 2;
+					health -= (player->damage * 3 * player->damageRatio)/2;
+					healthBar -= ((player->damage + 7) * 3 * player->damageRatio)/2;
 					time.reset();
 				}
 				if (health <= 0) {
-					player->score += 10;
+					Game::Instance()->m_score->Setscore(50);
+					player->score += 50;
 					std::cout << player->score << std::endl;
 					death = true;
 				}
@@ -84,7 +133,7 @@ void boss2::move(Player*& player) {
 			m_velocity.setX(-0.0000000001);
 			dir = 1;
 		}
-		else if (enemyRect.x + 120 <= player->playerRect.x && time.getElapsedTime() < 3) {
+		else if(enemyRect.x + 120 <= player->playerRect.x && time.getElapsedTime() < 3){
 			m_velocity.setX(0);
 			dir = 0;
 		}
@@ -115,6 +164,6 @@ void boss2::move(Player*& player) {
 	}
 	for (int i = 0; i < m_fireBalls.size(); ++i) {
 		m_fireBalls[i]->update();
-		m_fireBalls[i]->move(player, dir, 1);
+		m_fireBalls[i]->move(player, dir, map);
 	}
 }

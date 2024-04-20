@@ -11,8 +11,8 @@ struct Node {
     bool bObstacle;
     bool bVisited;
     float fGlobalGoal;
-    float fLocalGoal; // Khoảng cách ước tính tới mục tiêu nếu đi qua nút này
-    Node* parent; 
+    float fLocalGoal; // Khoảng cách đến mục tiêu nếu đi qua nút này
+    Node* parent; // Nút cha trong đường dẫn
     std::vector<Node*> vecNeighbours; // Danh sách các nút lân cận
 };
 
@@ -41,7 +41,7 @@ public:
             for (int x = 0; x < nMapWidth; x++) {
                 for (int dy = -1; dy <= 1; ++dy) {
                     for (int dx = -1; dx <= 1; ++dx) {
-                        
+
                         if (dx == 0 && dy == 0) continue;
                         int nx = x + dx;
                         int ny = y + dy;
@@ -67,11 +67,11 @@ public:
         Node* nodeStart = &nodes[startY * nMapWidth + startX];
         Node* nodeEnd = &nodes[endY * nMapWidth + endX];
 
-        // Khởi tạo các nut
+        // Khởi tạo các danh sách
         std::list<Node*> listNotTestedNodes;
         listNotTestedNodes.push_back(nodeStart);
 
-        // Khởi tạo ban đầu
+        // Khởi tạo trạng thái ban đầu
         for (int y = 0; y < nMapHeight; y++) {
             for (int x = 0; x < nMapWidth; x++) {
                 nodes[y * nMapWidth + x].bVisited = false;
@@ -84,8 +84,12 @@ public:
         nodeStart->fLocalGoal = 0.0f;
         nodeStart->fGlobalGoal = Heuristic(nodeStart, nodeEnd);
 
+        // Thuật toán A*
         while (!listNotTestedNodes.empty()) {
             // 1. Lấy nút có fGlobalGoal thấp nhất
+            listNotTestedNodes.sort([](Node* lhs, Node* rhs) {
+                return lhs->fGlobalGoal < rhs->fGlobalGoal;
+                });
             Node* nodeCurrent = listNotTestedNodes.front();
             listNotTestedNodes.pop_front();
 
@@ -113,32 +117,36 @@ public:
                 }
             }
 
+            // 6. Kiểm tra điều kiện kết thúc
             if (nodeCurrent == nodeEnd) {
-                std::vector<Node> path;
+                // Tìm thấy đường dẫn, tạo đường dẫn và thoát khỏi vòng lặp
                 Node* pathNode = nodeEnd->parent;
-                while (pathNode!= nullptr &&nodeCurrent->parent != nodeStart) {
+                while (pathNode != nullptr && nodeCurrent->parent != nodeStart) {
+                    //path.push_back(*nodeCurrent);
                     nodeCurrent = nodeCurrent->parent;
                 }
-                    
-                    return { nodeCurrent->x, nodeCurrent->y };
-                
+
+
+
+                return { nodeCurrent->x, nodeCurrent->y };
+
             }
         }
 
-       
+        // Không tìm thấy đường dẫn
         return { 0,0 };
     }
-   
+
 
 private:
-    std::vector<std::vector<int>> map; 
-    int nMapWidth; 
-    int nMapHeight; 
+    std::vector<std::vector<int>> map; // Bản đồ
+    int nMapWidth;
+    int nMapHeight;
     Node* nodes;
     float Distance(Node* nodeA, Node* nodeB) {
         int dx = abs(nodeA->x - nodeB->x);
         int dy = abs(nodeA->y - nodeB->y);
-        return sqrt(dx*dx + dy*dy); 
+        return dx + dy;
     }
 };
 

@@ -14,7 +14,7 @@ public:
 	virtual void draw();
 	virtual void update();
 	virtual void clean();
-
+	SDL_Rect portalRect;
 private:
 	int frame = 8;
 	int tick = 200;

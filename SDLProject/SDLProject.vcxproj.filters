@@ -90,13 +90,7 @@
     <ClCompile Include="chest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="mushroom.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="WriteOnScreen.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="shot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="difficultyState.cpp">
@@ -105,13 +99,7 @@
     <ClCompile Include="Map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="house.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Map_lv2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="housebot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="tower.cpp">
@@ -130,9 +118,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Enemy4.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="princess.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Map_lv3.cpp">
@@ -160,6 +145,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Bot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VictoryState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="finalBoss.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -236,9 +227,6 @@
     <ClInclude Include="chest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="mushroom.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="WriteOnScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -251,13 +239,7 @@
     <ClInclude Include="Map.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="house.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Map_lv2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="housebot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="tower.h">
@@ -282,9 +264,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="princess.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TimeOnPlay.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Map_lv3.h">
@@ -312,6 +291,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Bot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VictoryState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="finalBoss.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

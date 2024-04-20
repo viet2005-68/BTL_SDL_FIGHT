@@ -28,7 +28,9 @@ private:
 	double healthBar = 50;
 	int barWidth = 50;
 	int barHeight = 8;
+
 	int des_X_left;
 	int des_X_right;
+
 	Time birdTime;
 };

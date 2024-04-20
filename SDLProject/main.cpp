@@ -1,14 +1,12 @@
 #include "Game.h"
-#include "cstdlib"
-#include "Player.h"
 
-const int FPS = 120;
+const int FPS = 90;
 const int DELAY_TIME = 1000.0f / FPS;
-//Player* player;
+
 int main(int argc, char* argv[]) {
 	srand(time(NULL));
 	Uint32 frameStart, frameTime;
-	Game::Instance()->init("Game.exe",SCREEN_WIDTH, SCREEN_HEIGHT, 0);
+	Game::Instance()->init("LegendKnight.exe", 1280, 800, 0);
 	while (Game::Instance()->running()) {
 		frameStart = SDL_GetTicks();
 

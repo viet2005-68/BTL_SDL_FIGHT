@@ -11,24 +11,14 @@ Enemy2::Enemy2(const LoaderParams* pParams) : SDLGameObject(pParams)
 	enemyRect.h = 32;
 	enemyRect.x = m_position.getX();
 	enemyRect.y = m_position.getY();
-	
+	Path = new AstarFindPath(Map_lv2::getInstance()->GetTileCheck());
+
 }
 
 void Enemy2::draw() {
 	SDLGameObject::draw();
 	TextureManager::Instance()->drawChar("assets/healthUnder.png", Game::Instance()->getRenderer(), enemyRect.x, enemyRect.y - 30, barWidth, barHeight, 1, 0, 0);
 	TextureManager::Instance()->drawChar("assets/health.png", Game::Instance()->getRenderer(), enemyRect.x, enemyRect.y - 30, healthBar, 8, 1, 0, 0);
-	SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(enemyRect));
-	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
-	SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(upRect));
-	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
-	SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(downRect));
-	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
-	SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(rightRect));
-	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
-	SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(leftRect));
-	//SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
-	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
 
 }
 
@@ -58,6 +48,7 @@ void Enemy2::move(Player*& player) {
 					health -= player->damage * 2 * player->damageRatio / damageRes;
 					healthBar -= ((player->damage) * 2 * player->damageRatio) / damageRes;
 					if (health <= 0) {
+						Game::Instance()->m_score->Setscore(10);
 						player->score += 10;
 						std::cout << player->score << std::endl;
 						death = true;
@@ -74,6 +65,7 @@ void Enemy2::move(Player*& player) {
 				healthBar -= ((player->damage) * player->damageRatio) / damageRes;
 				player->m_fireBalls[i]->death = 1;
 				if (health <= 0) {
+					Game::Instance()->m_score->Setscore(10);
 					player->score += 10;
 					std::cout << player->score << std::endl;
 					death = true;
@@ -83,7 +75,8 @@ void Enemy2::move(Player*& player) {
 
 		if (player->explosion == 1) {
 			healthBar -= 1;
-			if (healthBar <= 0) {
+			if(healthBar <= 0) {
+				Game::Instance()->m_score->Setscore(10);
 				player->score += 10;
 				std::cout << player->score << std::endl;
 				death = true;
@@ -116,7 +109,18 @@ void Enemy2::move(Player*& player) {
 		else if (player->playerRect.x <= enemyRect.x + 40 && player->playerRect.x + 32 > enemyRect.x + 120) {
 			m_velocity.setX(0);
 		}
-
+		if (player->attack == 1) {
+			if (attackedTime.getElapsedTime() > player->attackSpeed) {
+				health -= (player->damage * player->damageRatio) / damageRes;
+				healthBar -= (player->damage * player->damageRatio) / damageRes;
+				attackedTime.reset();
+			}
+			if (healthBar <= 0) {
+				Game::Instance()->m_score->Setscore(10);
+				player->score += 10;
+				death = 1;
+			}
+		}
 		if (player->skill == 1) {
 			if (time.getElapsedTime() > player->attackSpeed) {
 				health -= player->damage * 3 * player->damageRatio / damageRes;
@@ -151,113 +155,56 @@ void Enemy2::move(Player*& player) {
 			frame = 6;
 			m_currentRow = 3;
 			if (time.getElapsedTime() > 1) {
-				player->healthBar -= (15 / player->defense);
+				player->healthBar -= (5 / player->defense);
 				player->attacked = 1;
-				SoundManager::Instance()->playSound("assets/damaged.wav", 0);
 				//Timer::getInstance()->reset();
 				time.reset();
 			}
 		}
-		else if (player->attack == 1) {
-			m_textureID = "assets/Torch_Red.png";
-			frame = 6; 
-		    m_currentRow = 3;
-			tick = 200;
-			if (time.getElapsedTime() > player->attackSpeed) {
-				health -= player->damage * player->damageRatio / damageRes;
-				healthBar -= (player->damage * player->damageRatio) / damageRes;
-				//std::cout << "Flying eye health: " << health << std::endl;
-				SoundManager::Instance()->playSound("assets/attack.wav", 0);
-				//player->attacked = 0;
-				//Timer::getInstance()->reset();
-				time.reset();
-			}
 
-			if (healthBar <= 0) {
-				Game::Instance()->m_score->Setscore(10);
-				player->score += 10;
-				std::cout << player->score << std::endl;
-				death = true;
-			}
-		}
-		
 	}
-	else {
+	else if(!Map_lv2::getInstance()->checkwall(player->playerRect, enemyRect)){
 		tick = 80;
 		frame = 7;
 		m_currentRow = 1;
-		Path = new AstarFindPath(Map_lv2::getInstance()->GetTileCheck());
+		
 		float deltaXRect = enemyRect.x - player->playerRect.x;
 		float deltaYRect = enemyRect.y - player->playerRect.y;
 		float distance_check = sqrt(deltaXRect * deltaXRect + deltaYRect * deltaYRect);
-		delay_Find.reset();
+
 		if (distance_check < 300) {
 			std::pair<int, int> path = Path->FindPath(enemyRect.x / 32, enemyRect.y / 32, player->playerRect.x / 32, player->playerRect.y / 32);
-			
-			
-			
-				
-				float deltaX = path.first - int(enemyRect.x / 32);
-				float deltaY = path.second - int(enemyRect.y / 32);
-				float distance = sqrt(deltaX * deltaX + deltaY * deltaY);
 
 
-				float directionX;
-				float directionY;
 
-				directionX = deltaX / distance;
-				directionY = deltaY / distance;
-				if (directionX < 0) {
-					m_velocity.setX(-0.0001);
-				}
-				else {
-					m_velocity.setX(0.00001);
-				}
 
-				m_position.m_x += directionX * 1;
-				m_position.m_y += directionY * 1;
-				enemyRect.x = m_position.getX() + 32;
-				enemyRect.y = m_position.getY() + 32;
-			    if(Map_lv2::getInstance()->iswall(enemyRect)){
-					m_position.m_x -= directionX * 1;
-					m_position.m_y -= directionY * 1;
-				}
-			delay_Find.reset();
+			float deltaX = path.first - int(enemyRect.x / 32);
+			float deltaY = path.second - int(enemyRect.y / 32);
+			float distance = sqrt(deltaX * deltaX + deltaY * deltaY);
+
+
+			float directionX;
+			float directionY;
+
+			directionX = deltaX / distance;
+			directionY = deltaY / distance;
+			if (directionX < 0) {
+				m_velocity.setX(-0.0001);
+			}
+			else {
+				m_velocity.setX(0.00001);
+			}
+
+			m_position.m_x += directionX * 1;
+			m_position.m_y += directionY * 1;
+			enemyRect.x = m_position.getX() + 32;
+			enemyRect.y = m_position.getY() + 32;
+			if (Map_lv2::getInstance()->iswall(enemyRect)) {
+				m_position.m_x -= directionX * 1;
+				m_position.m_y -= directionY * 1;
+			}
 
 		}
-		else {
-			
-			if(delay_Find.getElapsedTime() > 0.5){
-				int x = rand() % 4;
-				switch (x)
-				{
-				case 0:
-					m_position.m_x += 2;
-					break;
-				case 1:
-					m_position.m_x -= 2;
-					break;
-				case 2:
-					m_position.m_y += 2;
-					break;
-				case 3:
-					m_position.m_y -= 2;
-					break;
-				default:
-					break;
-				}
-			}
-			else if(delay_Find.getElapsedTime() > 1) {
-				delay_Find.reset();
-			}
-		}
-		
-		delete Path;
-		
+
 	}
 }
-		
-		
-	
-    
-	

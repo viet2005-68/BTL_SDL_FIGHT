@@ -16,8 +16,6 @@ public:
 #include "cmath"
 #include "Time.h"
 
-class Player;
-
 class Enemy : public SDLGameObject
 {
 public:
@@ -26,26 +24,18 @@ public:
 	virtual void draw();
 	virtual void update();
 	virtual void clean();
-	SDL_Rect getRect() {
-		return enemyRect;
-	}
+
 	void move(Player* &player);
-	void changeRectX(int rectx) {
-		enemyRect.x = rectx;
-	}
-	void changeRectY(int rectx) {
-		enemyRect.y = rectx;
-	}
 	bool death = 0;
 	double damageRes = 1;
 private:
 	int frame = 8;
 	int tick = 100;
-	int health = 30;
+	double health = 30;
 	SDL_Rect enemyRect;
 	Time time;
 	Time lightning;
-	int healthBar = 50;
+	double healthBar = 50;
 	int barWidth = 50;
 	int barHeight = 8;
 

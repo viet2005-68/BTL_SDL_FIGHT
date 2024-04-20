@@ -20,10 +20,10 @@ public:
 	Vector2D& getVelocity() {
 		return m_velocity;
 	}
-	Vector2D m_position;
+
 
 protected:
-	
+	Vector2D m_position;
 	int m_width;
 	int m_height;
 	int m_currentRow;

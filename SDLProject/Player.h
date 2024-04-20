@@ -94,8 +94,9 @@ public:
 
 	std::vector<class lightningBird*> m_birds;
 	std::vector<playerFireBall* > m_fireBalls;
-private:
+
 	int characterNum;
+private:
 	bool lvl1 = false;
 	bool lvl2 = false;
 	bool lvl3 = false;

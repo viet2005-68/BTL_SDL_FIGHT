@@ -1,6 +1,24 @@
+/*#include "Enemy.h"
+#include "TextureManager.h"
+
+void Enemy::load(int x, int y, int width, int height, const char* textureID, SDL_Renderer* ren) {
+	GameObject::load(x, y, width, height, textureID, ren);
+}
+
+void Enemy::draw(SDL_Renderer* ren) {
+	GameObject::draw(ren, 0);
+}
+
+void Enemy::update() {
+	//m_x += 1;
+	//m_y += 1;
+	m_currentFrame = int(((SDL_GetTicks() / 100) % 8));
+}
+*/
+
 #include "Enemy.h"
 #include <iostream>
-#include "Map_lv2.h"
+
 
 Enemy::Enemy(const LoaderParams* pParams) : SDLGameObject(pParams)
 {
@@ -15,8 +33,8 @@ void Enemy::draw() {
 	SDLGameObject::draw();
 	TextureManager::Instance()->drawChar("assets/healthUnder.png", Game::Instance()->getRenderer(), enemyRect.x, enemyRect.y - 30, barWidth, barHeight, 1, 0, 0);
 	TextureManager::Instance()->drawChar("assets/health.png", Game::Instance()->getRenderer(), enemyRect.x, enemyRect.y - 30, healthBar, 8, 1, 0, 0);
-	SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(enemyRect));
-	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
+	//SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(enemyRect));
+	//SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
 }
 
 void Enemy::update() {
@@ -30,8 +48,8 @@ void Enemy::clean() {
 
 }
 
-void Enemy::move(Player*& player) {
-	enemyRect.x = m_position.getX() + 70;
+void Enemy::move(Player* &player) {
+	enemyRect.x = m_position.getX()+70;
 	enemyRect.y = m_position.getY() + 100;
 	m_textureID = "assets/enemy1Run.png";
 	//cout << time.getElapsedTime() << endl;
@@ -44,10 +62,11 @@ void Enemy::move(Player*& player) {
 				if (birdTime.getElapsedTime() < 0.2) {
 					SoundManager::Instance()->playSound("assets/lightningBird.wav", 0);
 				}
-				if (birdTime.getElapsedTime() > 0.5) {
+				if (birdTime.getElapsedTime() > 0.5){
 					health -= player->damage * 2 * player->damageRatio / damageRes;
 					healthBar -= ((player->damage + 7) * 2 * player->damageRatio) / damageRes;
 					if (health <= 0) {
+						Game::Instance()->m_score->Setscore(10);
 						player->score += 10;
 						std::cout << player->score << std::endl;
 						death = true;
@@ -60,20 +79,22 @@ void Enemy::move(Player*& player) {
 
 		for (int i = 0; i < player->m_fireBalls.size(); ++i) {
 			if (player->m_fireBalls[i]->death != 1 && Map_lv2::getInstance()->checkwall(player->m_fireBalls[i]->fireRect, enemyRect)) {
-				health -= player->damage * player->damageRatio / damageRes;
-				healthBar -= ((player->damage + 7) * player->damageRatio) / damageRes;
-				player->m_fireBalls[i]->death = 1;
-				if (health <= 0) {
-					player->score += 10;
-					std::cout << player->score << std::endl;
-					death = true;
-				}
+					health -= player->damage * player->damageRatio / damageRes;
+					healthBar -= ((player->damage + 7) * player->damageRatio) / damageRes;
+					player->m_fireBalls[i]->death = 1;
+					if (health <= 0) {
+						Game::Instance()->m_score->Setscore(10);
+						player->score += 10;
+						std::cout << player->score << std::endl;
+						death = true;
+					}
 			}
 		}
 
 		if (player->explosion == 1) {
 			healthBar -= 1;
 			if (healthBar <= 0) {
+				Game::Instance()->m_score->Setscore(10);
 				player->score += 10;
 				std::cout << player->score << std::endl;
 				death = true;
@@ -108,7 +129,7 @@ void Enemy::move(Player*& player) {
 		if (player->skill == 1) {
 			if (time.getElapsedTime() > player->attackSpeed) {
 				health -= player->damage * 3 * player->damageRatio / damageRes;
-				healthBar -= ((player->damage + 7) * 3 * player->damageRatio) / damageRes;
+				healthBar -= ((player->damage+7) * 3 * player->damageRatio) / damageRes;
 				time.reset();
 			}
 			if (health <= 0) {
@@ -133,41 +154,79 @@ void Enemy::move(Player*& player) {
 			}
 		}
 
-		if (player->attack != 1 || (player->playerRect.x + 80 > enemyRect.x + 70 && player->getVelocity().getX() > 0) || (player->playerRect.x + 80 < enemyRect.x + 70 && player->getVelocity().getX() < 0)) {
-			m_textureID = "assets/enemy1Attack.png";
-			tick = 150;
-			frame = 8;
-			if (time.getElapsedTime() > 1) {
-				player->healthBar -= (10 / player->defense);
-				player->attacked = 1;
-				SoundManager::Instance()->playSound("assets/damaged.wav", 0);
-				//Timer::getInstance()->reset();
-				time.reset();
+		if (player->characterNum == 3) {
+			if (Map_lv2::getInstance()->checkwall(player->playerRect, enemyRect) && player->attack != 1) {
+
+				m_textureID = "assets/enemy1Attack.png";
+				tick = 150;
+				frame = 8;
+				if (time.getElapsedTime() > 1) {
+					player->healthBar -= (10 / player->defense);
+					player->attacked = 1;
+					SoundManager::Instance()->playSound("assets/damaged.wav", 0);
+					//Timer::getInstance()->reset();
+					time.reset();
+				}
+			}
+			else if (player->attack == 1) {
+				m_textureID = "assets/enemy1Hit.png";
+				frame = 4;
+				tick = 200;
+				if (time.getElapsedTime() > player->attackSpeed) {
+					health -= player->damage * player->damageRatio / damageRes;
+					healthBar -= (player->damage * player->damageRatio + 7) / damageRes;
+					//std::cout << "Flying eye health: " << health << std::endl;
+					SoundManager::Instance()->playSound("assets/attack.wav", 0);
+					//player->attacked = 0;
+					//Timer::getInstance()->reset();
+					time.reset();
+				}
+
+				if (health <= 0) {
+					Game::Instance()->m_score->Setscore(10);
+					player->score += 10;
+					std::cout << player->score << std::endl;
+					death = true;
+				}
 			}
 		}
-		else if (player->attack == 1) {
-			m_textureID = "assets/enemy1Hit.png";
-			frame = 4;
-			tick = 200;
-			if (time.getElapsedTime() > player->attackSpeed) {
-				health -= player->damage * player->damageRatio / damageRes;
-				healthBar -= (player->damage * player->damageRatio + 7) / damageRes;
-				//std::cout << "Flying eye health: " << health << std::endl;
-				SoundManager::Instance()->playSound("assets/attack.wav", 0);
-				//player->attacked = 0;
-				//Timer::getInstance()->reset();
-				time.reset();
+		else {
+			if (player->attack != 1 || (player->playerRect.x + 80 > enemyRect.x + 70 && player->getVelocity().getX() > 0) || (player->playerRect.x + 80 < enemyRect.x + 70 && player->getVelocity().getX() < 0)) {
+				m_textureID = "assets/enemy1Attack.png";
+				tick = 150;
+				frame = 8;
+				if (time.getElapsedTime() > 1) {
+					player->healthBar -= (10 / player->defense);
+					player->attacked = 1;
+					SoundManager::Instance()->playSound("assets/damaged.wav", 0);
+					//Timer::getInstance()->reset();
+					time.reset();
+				}
 			}
+			else if (player->attack == 1) {
+				m_textureID = "assets/enemy1Hit.png";
+				frame = 4;
+				tick = 200;
+				if (time.getElapsedTime() > player->attackSpeed) {
+					health -= player->damage * player->damageRatio / damageRes;
+					healthBar -= (player->damage * player->damageRatio + 7) / damageRes;
+					//std::cout << "Flying eye health: " << health << std::endl;
+					SoundManager::Instance()->playSound("assets/attack.wav", 0);
+					//player->attacked = 0;
+					//Timer::getInstance()->reset();
+					time.reset();
+				}
 
-			if (health <= 0) {
-				Game::Instance()->m_score->Setscore(10);
-				;				player->score += 10;
-				std::cout << player->score << std::endl;
-				death = true;
+				if (health <= 0) {
+					Game::Instance()->m_score->Setscore(10);
+					;				player->score += 10;
+					std::cout << player->score << std::endl;
+					death = true;
+				}
 			}
 		}
 	}
-	else if (player->playerRect.x + 70 < enemyRect.x) {
+	else if(player->playerRect.x + 70 < enemyRect.x) {
 		tick = 100;
 		frame = 8;
 		m_velocity.setX(-1);

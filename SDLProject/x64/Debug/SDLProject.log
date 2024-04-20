@@ -1,39 +1,1065 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (SDLProject.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Bot.cpp
+  boss1.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
 C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(147,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(59,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(36,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
 C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
 C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
 C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
 C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
 C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(22,15): warning C4114: same type qualifier used more than once
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(21,15): warning C4114: same type qualifier used more than once
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(38,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
 C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(24,15): warning C4114: same type qualifier used more than once
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(24,15): warning C4114: same type qualifier used more than once
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(35,15): warning C4114: same type qualifier used more than once
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(11,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(12,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(13,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(14,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(21,129): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(45,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(46,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(49,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(50,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(53,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(54,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(113,29): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(194,21): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(195,21): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(201,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(202,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(212,29): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(215,29): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(220,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(221,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  SDLProject.vcxproj -> C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\x64\Debug\SDL.exe
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\boss1.cpp(9,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\boss1.cpp(10,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\boss1.cpp(34,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\boss1.cpp(35,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\boss1.cpp(54,33): warning C4305: 'argument': truncation from 'double' to 'float'
+  boss2.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\boss2.cpp(10,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\boss2.cpp(11,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\boss2.cpp(38,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\boss2.cpp(39,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\boss2.cpp(49,72): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\boss2.cpp(50,79): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\boss2.cpp(65,67): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\boss2.cpp(66,74): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\boss2.cpp(133,33): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\boss2.cpp(157,96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\boss2.cpp(157,72): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Bot.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(13,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(14,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(15,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(16,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(23,129): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(136,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(137,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(139,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(140,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(143,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(144,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(147,29): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(202,21): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(203,21): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(211,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(212,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(222,29): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(225,29): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(230,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Bot.cpp(231,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  CharacterState.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\CharacterState.cpp(3,7): warning C4114: same type qualifier used more than once
+  CharacterStateHard.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\CharacterStateHard.cpp(3,7): warning C4114: same type qualifier used more than once
+  chest.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\chest.cpp(11,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\chest.cpp(12,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\chest.cpp(28,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\chest.cpp(29,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  difficultyState.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.cpp(6,7): warning C4114: same type qualifier used more than once
+  Enemy.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy.cpp(27,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy.cpp(28,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy.cpp(35,124): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy.cpp(52,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy.cpp(53,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Enemy2.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(12,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(13,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(21,124): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(37,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(38,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(107,33): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(171,20): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(172,20): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(181,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(182,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(192,28): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(195,28): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(200,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.cpp(201,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Enemy3.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy3.cpp(165,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy3.cpp(166,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy3.cpp(174,124): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy3.cpp(181,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy3.cpp(182,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy3.cpp(192,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy3.cpp(193,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy3.cpp(263,33): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy3.cpp(336,25): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy3.cpp(339,25): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy3.cpp(341,32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy3.cpp(342,32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy3.cpp(348,25): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy3.cpp(352,25): warning C4305: '+=': truncation from 'double' to 'float'
+  Enemy4.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(14,50): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(14,36): warning C4244: '=': conversion from 'float' to '_Ty1', possible loss of data
+          with
+          [
+              _Ty1=int
+          ]
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(15,51): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(15,37): warning C4244: '=': conversion from 'float' to '_Ty2', possible loss of data
+          with
+          [
+              _Ty2=int
+          ]
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(21,129): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(38,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(39,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(142,16): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(143,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(144,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(148,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(149,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(151,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(160,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(161,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(174,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(198,20): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(201,22): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(204,23): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(207,22): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(289,29): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(313,20): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(316,22): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(319,23): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(322,22): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.cpp(404,29): warning C4305: 'argument': truncation from 'double' to 'float'
+  finalBoss.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(10,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(11,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(14,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(15,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(62,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(63,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(66,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(67,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(147,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(148,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(153,32): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(165,96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(165,71): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(166,95): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(166,71): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(167,96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(167,71): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(168,96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(168,71): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(169,96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(169,71): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(170,96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(170,71): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(171,96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(171,71): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(172,96): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(172,71): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(190,85): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(190,60): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(191,82): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(191,60): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(192,82): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(192,60): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(193,85): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\finalBoss.cpp(193,60): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  FireBall.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\FireBall.cpp(10,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\FireBall.cpp(11,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\FireBall.cpp(32,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\FireBall.cpp(33,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Game.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+  GameOverState.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.cpp(3,7): warning C4114: same type qualifier used more than once
+  HelpState.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\HelpState.cpp(3,7): warning C4114: same type qualifier used more than once
+  InputHandler.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+  lightningBird.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\lightningBird.cpp(11,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\lightningBird.cpp(12,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\lightningBird.cpp(33,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\lightningBird.cpp(34,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  main.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\main.cpp(4,32): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\main.cpp(7,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Map.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+  Generating Code...
+  Compiling...
+  Map_lv2.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Map_lv2.cpp(34,20): warning C4154: deletion of an array expression; conversion to pointer supplied
+  Map_lv3.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Map_lv3.cpp(35,20): warning C4154: deletion of an array expression; conversion to pointer supplied
+  MenuState.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.cpp(7,7): warning C4114: same type qualifier used more than once
+  PauseState.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.cpp(3,7): warning C4114: same type qualifier used more than once
+  Player.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(262,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(263,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(587,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(622,25): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(872,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(873,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(888,25): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(913,24): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1178,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1221,25): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1475,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1504,25): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1534,107): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1534,86): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1740,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1741,33): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1744,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1745,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1750,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1753,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1754,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1759,50): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1760,50): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1763,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1764,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1782,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1783,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1802,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1803,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1819,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1820,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1838,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1839,37): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1854,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1855,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1858,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1859,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1864,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1867,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1868,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1873,50): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1874,50): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1877,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1878,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1897,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1898,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1917,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1918,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1934,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1935,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1953,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1954,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1973,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1974,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1993,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(1994,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2010,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2011,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2029,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2030,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2049,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2050,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2069,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2070,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2086,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2087,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2105,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2106,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2122,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2123,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2126,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2127,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2132,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2135,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2136,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2141,50): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2142,50): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2145,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2146,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2165,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2166,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2185,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2186,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2202,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2203,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2221,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2222,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2242,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2243,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2262,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2263,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2279,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2280,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2298,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2299,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2319,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2320,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2339,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2340,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2356,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2357,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2375,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2376,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2396,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2397,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2416,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2417,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2433,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2434,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2452,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Player.cpp(2453,38): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  playerFireBall.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\playerFireBall.cpp(12,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\playerFireBall.cpp(13,30): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\playerFireBall.cpp(34,32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\playerFireBall.cpp(35,32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  PlayState.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.cpp(24,7): warning C4114: same type qualifier used more than once
+  PlayState2.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.cpp(10,7): warning C4114: same type qualifier used more than once
+  Portal.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Portal.cpp(11,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Portal.cpp(12,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  SDLGameObject.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SDLGameObject.cpp(7,123): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SDLGameObject.cpp(7,106): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  SlimeEnemy.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(11,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(12,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(18,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(19,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(50,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(51,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(64,68): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(65,75): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(80,63): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(81,70): warning C4244: '-=': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(112,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(113,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(141,20): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(142,20): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(147,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(148,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(158,28): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(161,28): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(166,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(167,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(179,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(180,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(193,28): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(196,28): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(201,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\SlimeEnemy.cpp(202,36): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  TextureManager.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+  tower.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\tower.cpp(10,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\tower.cpp(11,31): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\tower.cpp(38,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\tower.cpp(39,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\tower.cpp(56,94): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\tower.cpp(56,70): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\tower.cpp(57,94): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\tower.cpp(57,70): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\tower.cpp(58,94): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\tower.cpp(58,70): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\tower.cpp(59,94): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\tower.cpp(59,70): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\tower.cpp(60,94): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\tower.cpp(60,70): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  VictoryState.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.cpp(3,7): warning C4114: same type qualifier used more than once
+  WriteOnScreen.cpp
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\time.h(52,26): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState.h(40,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(62,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\AStarFindPath.h(149,19): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy2.h(43,19): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(23,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(27,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(31,1): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(36,1): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\Enemy4.h(38,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\MenuState.h(24,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\difficultyState.h(23,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PlayState2.h(33,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\PauseState.h(26,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\GameOverState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\VictoryState.h(27,15): warning C4114: same type qualifier used more than once
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC3' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EDF' cannot be represented in the current code page (1252)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\SDLProject\BestScore.h(13,26): warning C4566: character represented by universal-character-name '\u1EC7' cannot be represented in the current code page (1252)
+  Generating Code...
+finalBoss.obj : error LNK2019: unresolved external symbol "public: __cdecl Cyclone::Cyclone(class LoaderParams const *)" (??0Cyclone@@QEAA@PEBVLoaderParams@@@Z) referenced in function "public: void __cdecl finalBoss::move(class Player * &)" (?move@finalBoss@@QEAAXAEAPEAVPlayer@@@Z)
+finalBoss.obj : error LNK2019: unresolved external symbol "public: void __cdecl Cyclone::move(class Player * &)" (?move@Cyclone@@QEAAXAEAPEAVPlayer@@@Z) referenced in function "public: void __cdecl finalBoss::move(class Player * &)" (?move@finalBoss@@QEAAXAEAPEAVPlayer@@@Z)
+C:\Users\LEGION\Documents\GitHub\BTL_SDL_FIGHT\x64\Debug\SDL.exe : fatal error LNK1120: 2 unresolved externals

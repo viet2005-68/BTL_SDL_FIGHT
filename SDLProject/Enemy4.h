@@ -18,7 +18,7 @@ public:
 
 	void move(Player*& player);
 	bool death = 0;
-	
+
 	void move_UP() {
 		m_position.m_y -= 0.4;
 		//enemyRect.y -= 2;
@@ -38,7 +38,7 @@ public:
 		m_velocity.setX(-0.000000001);
 	}
 	double damageRes = 1;
-
+	SDL_Rect enemyRect;
 private:
 	SDL_Rect upRect;
 	SDL_Rect downRect;
@@ -47,7 +47,8 @@ private:
 	int frame = 5;
 	int tick = 100;
 	double health = 30;
-	SDL_Rect enemyRect;
+
+	Time birdTime;
 	Time time;
 	Time lightning;
 	double healthBar = 50;

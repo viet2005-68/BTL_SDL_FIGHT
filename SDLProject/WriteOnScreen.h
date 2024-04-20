@@ -1,4 +1,3 @@
-// writeonScreen.h
 #pragma once
 #include <SDL.h>
 #include <SDL_ttf.h>
@@ -16,4 +15,3 @@ private:
     TTF_Font* font;
     SDL_Color color;
 };
-

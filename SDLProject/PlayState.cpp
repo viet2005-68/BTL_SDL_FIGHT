@@ -7,58 +7,64 @@
 #include <cstdlib>
 #include "SlimeEnemy.h"
 #include "boss2.h"
-#include "boss1.h"
+
 //Map* lvl1 = new Map();
 
 std::vector<Enemy*> m_enemies;
-std::vector<SlimeEnemy*> m_slimes;
+std::vector<Bot*> m_bots;
 std::vector<chest*> m_chest;
 
 std::vector<tower*> m_towers;
-tower* tower1 = new tower(new LoaderParams(500, 500, 100, 140, "assets/tower.png"));
-boss1* boss = NULL;
+tower* tower1 = new tower(new LoaderParams(850, 290, 100, 140, "assets/tower.png")); 
 
+finalBoss* finBoss = NULL;
 Player* player = NULL;
 Portal* portal = NULL;
-
+Bot* bot = NULL;
 const const char* PlayState::s_playID = "PLAY";
 
 void PlayState::update1() {
 
 }
+void PlayState::update2() {
+
+}
+void PlayState::update3() {
+
+}
 
 void PlayState::update() {
+	Game::Instance()->playTime.resume();
+	player->update();
 	int cnt = 0;
-	if (time.getElapsedTime() > spawnTime && boss->death == 0) {
-		int xpos = rand() % 1280;
-		int ypos = rand() % 800;
-		int monster = rand() % 2;
-		int monster2 = rand() % 2;
-		int xpos2 = rand() % 1280;
-		int ypos2 = rand() % 800;
-		Enemy* newEye = new Enemy(new LoaderParams(xpos, ypos, 150, 150, "assets/enemy1Run.png"));
-		SlimeEnemy* newSlime = new SlimeEnemy(new LoaderParams(xpos, ypos, 64, 21, "assets/slimeIdle.png"));
-		Enemy* newEye2 = new Enemy(new LoaderParams(xpos2, ypos2, 150, 150, "assets/enemy1Run.png"));
-		SlimeEnemy* newSlime2 = new SlimeEnemy(new LoaderParams(xpos2, ypos2, 64, 21, "assets/slimeIdle.png"));
+	if (time.getElapsedTime() > spawnTime && finBoss->death == 0 && cntSound == 0 && player->score < 300) {
+		int xpos1 = rand() % 25;
+		int ypos1 = rand() % 40;
+		Enemy* newEye = new Enemy(new LoaderParams(xpos1 * 32, ypos1 * 32, 150, 150, "assets/enemy1Run.png"));
+		
+		Enemy* newEye2 = new Enemy(new LoaderParams(xpos1*32, ypos1*32, 150, 150, "assets/enemy1Run.png"));
+		
+		int botX = rand() % 15 + 5;
+		int botY = rand() % 30+5;
+		Bot* bot = new Bot(new LoaderParams(botY * 32, botX * 32, 100, 100, "assets/bot/Run.png"));
+		std::cout << botX << " " << botY << std::endl;
+		while (Map_lv3::getInstance()->iswall(bot->enemyRect)) {
+			botX = rand() % 25;
+			botY = rand() % 40;
+			bot = new Bot(new LoaderParams(botY * 32, botX * 32, 100, 100, "assets/bot/Run.png"));
+		}
+		
+
 		if (difficulty == 2) {
 			newEye->damageRes = 1.5;
-			newSlime->damageRes = 1.5;
 			newEye2->damageRes = 1.5;
-			newSlime2->damageRes = 1.5;
+			bot->damageRes = 1.5;
 		}
-		if (monster == 0) {
-			m_enemies.push_back(newEye);
-		}
-		else if (monster == 1) {
-			m_slimes.push_back(newSlime);
-		}
+		m_enemies.push_back(newEye);
+		m_enemies.push_back(newEye2);
+		m_bots.push_back(bot);
+		
 
-		if (monster2 == 0) {
-			m_enemies.push_back(newEye2);
-		}
-		else if (monster2 == 1) {
-			m_slimes.push_back(newSlime2);
-		}
 		time.reset();
 	}
 
@@ -70,69 +76,78 @@ void PlayState::update() {
 	for (int i = 0; i < m_gameObjects.size(); ++i) {
 		m_gameObjects[i]->update();
 	}
-
+	
 	for (int i = 0; i < m_enemies.size(); ++i) {
 		m_enemies[i]->update();
 	}
 
-	for (int i = 0; i < m_slimes.size(); ++i) {
-		m_slimes[i]->update();
+
+	for (int i = 0; i < m_bots.size(); ++i) {
+		m_bots[i]->update();
 	}
 
 	for (int i = 0; i < m_towers.size(); ++i) {
 		m_towers[i]->update();
 	}
-
 	for (int i = 0; i < m_chest.size(); ++i) {
 		m_chest[i]->move(player);
 	}
 
 	if (player->healthBar <= 0) {
-		Game::Instance()->getStateMachine()->changeState(new GameOverState());
-	}
+	Game::Instance()->getStateMachine()->changeState(new GameOverState());
+
+    }
 
 	// flying eye
 	for (int i = 0; i < m_enemies.size(); ++i) {
 		m_enemies[i]->move(player);
 	}
 
-
-	for (int i = 0; i < m_slimes.size(); ++i) {
-		m_slimes[i]->move(player);
+	for (int i = 0; i < m_bots.size(); ++i) {
+		m_bots[i]->move(player);
 	}
 
 	for (int i = 0; i < m_towers.size(); ++i) {
-		m_towers[i]->move(player, 1);
+		m_towers[i]->move(player, 3);
 	}
 	//Chuyen man
 
-	if (player->score >= 300) {
-		boss->update();
-		boss->move(player);
-		if (endStage == 0 && boss->death == 1) {
+	if (cntSound == 1) {
+		for (int i = 0; i < m_enemies.size(); ++i) {
+			m_enemies[i]->death = 1;
+		}
+		for (int i = 0; i < m_bots.size(); ++i) {
+			m_bots[i]->death = 1;
+		}
+	}
+
+	if (player->score >= 300 && warningTime.getElapsedTime() > 7) {
+		finBoss->update();
+		finBoss->move(player);
+		if (endStage == 0 && finBoss->death == 1) {
+			endStage = 1;
 			m_gameObjects.push_back(portal);
-			for (int i = 0; i < m_slimes.size(); ++i) {
-				m_slimes[i]->death = 1;
-			}
 			for (int i = 0; i < m_enemies.size(); ++i) {
 				m_enemies[i]->death = 1;
 			}
-			endStage = 1;
+			for (int i = 0; i < m_bots.size(); ++i) {
+				m_bots[i]->death = 1;
+			}
 		}
-		if (boss->death == 1) {
-			if (player->getPostiton().getX() >= portal->getPostiton().getX() && player->getPostiton().getY() >= portal->getPostiton().getY() - 40) {
+		if (finBoss->death == 1) {
+			if (Map_lv2::getInstance()->checkwall(player->playerRect, portal->portalRect)) {
 				for (int i = 0; i < m_gameObjects.size(); ++i) {
 					m_gameObjects[i]->clean();
 				}
 				for (int i = 0; i < m_enemies.size(); ++i) {
 					m_enemies[i]->clean();
 				}
-				for (int i = 0; i < m_slimes.size(); ++i) {
-					m_slimes[i]->clean();
+				for (int i = 0; i < m_bots.size(); ++i) {
+					m_bots[i]->clean();
 				}
-				m_slimes.clear();
 				m_gameObjects.clear();
 				m_enemies.clear();
+				m_bots.clear();
 				TextureManager::Instance()->clearFromTextureMap("assets/player.png");
 				TextureManager::Instance()->clearFromTextureMap("assets/enemy1Run.png");
 				TextureManager::Instance()->clearFromTextureMap("assets/enemy1Hit.png");
@@ -159,16 +174,12 @@ void PlayState::update() {
 			}
 		}
 	}
-
 }
 
 void PlayState::render() {
-
-	//lvl1->drawMapLayer1();
-	//lvl1->drawMapLayer2();
-	Map::getInstance()->drawMapLayer1();
-	Map::getInstance()->drawMapLayer2();
-
+	//Map::getInstance()->drawMapLayer1();
+	//Map::getInstance()->drawMapLayer2();
+	Map_lv3::getInstance()->DrawMap();
 	for (int i = 0; i < m_chest.size(); ++i) {
 		m_chest[i]->draw();
 	}
@@ -176,27 +187,50 @@ void PlayState::render() {
 	for (int i = 0; i < m_towers.size(); ++i) {
 		m_towers[i]->draw();
 	}
-
+	for (int i = 0; i < m_enemies.size(); ++i) {
+		m_enemies[i]->draw();
+	}
+	for (int i = 0; i < m_bots.size(); ++i) {
+		m_bots[i]->draw();
+	}
+	player->draw();
 	for (int i = 0; i < m_gameObjects.size(); ++i) {
 		m_gameObjects[i]->draw();
 	}
 
-	for (int i = 0; i < m_enemies.size(); ++i) {
-		m_enemies[i]->draw();
+
+	if (player->score >= 300 && warningTime.getElapsedTime() > 7) {
+		finBoss->draw();
 	}
 
-
-	for (int i = 0; i < m_slimes.size(); ++i) {
-		m_slimes[i]->draw();
-	}
 	if (player->score >= 300) {
-		boss->draw();
+		if (warningTime.getElapsedTime() < 7) {
+			if (cntSound == 0) {
+				SoundManager::Instance()->playMusic("assets/warningSound.wav", 0);
+				cntSound = 1;
+			}
+			TextureManager::Instance()->drawFrame("assets/warning.png", Game::Instance()->getRenderer(), 450, 150, 200, 200, 1, (SDL_GetTicks() / 150) % 5, 0);
+		}
+		else {
+			if (cntSound == 1) {
+				SoundManager::Instance()->playMusic("assets/bossFight.mp3", 0);
+				cntSound = 0;
+			}
+		}
 	}
-
+	else {
+		warningTime.reset();
+	}
+	if (drawPlayTime.getElapsedTime() > 5) {
+		Game::Instance()->playTime.prinTimeCount(100, 1050, 0, 80, 80);
+	}
 	Game::Instance()->m_score->draw();
+
 }
 
 bool PlayState::onEnter() {
+	Game::Instance()->m_score->reset();
+	drawPlayTime.reset();
 	endStage = 0;
 	Map::getInstance()->LoadMap();
 	//erase all old objects
@@ -208,9 +242,6 @@ bool PlayState::onEnter() {
 	for (int i = 0; i < m_enemies.size(); ++i) {
 		m_enemies[i]->clean();
 	}
-	for (int i = 0; i < m_slimes.size(); ++i) {
-		m_slimes[i]->clean();
-	}
 	for (int i = 0; i < m_chest.size(); ++i) {
 		m_chest[i]->clean();
 	}
@@ -219,7 +250,7 @@ bool PlayState::onEnter() {
 	}
 	m_gameObjects.clear();
 	m_enemies.clear();
-	m_slimes.clear();
+	m_bots.clear();
 	m_chest.clear();
 	m_towers.clear();
 	TextureManager::Instance()->clearFromTextureMap("assets/player.png");
@@ -245,6 +276,8 @@ bool PlayState::onEnter() {
 
 	//Load sound and music
 	SoundManager::Instance()->load("assets/playState1.wav", "assets/playState1.wav", SOUND_MUSIC);
+	SoundManager::Instance()->load("assets/bossFight.mp3", "assets/bossFight.mp3", SOUND_MUSIC);
+	SoundManager::Instance()->load("assets/warningSound.mp3", "assets/warningSound.wav", SOUND_MUSIC);
 	SoundManager::Instance()->playMusic("assets/playState1.wav", 0);
 
 
@@ -282,8 +315,25 @@ bool PlayState::onEnter() {
 	TextureManager::Instance()->load("assets/char3/Idle2.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/char3/Run2.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/char3/Attack2.png", Game::Instance()->getRenderer());
-	TextureManager::Instance()->load("assets/char3/Casting2.png", Game::Instance()->getRenderer());
 
+	//Load boss
+	TextureManager::Instance()->load("assets/finalBoss/Idle.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/finalBoss/Attack.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/finalBoss/Run.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/finalBoss/Death.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/finalBoss/Health.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/finalBoss/Bar.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/finalBoss/Cyclone.png", Game::Instance()->getRenderer());
+
+	//Load bot
+	TextureManager::Instance()->load("assets/bot/Run.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/bot/Attack.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/bot/Death.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/bot/Idle.png", Game::Instance()->getRenderer());
+
+
+	//Load warning
+	TextureManager::Instance()->load("assets/warning.png", Game::Instance()->getRenderer());
 
 	if (!TextureManager::Instance()->load("assets/player2Sprite.png", Game::Instance()->getRenderer()))
 	{
@@ -296,7 +346,7 @@ bool PlayState::onEnter() {
 	if (!TextureManager::Instance()->load("assets/meguminIdle.png", Game::Instance()->getRenderer()))
 	{
 		return false;
-	}
+	}	
 	if (!TextureManager::Instance()->load("assets/meguminRun.png", Game::Instance()->getRenderer()))
 	{
 		return false;
@@ -357,6 +407,18 @@ bool PlayState::onEnter() {
 	{
 		return false;
 	}
+	if (!TextureManager::Instance()->load("assets/enemy4Attack.png", Game::Instance()->getRenderer()))
+	{
+		return false;
+	}
+	if (!TextureManager::Instance()->load("assets/enemy4Idle.png", Game::Instance()->getRenderer()))
+	{
+		return false;
+	}
+	if (!TextureManager::Instance()->load("assets/enemy4Death.png", Game::Instance()->getRenderer()))
+	{
+		return false;
+	}
 	if (!TextureManager::Instance()->load("assets/slimeDeath.png", Game::Instance()->getRenderer()))
 	{
 		return false;
@@ -381,10 +443,7 @@ bool PlayState::onEnter() {
 	{
 		return false;
 	}
-	if (!TextureManager::Instance()->load("assets/blankButton.png", Game::Instance()->getRenderer()))
-	{
-		return false;
-	}
+
 	//Load boss
 	if (!TextureManager::Instance()->load("assets/boss1Run.png", Game::Instance()->getRenderer()))
 	{
@@ -418,7 +477,7 @@ bool PlayState::onEnter() {
 	{
 		return false;
 	}
-
+	
 	//Load chest
 	if (!TextureManager::Instance()->load("assets/chest.png", Game::Instance()->getRenderer()))
 	{
@@ -439,13 +498,14 @@ bool PlayState::onEnter() {
 		return false;
 	}
 
-	boss = new boss1(new LoaderParams(500, 500, 250, 250, "assets/boss1Run.png"));
+	
+	finBoss = new finalBoss(new LoaderParams(1250, 250, 140, 140, "assets/finalBoss/Idle.png"));
 
-	chest* chest1 = new chest(new LoaderParams(1000, 200, 31, 28, "assets/chest.png"));
+	chest* chest1 = new chest(new LoaderParams(1220, 150, 31, 28, "assets/chest.png"));
 	chest* chest2 = new chest(new LoaderParams(1000, 500, 31, 28, "assets/chest.png"));
-	chest* chest3 = new chest(new LoaderParams(100, 700, 31, 28, "assets/chest.png"));
-	chest* chest4 = new chest(new LoaderParams(560, 260, 31, 28, "assets/chest.png"));
-	chest* chest5 = new chest(new LoaderParams(100, 80, 31, 28, "assets/chest.png"));
+	chest* chest3 = new chest(new LoaderParams(1220, 720, 31, 28, "assets/chest.png"));
+	chest* chest4 = new chest(new LoaderParams(220, 560, 31, 28, "assets/chest.png"));
+	chest* chest5 = new chest(new LoaderParams(450, 210, 31, 28, "assets/chest.png"));
 	m_chest.push_back(chest1);
 	m_chest.push_back(chest2);
 	m_chest.push_back(chest3);
@@ -453,33 +513,51 @@ bool PlayState::onEnter() {
 	m_chest.push_back(chest5);
 
 	//Dang thay GameObject* thanh Player*
-	SlimeEnemy* slime = new SlimeEnemy(new LoaderParams(1000, 100, 64, 21, "assets/slimeIdle.png"));
 
 	Enemy* enemy1 = new Enemy(new LoaderParams(1000, 400, 150, 150, "assets/enemy1Run.png"));
 	Enemy* enemy2 = new Enemy(new LoaderParams(100, 200, 150, 150, "assets/enemy1Run.png"));
 	Enemy* enemy3 = new Enemy(new LoaderParams(600, 300, 150, 150, "assets/enemy1Run.png"));
-	portal = new Portal(new LoaderParams(1050, 500, 128, 128, "assets/portal.png"));
+	Enemy* enemy4 = new Enemy(new LoaderParams(1000, 700, 150, 150, "assets/enemy1Run.png"));
+
+	Bot* bot1 = new Bot(new LoaderParams(1000, 200, 100, 100, "assets/bot/Run.png"));
+	Bot* bot2 = new Bot(new LoaderParams(500, 500, 100, 100, "assets/bot/Run.png"));
+	Bot* bot3 = new Bot(new LoaderParams(100, 50, 100, 100, "assets/bot/Run.png"));
+	Bot* bot4 = new Bot(new LoaderParams(10, 500, 100, 100, "assets/bot/Run.png"));
+	Bot* bot5 = new Bot(new LoaderParams(410, 550, 100, 100, "assets/bot/Run.png"));
+	Bot* bot6 = new Bot(new LoaderParams(10, 300, 100, 100, "assets/bot/Run.png"));
+	m_bots.push_back(bot1);
+	m_bots.push_back(bot2);
+	m_bots.push_back(bot3);
+	m_bots.push_back(bot4);
+	m_bots.push_back(bot5);
+	m_bots.push_back(bot6);
+	//Enemy4* bat = new Enemy4(new LoaderParams(160, 500, 64, 64, "assets/enemy4Idle.png"));
+	//Enemy4* bat2 = new Enemy4(new LoaderParams(830, 20, 64, 64, "assets/enemy4Idle.png"));
+	//Enemy4* bat3 = new Enemy4(new LoaderParams(890, 60, 64, 64, "assets/enemy4Idle.png"));
+	//Enemy4* bat4 = new Enemy4(new LoaderParams(165, 400, 64, 64, "assets/enemy4Idle.png"));
+	//m_bats1.push_back(bat);
+	//m_bats1.push_back(bat2);
+	//m_bats1.push_back(bat3);
+	//m_bats1.push_back(bat4);
+	portal = new Portal(new LoaderParams(950, 500, 128, 128, "assets/portal.png"));
 
 	GameObject* pauseButton = new MenuButton(new LoaderParams(1150, 10, 45, 36, "assets/inGamePauseButton.png"), s_pauseState);
-	//GameObject* scoreButton = new MenuButton(new LoaderParams(990, 10, 78, 36, "assets/blankButton.png"), s_none);
-	//GameObject* timeButton = new MenuButton(new LoaderParams(830, 10, 78, 36, "assets/blankButton.png"), s_none);
+
 	//m_gameObjects.push_back(enemy1);
 	//m_gameObjects.push_back(enemy2);
 	//m_gameObjects.push_back(enemy3);
 	//m_slimes.push_back(enemy4);
-
+	
 	m_enemies.push_back(enemy1);
 	m_enemies.push_back(enemy2);
 	m_enemies.push_back(enemy3);
-
-	m_slimes.push_back(slime);
+	m_enemies.push_back(enemy4);
 
 	m_gameObjects.push_back(pauseButton);
-	//m_gameObjects.push_back(scoreButton);
-	//m_gameObjects.push_back(timeButton);
+
 
 	m_towers.push_back(tower1);
-
+	
 	if (difficulty == 1) {
 		std::cout << "entering easy PlayState\n";
 		spawnTime = 6;
@@ -487,7 +565,13 @@ bool PlayState::onEnter() {
 	else if (difficulty == 2) {
 		std::cout << "entering hard PlayState\n";
 		spawnTime = 4;
-		tower* newTower = new tower(new LoaderParams(1000, 300, 100, 140, "assets/tower.png"));
+		for (int i = 0; i < m_enemies.size(); ++i) {
+			m_enemies[i]->damageRes = 1.5;
+		}
+		for (int i = 0; i < m_bots.size(); ++i) {
+			m_bots[i]->damageRes = 1.5;
+		}
+		tower* newTower = new tower(new LoaderParams(220, 0, 100, 140, "assets/tower.png"));
 		m_towers.push_back(newTower);
 	}
 
@@ -504,40 +588,38 @@ bool PlayState::onEnter() {
 		std::cout << "choose  character 4\n";
 	}
 	if (character == 1) {
-		player = new Player(new LoaderParams(150, 150, 100, 100, "assets/player1Idle.png"), character);
+		player = new Player(new LoaderParams(200, 250, 100, 100, "assets/player1Idle.png"), character);
 	}
-	else if (character == 2) {
+	else if(character == 2) {
 		player = new Player(new LoaderParams(150, 150, 64, 64, "assets/player2Sprite.png"), character);
 	}
 	else if (character == 3) {
-		player = new Player(new LoaderParams(150, 150, 130, 130, "assets/char3/Idle.png"), character);
+		player = new Player(new LoaderParams(150, 300, 130, 130, "assets/char3/Idle.png"), character);
 	}
 	else if (character == 4) {
 		player = new Player(new LoaderParams(150, 150, 64, 64, "assets/meguminIdle.png"), character);
 	}
-	player->getLevel1(true);
-	m_gameObjects.push_back(player);
+	player->getLevel3(true);
+
 	return true;
 }
 
 bool PlayState::onExit() {
+	Game::Instance()->playTime.pause();
 	for (int i = 0; i < m_gameObjects.size(); ++i) {
 		m_gameObjects[i]->clean();
 	}
 	for (int i = 0; i < m_enemies.size(); ++i) {
 		m_enemies[i]->clean();
 	}
-	for (int i = 0; i < m_slimes.size(); ++i) {
-		m_slimes[i]->clean();
-	}
 	for (int i = 0; i < m_towers.size(); ++i) {
 		m_towers[i]->clean();
 	}
-	m_slimes.clear();
 	m_gameObjects.clear();
 	m_enemies.clear();
 	m_chest.clear();
 	m_towers.clear();
+	BestScore::GetInstance()->updateHighScore(Game::Instance()->m_score->getScore());
 	TextureManager::Instance()->clearFromTextureMap("assets/player.png");
 	TextureManager::Instance()->clearFromTextureMap("assets/enemy1Run.png");
 	TextureManager::Instance()->clearFromTextureMap("assets/enemy1Hit.png");
@@ -551,7 +633,7 @@ bool PlayState::onExit() {
 	TextureManager::Instance()->clearFromTextureMap("assets/healthUnder.png");
 	TextureManager::Instance()->clearFromTextureMap("assets/health.png");
 
-	player->getLevel1(0);
+	player->getLevel3(0);
 	Mix_HaltMusic();
 	std::cout << "Exiting PlayState...\n";
 	return true;
@@ -562,3 +644,6 @@ void PlayState::s_pauseState()
 	Game::Instance()->getStateMachine()->pushState(new PauseState());
 }
 
+void PlayState::s_none()
+{
+}

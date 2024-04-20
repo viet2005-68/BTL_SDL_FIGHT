@@ -31,8 +31,8 @@ void boss1::clean() {
 }
 
 void boss1::move(Player*& player) {
-	enemyRect.x = m_position.getX() + 180;
-	enemyRect.y = m_position.getY() + 220;
+	enemyRect.x = m_position.getX()+180;
+	enemyRect.y = m_position.getY()+220;
 	//m_textureID = "assets/boss1Run.png";
 	//cout << time.getElapsedTime() << endl;
 	if (death) {
@@ -53,12 +53,12 @@ void boss1::move(Player*& player) {
 		if (player->playerRect.x + 70 >= enemyRect.x && player->playerRect.x + 80 < enemyRect.x + 120) {
 			m_velocity.setX(-0.0000000001);
 		}
-		else if (player->playerRect.x <= enemyRect.x + 120 && player->playerRect.x + 80 > enemyRect.x + 120) {
+		else if(player->playerRect.x <= enemyRect.x + 120 && player->playerRect.x+80 > enemyRect.x+120)  {
 			m_velocity.setX(0);
 		}
 
 
-		if ((player->attack == 1 && player->playerRect.x + 80 < enemyRect.x + 120 && player->getVelocity().getX() > 0) || (player->attack == 1 && player->playerRect.x + 80 > enemyRect.x + 120 && player->getVelocity().getX() < 0)) {
+		if ((player->attack == 1 && player->playerRect.x + 80 < enemyRect.x + 120 && player->getVelocity().getX() > 0) || (player->attack == 1 && player->playerRect.x+80  > enemyRect.x + 120 && player->getVelocity().getX() < 0)) {
 			m_textureID = "assets/boss1TakeHit.png";
 			tick = 300;
 			frame = 3;
@@ -97,10 +97,10 @@ void boss1::move(Player*& player) {
 		time.reset();
 	}
 
-	if (player->playerRect.y < enemyRect.y + 30 && death == false) {
+	if (player->playerRect.y < enemyRect.y+30 && death == false) {
 		m_velocity.setY(-1);
 	}
-	else if (player->playerRect.y > enemyRect.y + 30 && death == false) {
+	else if (player->playerRect.y > enemyRect.y+30 && death == false) {
 		m_velocity.setY(1);
 	}
 	else {

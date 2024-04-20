@@ -65,5 +65,11 @@ void lightningBird::move(int direction, int map) {
 				time.reset();
 			}
 		}
+		else if (map == 3) {
+			if (Map_lv3::getInstance()->iswall(birdRect)) {
+				death = 1;
+				time.reset();
+			}
+		}
 	}
 }

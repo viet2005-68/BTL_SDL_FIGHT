@@ -9,10 +9,10 @@ public:
 	ScorePlayer() {
 		scorePlayer = 0;
 		m_score = { 0,500,14,14 };
-		m_font_score = new WriteOnScreen("assets/ThaleahFat.ttf",13);
+		m_font_score = new WriteOnScreen("assets/font.ttf", 18);
 	}
 	void draw() {
-		m_font_score->displayText(std::to_string(scorePlayer),500,0,32,50);
+		m_font_score->displayText("SCORE: " + std::to_string(scorePlayer), 800, 10, 220, 50);
 	}
 	~ScorePlayer() {
 		delete m_font_score;
@@ -20,11 +20,11 @@ public:
 	void Setscore(int x) {
 		scorePlayer += x;
 	}
-	void reset() {
-		scorePlayer = 0;
-	}
 	int getScore() {
 		return scorePlayer;
+	}
+	void reset() {
+		scorePlayer = 0;
 	}
 private:
 	int scorePlayer;

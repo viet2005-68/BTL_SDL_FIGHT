@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include "SDLGameObject.h"
 #include "Player.h"
 #include "PlayState.h"
@@ -20,11 +19,12 @@ public:
 	void move(Player*& player);
 	bool death = 0;
 	double damageRes = 1;
+	SDL_Rect enemyRect;
 private:
 	int frame = 8;
 	int tick = 100;
 	double health = 30;
-	SDL_Rect enemyRect;
+
 	SDL_Rect attackRect;
 	Time time;
 	Time lightning;
@@ -41,6 +41,6 @@ private:
 	Time attackedTime;
 	int startDeathAnimation = 0;
 	Time Delay;
-	AstarFindPath *Path1;
+	AstarFindPath* Path1;
 	double fps = 0.1;
 };

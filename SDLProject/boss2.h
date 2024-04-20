@@ -9,7 +9,7 @@
 class boss2 : public SDLGameObject
 {
 public:
-	boss2(const LoaderParams* pParams);
+	boss2(const LoaderParams* pParams, int a);
 
 	virtual void draw();
 	virtual void update();
@@ -27,12 +27,17 @@ private:
 	Time time;
 	Time test;
 	Time attackTime;
-	int healthBar = 100;
-	int barWidth = 100;
-	int barHeight = 16;
+	Time birdTime;
+	double damageRes = 1;
+	int healthBar = 140;
+	int barWidth = 200;
+	int barHeight = 77;
+	int healthHeight = 15;
 	std::vector<FireBall*> m_fireBalls;
 
 	bool Idle;
 	bool Hit;
 	bool Attack;
+
+	int map;
 };

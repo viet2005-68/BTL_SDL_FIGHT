@@ -4,6 +4,7 @@ const const char* PauseState::s_pauseID = "PAUSE";
 
 void PauseState::s_pauseToMain()
 {
+	BestScore::GetInstance()->updateHighScore(Game::Instance()->m_score->getScore());
 	Game::Instance()->getStateMachine()->changeState(new MenuState());
 }
 
@@ -11,34 +12,37 @@ void PauseState::s_resumePlay()
 {
 	Game::Instance()->getStateMachine()->popState();
 }
-void PauseState::update1()
-{
-}
 
 void PauseState::update()
 {
-	if (m_gameObjects.size() != 0) {
-		for (int i = 0; i < m_gameObjects.size(); i++) {
-			if (m_gameObjects[i] != nullptr) {
-				m_gameObjects[i]->update();
-			}
-			
-		}
+	for (int i = 0; i < m_gameObjects.size(); i++) {
+		m_gameObjects[i]->update();
 	}
+	
 }
+
+void PauseState::update1()
+{
+}
+void PauseState::update2()
+{
+}
+void PauseState::update3()
+{
+}
+
 
 void PauseState::render()
 {
-	TextureManager::Instance()->draw("assets/background2.png", Game::Instance()->getRenderer(), 0, 0, 640, 400);
-	if (m_gameObjects.size() != 0) {
-		for (int i = 0; i < m_gameObjects.size(); i++)
-		{
-			if (m_gameObjects[i] != nullptr) m_gameObjects[i]->draw();
-		}
+	TextureManager::Instance()->drawOG("assets/backgroundPause.png", Game::Instance()->getRenderer(), 0, 0, 1280, 800);
+	for (int i = 0; i < m_gameObjects.size(); i++)
+	{
+		m_gameObjects[i]->draw();
 	}
 }
 
 bool PauseState::onEnter() {
+	Game::Instance()->playTime.pause();
 	TextureManager::Instance()->load("assets/backgroundPause.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/continueButton.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/menuButton.png", Game::Instance()->getRenderer());
@@ -60,11 +64,9 @@ bool PauseState::onExit()
 	TextureManager::Instance()->clearFromTextureMap("assets/continueButton.png");
 	TextureManager::Instance()->clearFromTextureMap("assets/menuButton.png");
 	TextureManager::Instance()->clearFromTextureMap("assets/background2.png");
-	
+
 	InputHandler::Instance()->Reset();
 
 	std::cout << "exiting PauseState\n";
-	//m_gameObjects.clear();
-	
 	return true;
 }

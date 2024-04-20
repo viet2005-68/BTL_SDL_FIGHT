@@ -24,8 +24,15 @@ void SDLGameObject::draw()
 	}
 }
 
-
-
+void SDLGameObject::drawBig()
+{
+	if (m_velocity.getX() < 0) {
+		TextureManager::Instance()->drawFrame(m_textureID, Game::Instance()->getRenderer(), (int)m_position.getX(), (int)m_position.getY(), m_width, m_height, m_currentRow, m_currentFrame, 1);
+	}
+	else {
+		TextureManager::Instance()->drawFrame(m_textureID, Game::Instance()->getRenderer(), (int)m_position.getX(), (int)m_position.getY(), m_width, m_height, m_currentRow, m_currentFrame, 0);
+	}
+}
 
 void SDLGameObject::drawButton() {
 	TextureManager::Instance()->drawFrame(m_textureID, Game::Instance()->getRenderer(), (int)m_position.getX(), (int)m_position.getY(), m_width, m_height, m_currentRow, m_currentFrame, 0);
@@ -38,14 +45,4 @@ void SDLGameObject::update() {
 
 void SDLGameObject::clean() {
 	
-}
-
-void SDLGameObject::drawBig()
-{
-	if (m_velocity.getX() < 0) {
-		TextureManager::Instance()->drawFrame(m_textureID, Game::Instance()->getRenderer(), (int)m_position.getX(), (int)m_position.getY(), m_width, m_height, m_currentRow, m_currentFrame, 1);
-	}
-	else {
-		TextureManager::Instance()->drawFrame(m_textureID, Game::Instance()->getRenderer(), (int)m_position.getX(), (int)m_position.getY(), m_width, m_height, m_currentRow, m_currentFrame, 0);
-	}
 }

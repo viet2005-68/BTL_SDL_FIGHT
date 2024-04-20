@@ -52,7 +52,6 @@ void tower::move(Player*& player, int map) {
 	}
 	else {
 		if (time.getElapsedTime() > 3) {
-			SoundManager::Instance()->playSound("assets/fireBall.wav", 10);
 			m_fire.clear();
 			FireBall* fire1 = new FireBall(new LoaderParams(m_position.getX() + 50, m_position.getY() + 50, 46, 46, "assets/fireBall.png"));
 			FireBall* fire2 = new FireBall(new LoaderParams(m_position.getX() + 50, m_position.getY() + 50, 46, 46, "assets/fireBall.png"));
@@ -69,6 +68,6 @@ void tower::move(Player*& player, int map) {
 	}
 	for (int i = 0; i < m_fire.size(); ++i) {
 		m_fire[i]->update();
-		m_fire[i]->move(player, i, map);
+		m_fire[i]->move(player,i, map);
 	}
 }

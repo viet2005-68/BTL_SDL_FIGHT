@@ -1,10 +1,11 @@
 #pragma once
-#include "Player.h"
+
 #include "SDLGameObject.h"
+#include "Player.h"
 #include "PlayState.h"
 #include "cmath"
 #include "Time.h"
-class Player;
+
 class chest : public SDLGameObject
 {
 public:

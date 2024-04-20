@@ -1,4 +1,3 @@
-
 #include "chest.h"
 #include "SoundManager.h"
 #include "cstdlib"
@@ -24,7 +23,7 @@ void chest::clean() {
 
 }
 
-void chest::move(Player* &player) {
+void chest::move(Player*& player) {
 
 	enemyRect.x = m_position.getX();
 	enemyRect.y = m_position.getY();
@@ -32,9 +31,13 @@ void chest::move(Player* &player) {
 	m_currentFrame = 0;
 	if (death) {
 		m_currentFrame = 1;
+		/*if (time.getElapsedTime() > 1) {
+			m_width = 0;
+			m_height = 0;
+			time.reset();
+		}*/
 	}
-	else if (abs(player->playerRect.x - (enemyRect.x - 25)) <= 50 && player->playerRect.y + 91 >= enemyRect.y && player->playerRect.y <= enemyRect.y + 42 && death != true) {
-		if ((player->attack == 1 && player->playerRect.x + 80 < enemyRect.x + 50 && player->getVelocity().getX() > 0) || (player->attack == 1 && player->playerRect.x + 80 > enemyRect.x + 50 && player->getVelocity().getX() < 0)) {
+	else if (abs(player->playerRect.x - (enemyRect.x-25)) <= 50 && player->playerRect.y + 32 >= enemyRect.y && player->playerRect.y <= enemyRect.y + 42 && death != true && (player->attack == 1 || player->fireBall == 1)) {
 			if (time.getElapsedTime() > 0.4) {
 				health -= player->damage;
 				time.reset();
@@ -61,5 +64,4 @@ void chest::move(Player* &player) {
 				death = 1;
 			}
 		}
-	}
 }

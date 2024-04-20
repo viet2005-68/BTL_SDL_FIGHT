@@ -17,31 +17,14 @@ public:
 	virtual void clean();
 
 	void move(Player*& player);
-	void move_UP() {
-		m_position.m_y -= 1;
-		//enemyRect.y -= 2;
-	}
-	void move_DOWN() {
-		m_position.m_y += 1;
-		//enemyRect.y += 2;
-	}
-	void move_RIGHT() {
-		m_position.m_x += 1;
-		//enemyRect.x += 2;
-		m_velocity.setX(0);
-	}
-	void move_LEFT() {
-		m_position.m_x -= 1;
-		//enemyRect.x -= 2;
-		m_velocity.setX(-0.000000001);
-	}
 	bool death = 0;
 	double damageRes = 1;
+	SDL_Rect enemyRect;
 private:
 	int frame = 8;
 	int tick = 100;
 	double health = 50;
-	SDL_Rect enemyRect;
+
 	Time time;
 	double healthBar = 50;
 	int barWidth = 50;
@@ -49,6 +32,7 @@ private:
 	int status;
 	Time birdTime;
 	Time lightning;
+	Time attackedTime;
 	SDL_Rect upRect;
 	SDL_Rect downRect;
 	SDL_Rect leftRect;

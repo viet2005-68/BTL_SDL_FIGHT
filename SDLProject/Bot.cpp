@@ -2,26 +2,28 @@
 #include <iostream>
 #include "Map.h"
 #include "AStarFindPath.h"
+#include "Map_lv3.h"
+
 Bot::Bot(const LoaderParams* pParams) : SDLGameObject(pParams)
 {
-	enemyRect.w = 64;
-	enemyRect.h = 64;
+	enemyRect.w = 32;
+	enemyRect.h = 32;
 	attackRect.w = 96;
 	attackRect.h = 32;
 	enemyRect.x = m_position.getX() + 60;
 	enemyRect.y = m_position.getY() + 90;
-	attackRect.x = m_position.getX() +60 ;
+	attackRect.x = m_position.getX() + 60;
 	attackRect.y = m_position.getY() + 90;
-	Path1 = new AstarFindPath(Map_lv2::getInstance()->GetTileCheck());   
+	Path1 = new AstarFindPath(Map_lv3::getInstance()->GetTileCheck());
 }
 
 void Bot::draw() {
 	SDLGameObject::draw();
 	TextureManager::Instance()->drawChar("assets/healthUnder.png", Game::Instance()->getRenderer(), enemyRect.x - 20, enemyRect.y - 30, barWidth, barHeight, 1, 0, 0);
 	TextureManager::Instance()->drawChar("assets/health.png", Game::Instance()->getRenderer(), enemyRect.x - 20, enemyRect.y - 30, healthBar, 8, 1, 0, 0);
-	SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(enemyRect));
-	SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(attackRect));
-	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
+	//SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(enemyRect));
+	//SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(attackRect));
+	//SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
 }
 
 void Bot::update() {
@@ -41,18 +43,7 @@ void Bot::clean() {
 }
 
 void Bot::move(Player*& player) {
-	std::cout << time.getElapsedTime() << std::endl;
-	enemyRect.x = m_position.getX() + 60;
-	enemyRect.y = m_position.getY() + 90;
-	//LightningBird skill
-	if (m_velocity.getX() >= 0) {
-		attackRect.x = m_position.getX() + 60;
-		attackRect.y = m_position.getY() + 90;
-	}
-	else {
-		attackRect.x = m_position.getX() - 10;
-		attackRect.y = m_position.getY() + 90;
-	}
+
 	if (death != 1) {
 		for (int i = 0; i < player->m_birds.size(); ++i) {
 			if (player->m_birds[i]->death != 1 && Map_lv2::getInstance()->checkwall(player->m_birds[i]->birdRect, enemyRect)) {
@@ -63,6 +54,7 @@ void Bot::move(Player*& player) {
 					health -= player->damage * 2 * player->damageRatio / damageRes;
 					healthBar -= ((player->damage + 7) * 2 * player->damageRatio) / damageRes;
 					if (health <= 0) {
+						Game::Instance()->m_score->Setscore(10);
 						player->score += 10;
 						std::cout << player->score << std::endl;
 						death = true;
@@ -79,6 +71,7 @@ void Bot::move(Player*& player) {
 				healthBar -= ((player->damage + 7) * player->damageRatio) / damageRes;
 				player->m_fireBalls[i]->death = 1;
 				if (health <= 0) {
+					Game::Instance()->m_score->Setscore(10);
 					player->score += 10;
 					std::cout << player->score << std::endl;
 					death = true;
@@ -89,6 +82,7 @@ void Bot::move(Player*& player) {
 		if (player->explosion == 1) {
 			healthBar -= 1;
 			if (healthBar <= 0) {
+				Game::Instance()->m_score->Setscore(10);
 				player->score += 10;
 				std::cout << player->score << std::endl;
 				death = true;
@@ -109,16 +103,11 @@ void Bot::move(Player*& player) {
 		}
 	}
 	else {
-		if (player->playerRect.x + 32 <= enemyRect.x && attackState != 1) {
-			m_velocity.setX(-0.000001);
-		}
-		else if (player->playerRect.x >= enemyRect.x + 16 && attackState != 1) {
-			m_velocity.setX(0);
-		}
+
 		if (player->skill == 1) {
 			if (time.getElapsedTime() > player->attackSpeed) {
 				health -= player->damage * 3 * player->damageRatio / damageRes;
-				healthBar -= ((player->damage + 7) * 3 * player->damageRatio) / damageRes;
+				healthBar -= ((player->damage) * 3 * player->damageRatio) / damageRes;
 				time.reset();
 			}
 			if (health <= 0) {
@@ -143,15 +132,34 @@ void Bot::move(Player*& player) {
 			}
 		}
 
+
+		enemyRect.x = m_position.getX() + 60;
+		enemyRect.y = m_position.getY() + 90;
+		if (m_velocity.getX() >= 0) {
+			attackRect.x = m_position.getX() + 60;
+			attackRect.y = m_position.getY() + 90;
+		}
+		else {
+			attackRect.x = m_position.getX() - 10;
+			attackRect.y = m_position.getY() + 90;
+		}
+		if (player->playerRect.x + 32 <= enemyRect.x && attackState != 1) {
+			m_velocity.setX(-0.000001);
+		}
+		else if (player->playerRect.x >= enemyRect.x + 16 && attackState != 1) {
+			m_velocity.setX(0);
+		}
 		if (Map::getInstance()->checkwall(player->playerRect, enemyRect)) {
 			attackState = 1;
 			if (player->attack == 1) {
 				if (attackedTime.getElapsedTime() > player->attackSpeed) {
-					health -= player->damage * player->damageRatio;
-					healthBar -= player->damage + 7 * player->damageRatio;
+					health -= (player->damage * player->damageRatio) / damageRes;
+					healthBar -= (player->damage* player->damageRatio) / damageRes;
 					attackedTime.reset();
 				}
 				if (healthBar <= 0) {
+					Game::Instance()->m_score->Setscore(10);
+					player->score += 10;
 					death = 1;
 				}
 			}
@@ -174,7 +182,7 @@ void Bot::move(Player*& player) {
 				time.reset();
 			}
 
-			if (Map_lv2::getInstance()->checkwall(player->playerRect, attackRect)) {
+			if (Map_lv3::getInstance()->checkwall(player->playerRect, attackRect)) {
 				if (m_currentFrame >= 32 && m_currentFrame <= 38) {
 					if (attackSpeed.getElapsedTime() > 0.3) {
 						player->healthBar -= (8 / player->defense);
@@ -187,15 +195,17 @@ void Bot::move(Player*& player) {
 		else
 		{
 			fps = 0.1;
-			m_textureID = "assets/bot/Run.png";
-			frame = 8;
+			m_textureID = "assets/bot/Idle.png";
+			frame = 19;
 			time.reset();
-			
+
 			float deltaXRect = enemyRect.x - player->playerRect.x;
 			float deltaYRect = enemyRect.y - player->playerRect.y;
 			float distance_check = sqrt(deltaXRect * deltaXRect + deltaYRect * deltaYRect);
 			//delay_Find.reset();
 			if (distance_check < 300) {
+				m_textureID = "assets/bot/Run.png";
+				frame = 8;
 				std::pair<int, int> path = Path1->FindPath(enemyRect.x / 32, enemyRect.y / 32, player->playerRect.x / 32, player->playerRect.y / 32);
 
 				float deltaX = path.first - int(enemyRect.x / 32);
@@ -215,23 +225,21 @@ void Bot::move(Player*& player) {
 					m_velocity.setX(0.00001);
 				}
 
-				m_position.m_x += directionX * 2;
-				m_position.m_y += directionY * 2;
+				m_position.m_x += directionX * 1;
+				m_position.m_y += directionY * 1;
 				enemyRect.x = m_position.getX() + 60;
 				enemyRect.y = m_position.getY() + 90;
-			if (Map_lv2::getInstance()->iswall(enemyRect)) {
-					m_position.m_x -= directionX * 2;
-					m_position.m_y -= directionY * 2;
-			}
-				
+				if (Map_lv3::getInstance()->iswall(enemyRect)) {
+					m_position.m_x -= directionX * 1;
+					m_position.m_y -= directionY * 1;
+				}
+
 
 			}
 			else {
 
 			}
-
 			//delete Path1;
-
 		}
 	}
 }

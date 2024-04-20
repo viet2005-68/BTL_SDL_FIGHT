@@ -14,7 +14,7 @@ void MenuState::update()
 	for (int i = 0; i < m_gameObjects.size(); ++i) {
 		m_gameObjects[i]->update();
 	}
-
+	
 	button1->update();
 }
 
@@ -23,11 +23,21 @@ void MenuState::update1()
 	button3->update();
 }
 
+void MenuState::update2()
+{
+
+}
+
+void MenuState::update3()
+{
+
+}
 
 
 void MenuState::render() {
-	TextureManager::Instance()->drawOG("assets/background.png", Game::Instance()->getRenderer(), 0, 0,1280 , 800);
-	TextureManager::Instance()->draw("assets/scorePanel.png", Game::Instance()->getRenderer(), 350, 630, 192, 64);
+	TextureManager::Instance()->drawOG("assets/background.png", Game::Instance()->getRenderer(), 0, 0, 1280, 800);
+	TextureManager::Instance()->draw("assets/scorePanel.png", Game::Instance()->getRenderer(), 10, 10, 192, 64);
+
 	for (int i = 0; i < m_gameObjects.size(); ++i) {
 		m_gameObjects[i]->draw();
 	}
@@ -36,6 +46,7 @@ void MenuState::render() {
 	button3->draw();
 
 	BestScore::GetInstance()->draw();
+
 }
 
 bool MenuState::onEnter() {
@@ -44,7 +55,7 @@ bool MenuState::onEnter() {
 	SoundManager::Instance()->load("assets/Confirm.wav", "confirm", SOUND_SFX);
 
 	//Background music
-	SoundManager::Instance()->load("assets/menuTheme.wav", "assets/menuTheme.wav", SOUND_MUSIC);
+	SoundManager::Instance()->load("assets/menuTheme2.wav", "assets/menuTheme.wav", SOUND_MUSIC);
 	SoundManager::Instance()->playMusic("assets/menuTheme.wav", 0);
 
 	//Button
@@ -66,10 +77,12 @@ bool MenuState::onEnter() {
 
 	//GameObject* button3 = new MenuButton(new LoaderParams(100, 520, 115, 53, "assets/helpButton.png"), s_help);
 
+	//GameObject* button4 = new MenuButton(new LoaderParams(1200, 10, 36, 36, "assets/Mute.png"), s_volumeMute);
+	//GameObject* button5 = new MenuButton(new LoaderParams(1100, 10, 36, 36, "assets/Unmute.png"), s_volumeUnmute);
 	GameObject* button4 = new MenuButton(new LoaderParams(1200, 10, 36, 36, "assets/Mute.png"), s_volumeMute);
 	GameObject* button5 = new MenuButton(new LoaderParams(1100, 10, 36, 36, "assets/Unmute.png"), s_volumeUnmute);
-	
-	// push button to menu pause
+
+
 	m_gameObjects.push_back(button2);
 	m_gameObjects.push_back(button4);
 	m_gameObjects.push_back(button5);

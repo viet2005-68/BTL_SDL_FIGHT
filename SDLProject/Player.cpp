@@ -1,11 +1,241 @@
-#include "Map_lv2.h"
-#include "Map_lv3.h"
-#include "Map.h"
+/*#include "Player.h"
+#include "InputHandler.h"
+#include <cstdlib>
+#include "Game.h"
+
+Player::Player(const LoaderParams* pParams) : SDLGameObject(pParams)
+{
+	TextureManager::Instance()->load("assets/Arrow.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/dust.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/playerHealthUnder.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/playerHealth.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/heart.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/manaBar.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/mana.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/regeneration.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/attackBoost.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/defenseBoost.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/speedBoost.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/shield.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/aura.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/speedAnimation.png", Game::Instance()->getRenderer());
+	playerRect.w = 80;
+	playerRect.h = 91;
+	playerRect.x = 0;
+	playerRect.y = 0;
+}
+
+void Player::draw()
+{
+	SDLGameObject::draw();
+	TextureManager::Instance()->draw("assets/playerHealthUnder.png", Game::Instance()->getRenderer(), 65, 20, 100, 27);
+	TextureManager::Instance()->draw("assets/playerHealth.png", Game::Instance()->getRenderer(), 65, 20, healthBar, 27);
+	TextureManager::Instance()->draw("assets/playerHealthUnder.png", Game::Instance()->getRenderer(), 330, 20, 100, 27);
+	TextureManager::Instance()->draw("assets/manaBar.png", Game::Instance()->getRenderer(), 330, 20, mana, 27);
+	TextureManager::Instance()->draw("assets/heart.png", Game::Instance()->getRenderer(), 4, 20, 28, 28);
+	TextureManager::Instance()->draw("assets/mana.png", Game::Instance()->getRenderer(), 275, 20, 28, 28);
+
+	//Buff
+	if (regen == true) {
+		TextureManager::Instance()->draw("assets/regeneration.png", Game::Instance()->getRenderer(), 70, 80, 16, 16);
+	}
+	if (defenseBoost == true) {
+		TextureManager::Instance()->draw("assets/defenseBoost.png", Game::Instance()->getRenderer(), 102, 80, 16, 16);
+		if (m_velocity.getX() > 0) {
+			TextureManager::Instance()->drawFrame("assets/shield.png", Game::Instance()->getRenderer(), playerRect.x + 20, playerRect.y + 15, 27, 30, 1, shieldFrame, 0);
+		}
+		else {
+			TextureManager::Instance()->drawFrame("assets/shield.png", Game::Instance()->getRenderer(), playerRect.x , playerRect.y + 15, 27, 30, 1, shieldFrame, 1);
+		}
+	}
+	if (atkBoost == true) {
+		TextureManager::Instance()->draw("assets/attackBoost.png", Game::Instance()->getRenderer(), 134, 80, 16, 16);
+		if (m_velocity.getX() > 0) {
+			TextureManager::Instance()->drawFrame("assets/aura.png", Game::Instance()->getRenderer(), playerRect.x + 20, playerRect.y + 40, 32, 32, 1, auraFrame, 0);
+		}
+		else {
+			TextureManager::Instance()->drawFrame("assets/aura.png", Game::Instance()->getRenderer(), playerRect.x, playerRect.y + 40, 32, 32, 1, auraFrame, 1);
+		}
+	}
+	if (speedBoost == true) {
+		TextureManager::Instance()->draw("assets/speedBoost.png", Game::Instance()->getRenderer(), 166, 80, 16, 16);
+		if (m_velocity.getX() > 0) {
+			TextureManager::Instance()->drawFrame("assets/speedAnimation.png", Game::Instance()->getRenderer(), playerRect.x + 20, playerRect.y + 20, 32, 32, 1, (SDL_GetTicks() / 150) % 5, 0);
+		}
+		else {
+			TextureManager::Instance()->drawFrame("assets/speedAnimation.png", Game::Instance()->getRenderer(), playerRect.x - 5, playerRect.y + 20, 32, 32, 1, shieldFrame, 1);
+		}
+	}
+	TextureManager::Instance()->drawChar("assets/Arrow.png", Game::Instance()->getRenderer(), playerRect.x + 30, playerRect.y - 20, 13, 13, 1, 0, 0);
+	if (run == 1 && m_velocity.getX() > 0) {
+		TextureManager::Instance()->drawFrame("assets/dust.png", Game::Instance()->getRenderer(), playerRect.x - 5, playerRect.y + 60, 16, 12, 1, ((SDL_GetTicks() / 200) % 3), 0);
+	}
+	else if (run == 1 && m_velocity.getX() < 0) {
+		TextureManager::Instance()->drawFrame("assets/dust.png", Game::Instance()->getRenderer(), playerRect.x + 55, playerRect.y + 60, 16, 12, 1, ((SDL_GetTicks() / 200) % 3), 1);
+	}
+	//SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(playerRect));
+	//SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
+}
+
+void Player::update()
+{
+	if (mana < 100 && time.getElapsedTime() > 0.5) {
+		mana += 5;
+		time.reset();
+	}
+	playerRect.x = m_position.getX()+100;
+	playerRect.y = m_position.getY()+91;
+
+	int tick = 100;
+	frame = 11;
+	m_currentRow = 4;
+	run = 0;
+	attack = 0;
+
+	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_A) == true && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
+		m_position.setX(m_position.getX() - speed);
+		//chieu am
+		m_velocity.setX(-0.001);
+		m_currentRow = 5;
+		frame = 8;
+		run = 1;
+	}
+	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_W) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
+		m_position.setY(m_position.getY() - speed);
+		m_currentRow = 5;
+		frame = 8;
+		run = 1;
+
+	}
+	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_S) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
+		m_position.setY(m_position.getY() + speed);
+		m_currentRow = 5;
+		frame = 8;
+		run = 1;
+	}
+	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_D) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
+		m_position.setX(m_position.getX() + speed);
+		//chieu duong
+		m_velocity.setX(0.001);
+		m_currentRow = 5;
+		frame = 8;
+		run = 1;
+
+	}
+	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) && mana >= 5) {
+		m_currentRow = 1;
+		frame = 7;
+		attack = 1;
+		if (time.getElapsedTime() > attackSpeed) {
+			mana -= 5;
+			time.reset();
+		}
+	}
+	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_K)) {
+		tick = 300;
+	}
+
+	if (attacked == 1) {
+		m_currentRow = 6;
+		frame = 4;
+		tick = 300;
+	}
+
+	if (regen == true) {
+		if (regenTime.getElapsedTime() > 1) {
+			if (healthBar <= 97) {
+				SoundManager::Instance()->playSound("assets/regen.wav", 0);
+				healthBar += 3;
+			}
+			stopRegen++;
+			if (stopRegen == 10) {
+				regen = false;
+				stopRegen = 0;
+			}
+			regenTime.reset();
+		}
+	}
+
+	if (defenseBoost == true) {
+		defense = 3;
+		if (defenseTime.getElapsedTime() > 1) {
+			SoundManager::Instance()->playSound("assets/regen.wav", 0);
+			stopDefenseBoost++;
+			if (stopDefenseBoost == 10) {
+				defenseBoost = false;
+				defense = 1;
+				stopDefenseBoost = 0;
+			}
+			defenseTime.reset();
+		}
+	}
+
+	if (atkBoost == true) {
+		if (stopAttackBoost == 0) {
+			damageRatio = 2;
+		}
+		if (attackTime.getElapsedTime() > 1) {
+			SoundManager::Instance()->playSound("assets/regen.wav", 0);
+			stopAttackBoost++;
+			if (stopAttackBoost == 10) {
+				atkBoost = false;
+				damageRatio = 1;
+				stopAttackBoost = 0;
+			}
+			attackTime.reset();
+		}
+	}
+
+	if (speedBoost == true) {
+		speed = 4;
+		attackSpeed = 0.2;
+		tick = 50;
+		if (speedTime.getElapsedTime() > 1) {
+			stopSpeedBoost++;
+			if (stopSpeedBoost == 10) {
+				speedBoost = false;
+				speed = 2;
+				attackSpeed = 0.4;
+				stopSpeedBoost = 0;
+			}
+			speedTime.reset();
+		}
+	}
+
+	m_currentFrame = int(((SDL_GetTicks() / tick) % frame));
+	shieldFrame = int(((SDL_GetTicks() / 50) % 6));
+	auraFrame = int(((SDL_GetTicks() / 150) % 4));
+
+
+	//Sound
+	if (run == 1) {
+		attacked = 0;
+		SoundManager::Instance()->playSound("assets/walk.wav", 0);
+	}
+	else if (attack == 1) {
+		attacked = 0;
+		SoundManager::Instance()->playSound("assets/enemy1Damaged.wav", 0);
+	}
+	else if (attacked == 1) {
+		SoundManager::Instance()->playSound("assets/damaged.wav", 0);
+	}
+	else {
+		Mix_HaltChannel(-1);
+	}
+
+	SDLGameObject::update();
+}
+
+void Player::clean()
+{
+}
+*/
 #include "Player.h"
 #include "InputHandler.h"
 #include <cstdlib>
 #include "Game.h"
 #include "Map.h"
+#include "Map_lv3.h"
 
 Player::Player(const LoaderParams* pParams, int a) : SDLGameObject(pParams)
 {
@@ -25,7 +255,7 @@ Player::Player(const LoaderParams* pParams, int a) : SDLGameObject(pParams)
 		attackSpeed = 0.5;
 	}
 	if (characterNum == 3) {
-
+		attackSpeed = 0.7;
 	}
 	playerRect.w = 33;
 	playerRect.h = 33;
@@ -34,6 +264,10 @@ Player::Player(const LoaderParams* pParams, int a) : SDLGameObject(pParams)
 	VecX = VecY = 0;
 
 	skill1 = true;
+
+	std::cout << "Damage: " << damage << std::endl;
+	std::cout << "Defense: " << defense << std::endl;
+	std::cout << "Attack Speed: " << attackSpeed << std::endl;
 	//Newly added
 	TextureManager::Instance()->load("assets/manaBar.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/mana.png", Game::Instance()->getRenderer());
@@ -53,12 +287,14 @@ Player::Player(const LoaderParams* pParams, int a) : SDLGameObject(pParams)
 	TextureManager::Instance()->load("assets/skill1.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/skill2.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/skill3.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/char3/skill3.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/meguminSkill3.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/dashSkill.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/border.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/skill1CoolDown.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/skill2CoolDown.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/skill3CoolDown.png", Game::Instance()->getRenderer());
+	TextureManager::Instance()->load("assets/char3/skill3CoolDown.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/meguminSkill3CoolDown.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/dashSkillCoolDown.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/statusBox.png", Game::Instance()->getRenderer());
@@ -67,6 +303,7 @@ Player::Player(const LoaderParams* pParams, int a) : SDLGameObject(pParams)
 	TextureManager::Instance()->load("assets/avatar3.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/avatar4.png", Game::Instance()->getRenderer());
 	TextureManager::Instance()->load("assets/meguminExplosion.png", Game::Instance()->getRenderer());
+
 }
 
 void Player::draw()
@@ -91,7 +328,7 @@ void Player::draw()
 		TextureManager::Instance()->drawFrame("assets/meguminExplosion.png", Game::Instance()->getRenderer(), 860, 360, 64, 64, 1, (SDL_GetTicks() / 150) % 6, 0);
 		TextureManager::Instance()->drawFrame("assets/meguminExplosion.png", Game::Instance()->getRenderer(), 700, 360, 64, 64, 1, (SDL_GetTicks() / 150) % 6, 0);
 	}
-	TextureManager::Instance()->draw("assets/playerHealthUnder.png", Game::Instance()->getRenderer(), 65, 20, 100, 27);//27
+	TextureManager::Instance()->draw("assets/playerHealthUnder.png", Game::Instance()->getRenderer(), 65, 20, 100, 27);
 	TextureManager::Instance()->draw("assets/playerHealth.png", Game::Instance()->getRenderer(), 65, 20, healthBar, 27);
 	TextureManager::Instance()->draw("assets/playerHealthUnder.png", Game::Instance()->getRenderer(), 330, 20, 100, 27);
 	TextureManager::Instance()->draw("assets/manaBar.png", Game::Instance()->getRenderer(), 330, 20, mana, 27);
@@ -152,6 +389,9 @@ void Player::draw()
 		else {
 			TextureManager::Instance()->draw("assets/border.png", Game::Instance()->getRenderer(), 265, 709, 37, 37);
 			TextureManager::Instance()->draw("assets/skill1CoolDown.png", Game::Instance()->getRenderer(), 270, 714, 32, 32);
+			if (5 - skillTime.getElapsedTime() >= 0) {
+				skillTime.printTimeOnScreen(5 - skillTime.getElapsedTime(), 275, 715, 60, 60);
+			}
 		}
 
 		if (skill2 == true) {
@@ -161,6 +401,9 @@ void Player::draw()
 		else {
 			TextureManager::Instance()->draw("assets/border.png", Game::Instance()->getRenderer(), 365, 709, 37, 37);
 			TextureManager::Instance()->draw("assets/skill2CoolDown.png", Game::Instance()->getRenderer(), 370, 714, 32, 32);
+			if (10 - lightningTime.getElapsedTime() >= 0) {
+				lightningTime.printTimeOnScreen(10 - lightningTime.getElapsedTime(), 375, 715, 60, 60);
+			}
 		}
 		if (skill3 == true) {
 			TextureManager::Instance()->draw("assets/border.png", Game::Instance()->getRenderer(), 465, 709, 37, 37);
@@ -169,6 +412,10 @@ void Player::draw()
 		else {
 			TextureManager::Instance()->draw("assets/border.png", Game::Instance()->getRenderer(), 465, 709, 37, 37);
 			TextureManager::Instance()->draw("assets/meguminSkill3CoolDown.png", Game::Instance()->getRenderer(), 470, 714, 32, 32);
+			if (40 - lightningBirdTime.getElapsedTime() >= 0) {
+				lightningBirdTime.printTimeOnScreen(40 - lightningBirdTime.getElapsedTime(), 475, 715, 60, 60);
+			}
+
 		}
 		if (dashSkill == true) {
 			TextureManager::Instance()->draw("assets/border.png", Game::Instance()->getRenderer(), 165, 709, 37, 37);
@@ -177,6 +424,52 @@ void Player::draw()
 		else {
 			TextureManager::Instance()->draw("assets/border.png", Game::Instance()->getRenderer(), 165, 709, 37, 37);
 			TextureManager::Instance()->draw("assets/dashSkillCoolDown.png", Game::Instance()->getRenderer(), 170, 714, 32, 32);
+			dashTime.printTimeOnScreen(4 - dashTime.getElapsedTime(), 175, 715, 60, 60);
+		}
+	}
+	else if (characterNum == 3) {
+		if (skill1 == true) {
+			TextureManager::Instance()->draw("assets/border.png", Game::Instance()->getRenderer(), 265, 709, 37, 37);
+			TextureManager::Instance()->draw("assets/skill1.png", Game::Instance()->getRenderer(), 270, 714, 32, 32);
+		}
+		else {
+			TextureManager::Instance()->draw("assets/border.png", Game::Instance()->getRenderer(), 265, 709, 37, 37);
+			TextureManager::Instance()->draw("assets/skill1CoolDown.png", Game::Instance()->getRenderer(), 270, 714, 32, 32);
+			if (5 - skillTime.getElapsedTime() >= 0) {
+				skillTime.printTimeOnScreen(5 - skillTime.getElapsedTime(), 275, 715, 60, 60);
+			}
+		}
+
+		if (skill2 == true) {
+			TextureManager::Instance()->draw("assets/border.png", Game::Instance()->getRenderer(), 365, 709, 37, 37);
+			TextureManager::Instance()->draw("assets/skill2.png", Game::Instance()->getRenderer(), 370, 714, 32, 32);
+		}
+		else {
+			TextureManager::Instance()->draw("assets/border.png", Game::Instance()->getRenderer(), 365, 709, 37, 37);
+			TextureManager::Instance()->draw("assets/skill2CoolDown.png", Game::Instance()->getRenderer(), 370, 714, 32, 32);
+			if (10 - lightningTime.getElapsedTime() >= 0) {
+				lightningTime.printTimeOnScreen(10 - lightningTime.getElapsedTime(), 375, 715, 60, 60);
+			}
+		}
+		if (skill3 == true) {
+			TextureManager::Instance()->draw("assets/border.png", Game::Instance()->getRenderer(), 465, 709, 37, 37);
+			TextureManager::Instance()->drawFrame("assets/char3/skill3.png", Game::Instance()->getRenderer(), 454, 697, 48, 48, 1, ((SDL_GetTicks() / 200) % 3), 0);
+		}
+		else {
+			TextureManager::Instance()->draw("assets/border.png", Game::Instance()->getRenderer(), 465, 709, 37, 37);
+			TextureManager::Instance()->draw("assets/char3/skill3CoolDown.png", Game::Instance()->getRenderer(), 470, 714, 32, 32);
+			if (30 - lightningBirdTime.getElapsedTime() >= 0) {
+				lightningBirdTime.printTimeOnScreen(30 - lightningBirdTime.getElapsedTime(), 475, 715, 60, 60);
+			}
+		}
+		if (dashSkill == true) {
+			TextureManager::Instance()->draw("assets/border.png", Game::Instance()->getRenderer(), 165, 709, 37, 37);
+			TextureManager::Instance()->draw("assets/dashSkill.png", Game::Instance()->getRenderer(), 170, 714, 32, 32);
+		}
+		else {
+			TextureManager::Instance()->draw("assets/border.png", Game::Instance()->getRenderer(), 165, 709, 37, 37);
+			TextureManager::Instance()->draw("assets/dashSkillCoolDown.png", Game::Instance()->getRenderer(), 170, 714, 32, 32);
+			dashTime.printTimeOnScreen(2 - dashTime.getElapsedTime(), 175, 715, 60, 60);
 		}
 	}
 	else {
@@ -187,6 +480,9 @@ void Player::draw()
 		else {
 			TextureManager::Instance()->draw("assets/border.png", Game::Instance()->getRenderer(), 265, 709, 37, 37);
 			TextureManager::Instance()->draw("assets/skill1CoolDown.png", Game::Instance()->getRenderer(), 270, 714, 32, 32);
+			if (5 - skillTime.getElapsedTime() >= 0) {
+				skillTime.printTimeOnScreen(5 - skillTime.getElapsedTime(), 275, 715, 60, 60);
+			}
 		}
 
 		if (skill2 == true) {
@@ -196,25 +492,31 @@ void Player::draw()
 		else {
 			TextureManager::Instance()->draw("assets/border.png", Game::Instance()->getRenderer(), 365, 709, 37, 37);
 			TextureManager::Instance()->draw("assets/skill2CoolDown.png", Game::Instance()->getRenderer(), 370, 714, 32, 32);
+			if (10 - lightningTime.getElapsedTime() >= 0) {
+				lightningTime.printTimeOnScreen(10 - lightningTime.getElapsedTime(), 375, 715, 60, 60);
+			}
 		}
 		if (skill3 == true) {
 			TextureManager::Instance()->draw("assets/border.png", Game::Instance()->getRenderer(), 465, 709, 37, 37);
-			TextureManager::Instance()->draw("assets/skill3.png", Game::Instance()->getRenderer(), 470, 714, 32, 32);
+			TextureManager::Instance()->drawFrame("assets/skill3.png", Game::Instance()->getRenderer(), 454, 697, 48, 48, 1, ((SDL_GetTicks() / 200) % 4), 0);
+			//TextureManager::Instance()->draw("assets/skill3.png", Game::Instance()->getRenderer(), 470, 714, 32, 32);
+
 		}
 		else {
 			TextureManager::Instance()->draw("assets/border.png", Game::Instance()->getRenderer(), 465, 709, 37, 37);
 			TextureManager::Instance()->draw("assets/skill3CoolDown.png", Game::Instance()->getRenderer(), 470, 714, 32, 32);
+			if (7 - lightningBirdTime.getElapsedTime() >= 0) {
+				lightningBirdTime.printTimeOnScreen(7 - lightningBirdTime.getElapsedTime(), 475, 715, 60, 60);
+			}
 		}
 		if (dashSkill == true) {
-			
 			TextureManager::Instance()->draw("assets/border.png", Game::Instance()->getRenderer(), 165, 709, 37, 37);
 			TextureManager::Instance()->draw("assets/dashSkill.png", Game::Instance()->getRenderer(), 170, 714, 32, 32);
 		}
 		else {
-			
 			TextureManager::Instance()->draw("assets/border.png", Game::Instance()->getRenderer(), 165, 709, 37, 37);
-			TextureManager::Instance()->draw("assets/dashSkillCoolDown.png", Game::Instance()->getRenderer(), 170, 714, 32, 32);
-			dashTime.printTimeOnScreen(2 - dashTime.getElapsedTime(), 170, 714, 60, 32);
+			TextureManager::Instance()->draw("assets/dashSkillCoolDown.png", Game::Instance()->getRenderer(), 165, 714, 32, 32);
+			dashTime.printTimeOnScreen(2 - dashTime.getElapsedTime(), 175, 715, 60, 60);
 		}
 	}
 
@@ -243,14 +545,15 @@ void Player::draw()
 		TextureManager::Instance()->drawFrame("assets/lightningSkill.png", Game::Instance()->getRenderer(), playerRect.x - 256, playerRect.y - 400, 256, 256, 1, ((SDL_GetTicks() / 50) % 20), 0);
 	}
 
-	for (int i = 0; i < m_birds.size(); ++i) {
+	for (int i = 0;i < m_birds.size(); ++i) {
 		m_birds[i]->draw();
 	}
 	for (int i = 0; i < m_fireBalls.size(); ++i) {
 		m_fireBalls[i]->draw();
 	}
-	SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(playerRect));
-	SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
+
+	//SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(playerRect));
+	//SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
 }
 
 void Player::update()
@@ -291,6 +594,7 @@ void Player::update()
 		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_W) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
 			m_position.setY(m_position.getY() - speed);
 			VecY -= speed;
+
 			m_textureID = "assets/player1Run.png";
 			frame = 8;
 
@@ -547,294 +851,298 @@ void Player::update()
 			{
 				m_birds[i]->move(direction, 1);
 			}
+			else if (lvl3 == true) {
+				m_birds[i]->move(direction, 3);
+			}
 		}
 
 		SDLGameObject::update();
 	}
-	else if (characterNum == 2) {
-		VecX = VecY = 0;
-		if (mana < 100 && time.getElapsedTime() > 0.5) {
-			if (mana + manaRegen > 100) {
-				mana = 100;
-			}
-			else {
-				mana += manaRegen;
-			}
+else if (characterNum == 2) {
+	VecX = VecY = 0;
+	if (mana < 100 && time.getElapsedTime() > 0.5) {
+		if (mana + manaRegen > 100) {
+			mana = 100;
+		}
+		else {
+			mana += manaRegen;
+		}
+		time.reset();
+	}
+	playerRect.x = m_position.getX() + playerRect.w;
+	playerRect.y = m_position.getY() + playerRect.h;
+
+	int tick = 100;
+	frame = 6;
+	m_currentRow = 1;
+	run = 0;
+	attack = 0;
+	skill = 0;
+	dash = 0;
+	lightningBird = 0;
+
+	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_A) == true && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
+		m_position.setX(m_position.getX() - speed);
+		VecX -= speed;
+		//chieu am
+		m_velocity.setX(-0.001);
+		m_currentRow = 2;
+		frame = 6;
+		run = 1;
+	}
+	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_W) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
+		m_position.setY(m_position.getY() - speed);
+		VecY -= speed;
+		m_currentRow = 8;
+		frame = 3;
+		run = 1;
+		//move();
+
+	}
+	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_S) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
+		m_position.setY(m_position.getY() + speed);
+		VecY += speed;
+		m_currentRow = 6;
+		frame = 3;
+		run = 1;
+	}
+	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_D) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
+		m_position.setX(m_position.getX() + speed);
+		VecX += speed;
+		//chieu duong
+		m_velocity.setX(0.001);
+		m_currentRow = 2;
+		frame = 6;
+
+		run = 1;
+		//move();
+
+	}
+	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) && mana >= 5) {
+		m_currentRow = 3;
+		frame = 6;
+		attack = 1;
+		//move();
+		if (time.getElapsedTime() > attackSpeed) {
+			mana -= 5;
 			time.reset();
 		}
-		playerRect.x = m_position.getX() + playerRect.w;
-		playerRect.y = m_position.getY() + playerRect.h;
+	}
 
-		int tick = 100;
-		frame = 6;
-		m_currentRow = 1;
-		run = 0;
-		attack = 0;
-		skill = 0;
-		dash = 0;
-		lightningBird = 0;
-
-		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_A) == true && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
-			m_position.setX(m_position.getX() - speed);
-			VecX -= speed;
-			//chieu am
-			m_velocity.setX(-0.001);
-			m_currentRow = 2;
-			frame = 6;
-			run = 1;
-		}
-		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_W) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
-			m_position.setY(m_position.getY() - speed);
-			VecY -= speed;
-			m_currentRow = 8;
-			frame = 3;
-			run = 1;
-			//move();
-
-		}
-		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_S) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
-			m_position.setY(m_position.getY() + speed);
-			VecY += speed;
-			m_currentRow = 6;
-			frame = 3;
-			run = 1;
-		}
-		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_D) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
-			m_position.setX(m_position.getX() + speed);
-			VecX += speed;
-			//chieu duong
-			m_velocity.setX(0.001);
-			m_currentRow = 2;
-			frame = 6;
-
-			run = 1;
-			//move();
-
-		}
-		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) && mana >= 5) {
+	//Skill
+	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_K) && mana >= 40) {
+		if (skillTime.getElapsedTime() < 1) {
+			skill = 1;
 			m_currentRow = 3;
 			frame = 6;
 			attack = 1;
-			//move();
 			if (time.getElapsedTime() > attackSpeed) {
-				mana -= 5;
+				mana -= 40;
 				time.reset();
 			}
 		}
-
-		//Skill
-		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_K) && mana >= 40) {
-			if (skillTime.getElapsedTime() < 1) {
-				skill = 1;
-				m_currentRow = 3;
-				frame = 6;
-				attack = 1;
-				if (time.getElapsedTime() > attackSpeed) {
-					mana -= 40;
-					time.reset();
-				}
-			}
-			if (skillTime.getElapsedTime() > 5) {
-				skillTime.reset();
-			}
+		if (skillTime.getElapsedTime() > 5) {
+			skillTime.reset();
 		}
+	}
 
-		if (skillTime.getElapsedTime() > 5 && mana >= 40) {
-			skill1 = true;
-		}
-		else {
-			skill1 = false;
-		}
+	if (skillTime.getElapsedTime() > 5 && mana >= 40) {
+		skill1 = true;
+	}
+	else {
+		skill1 = false;
+	}
 
-		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_L) && mana >= 50) {
-			if (lightningTime.getElapsedTime() < 0.1) {
-				lightning = 1;
-				if (cnt == 0) {
-					mana -= 50;
-					cnt++;
-				}
-			}
-			if (lightningTime.getElapsedTime() > 10) {
-				lightningTime.reset();
-				cnt = 0;
+	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_L) && mana >= 50) {
+		if (lightningTime.getElapsedTime() < 0.1) {
+			lightning = 1;
+			if (cnt == 0) {
+				mana -= 50;
+				cnt++;
 			}
 		}
+		if (lightningTime.getElapsedTime() > 10) {
+			lightningTime.reset();
+			cnt = 0;
+		}
+	}
 
-		if (lightningTime.getElapsedTime() > 5) {
-			lightning = 0;
-		}
-		if (lightningTime.getElapsedTime() > 10 && mana >= 50) {
-			skill2 = true;
-		}
-		else {
-			skill2 = false;
-		}
+	if (lightningTime.getElapsedTime() > 5) {
+		lightning = 0;
+	}
+	if (lightningTime.getElapsedTime() > 10 && mana >= 50) {
+		skill2 = true;
+	}
+	else {
+		skill2 = false;
+	}
 
-		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_I) && mana >= 30) {
-			lightningBird = 1;
-			if (lightningBirdTime.getElapsedTime() < 0.05)
-			{
+	if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_I) && mana >= 30) {
+		lightningBird = 1;
+		if (lightningBirdTime.getElapsedTime() < 0.05)
+		{
+			if (m_velocity.getX() >= 0) {
+				direction = 0;
+			}
+			else {
+				direction = 1;
+			}
+			if (cnt2 == 0) {
+				m_birds.clear();
 				if (m_velocity.getX() >= 0) {
-					direction = 0;
+					class lightningBird* newBird = new class lightningBird(new LoaderParams(playerRect.x - 10, playerRect.y - 30, 48, 48, "assets/lightningBirdFly"));
+					m_birds.push_back(newBird);
 				}
 				else {
-					direction = 1;
+					class lightningBird* newBird = new class lightningBird(new LoaderParams(playerRect.x - 30, playerRect.y - 30, 48, 48, "assets/lightningBirdFly"));
+					m_birds.push_back(newBird);
 				}
-				if (cnt2 == 0) {
-					m_birds.clear();
-					if (m_velocity.getX() >= 0) {
-						class lightningBird* newBird = new class lightningBird(new LoaderParams(playerRect.x - 10, playerRect.y - 30, 48, 48, "assets/lightningBirdFly"));
-						m_birds.push_back(newBird);
-					}
-					else {
-						class lightningBird* newBird = new class lightningBird(new LoaderParams(playerRect.x - 30, playerRect.y - 30, 48, 48, "assets/lightningBirdFly"));
-						m_birds.push_back(newBird);
-					}
-					mana -= 30;
-					cnt++;
-				}
-			}
-			if (lightningBirdTime.getElapsedTime() > 7)
-			{
-				lightningBirdTime.reset();
-				cnt2 = 0;
+				mana -= 30;
+				cnt++;
 			}
 		}
-
-		if (lightningBirdTime.getElapsedTime() > 7 && mana >= 30)
+		if (lightningBirdTime.getElapsedTime() > 7)
 		{
-			skill3 = true;
+			lightningBirdTime.reset();
+			cnt2 = 0;
 		}
-		else {
-			skill3 = false;
-		}
+	}
 
-		if (dashTime.getElapsedTime() > 2) {
-			dashSkill = true;
-			
-		}
-		else {
-			
-			dashSkill = false;
-		}
+	if (lightningBirdTime.getElapsedTime() > 7 && mana >= 30)
+	{
+		skill3 = true;
+	}
+	else {
+		skill3 = false;
+	}
 
-		if (attacked == 1) {
-			m_currentRow = 5;
-			frame = 3;
-			tick = 300;
-		}
+	if (dashTime.getElapsedTime() > 2) {
+		dashSkill = true;
+	}
+	else {
+		dashSkill = false;
+	}
 
-		//Buff
-		if (regen == true) {
-			manaRegen = 10;
-			if (regenTime.getElapsedTime() > 1) {
-				if (healthBar <= 95) {
-					SoundManager::Instance()->playSound("assets/regen.wav", 0);
-					healthBar += 5;
-				}
-				stopRegen++;
-				if (stopRegen == 10) {
-					regen = false;
-					manaRegen = 5;
-					stopRegen = 0;
-				}
-				regenTime.reset();
-			}
-		}
+	if (attacked == 1) {
+		m_currentRow = 5;
+		frame = 3;
+		tick = 300;
+	}
 
-		if (defenseBoost == true) {
-			defense = 3;
-			if (defenseTime.getElapsedTime() > 1) {
+	//Buff
+	if (regen == true) {
+		manaRegen = 10;
+		if (regenTime.getElapsedTime() > 1) {
+			if (healthBar <= 95) {
 				SoundManager::Instance()->playSound("assets/regen.wav", 0);
-				stopDefenseBoost++;
-				if (stopDefenseBoost == 10) {
-					defenseBoost = false;
-					defense = 1;
-					stopDefenseBoost = 0;
-				}
-				defenseTime.reset();
+				healthBar += 5;
 			}
+			stopRegen++;
+			if (stopRegen == 10) {
+				regen = false;
+				manaRegen = 5;
+				stopRegen = 0;
+			}
+			regenTime.reset();
 		}
+	}
 
-		if (atkBoost == true) {
-			if (stopAttackBoost == 0) {
-				damageRatio = 2;
+	if (defenseBoost == true) {
+		defense = 3;
+		if (defenseTime.getElapsedTime() > 1) {
+			SoundManager::Instance()->playSound("assets/regen.wav", 0);
+			stopDefenseBoost++;
+			if (stopDefenseBoost == 10) {
+				defenseBoost = false;
+				defense = 1;
+				stopDefenseBoost = 0;
 			}
-			if (attackTime.getElapsedTime() > 1) {
-				SoundManager::Instance()->playSound("assets/regen.wav", 0);
-				stopAttackBoost++;
-				if (stopAttackBoost == 10) {
-					atkBoost = false;
-					damageRatio = 1;
-					stopAttackBoost = 0;
-				}
-				attackTime.reset();
-			}
+			defenseTime.reset();
 		}
+	}
 
-		if (speedBoost == true) {
-			speed = 4;
-			attackSpeed = 0.2;
-			tick = 50;
-			if (speedTime.getElapsedTime() > 1) {
-				stopSpeedBoost++;
-				if (stopSpeedBoost == 10) {
-					speedBoost = false;
-					speed = 2;
-					attackSpeed = 0.4;
-					stopSpeedBoost = 0;
-				}
-				speedTime.reset();
+	if (atkBoost == true) {
+		if (stopAttackBoost == 0) {
+			damageRatio = 2;
+		}
+		if (attackTime.getElapsedTime() > 1) {
+			SoundManager::Instance()->playSound("assets/regen.wav", 0);
+			stopAttackBoost++;
+			if (stopAttackBoost == 10) {
+				atkBoost = false;
+				damageRatio = 1;
+				stopAttackBoost = 0;
 			}
+			attackTime.reset();
 		}
-		shieldFrame = int(((SDL_GetTicks() / 50) % 6));
-		auraFrame = int(((SDL_GetTicks() / 150) % 4));
-		move();
-		m_currentFrame = int(((SDL_GetTicks() / tick) % frame));
-		//Sound
-		if (run == 1) {
-			attacked = 0;
-			SoundManager::Instance()->playSound("assets/walk.wav", 0);
-		}
-		else if (attack == 1) {
-			attacked = 0;
-			SoundManager::Instance()->playSound("assets/enemy1Damaged.wav", 0);
-		}
-		else if (attacked == 1) {
-			SoundManager::Instance()->playSound("assets/damaged.wav", 0);
-		}
-		else if (lightningBird == 1) {
-			SoundManager::Instance()->playSound("assets/lightningBird.wav", 0);
-		}
-		else {
-			Mix_HaltChannel(-1);
-		}
-		if (lightning == 1) {
-			if (soundLightningTime.getElapsedTime() > 0.02) {
-				SoundManager::Instance()->playSound("assets/lightning.wav", 0);
-				soundLightningTime.reset();
-			}
-		}
+	}
 
-		for (int i = 0; i < m_birds.size(); ++i) {
-			m_birds[i]->update();
-			if (lvl2 == true) {
-				m_birds[i]->move(direction, 2);
+	if (speedBoost == true) {
+		speed = 4;
+		attackSpeed = 0.2;
+		tick = 50;
+		if (speedTime.getElapsedTime() > 1) {
+			stopSpeedBoost++;
+			if (stopSpeedBoost == 10) {
+				speedBoost = false;
+				speed = 2;
+				attackSpeed = 0.4;
+				stopSpeedBoost = 0;
 			}
-			else if (lvl1 == true)
-			{
-				m_birds[i]->move(direction, 1);
-			}
+			speedTime.reset();
 		}
+	}
+	shieldFrame = int(((SDL_GetTicks() / 50) % 6));
+	auraFrame = int(((SDL_GetTicks() / 150) % 4));
+	move();
+	m_currentFrame = int(((SDL_GetTicks() / tick) % frame));
+	//Sound
+	if (run == 1) {
+		attacked = 0;
+		SoundManager::Instance()->playSound("assets/walk.wav", 0);
+	}
+	else if (attack == 1) {
+		attacked = 0;
+		SoundManager::Instance()->playSound("assets/enemy1Damaged.wav", 0);
+	}
+	else if (attacked == 1) {
+		SoundManager::Instance()->playSound("assets/damaged.wav", 0);
+	}
+	else if (lightningBird == 1) {
+		SoundManager::Instance()->playSound("assets/lightningBird.wav", 0);
+	}
+	else {
+		Mix_HaltChannel(-1);
+	}
+	if (lightning == 1) {
+		if (soundLightningTime.getElapsedTime() > 0.02) {
+			SoundManager::Instance()->playSound("assets/lightning.wav", 0);
+			soundLightningTime.reset();
+		}
+	}
 
-		SDLGameObject::update();
+	for (int i = 0; i < m_birds.size(); ++i) {
+		m_birds[i]->update();
+		if (lvl2 == true) {
+			m_birds[i]->move(direction, 2);
+		}
+		else if (lvl1 == true)
+		{
+			m_birds[i]->move(direction, 1);
+		}
+		else if (lvl3 == true) {
+			m_birds[i]->move(direction, 3);
+		}
+	}
+
+	SDLGameObject::update();
 	}
 
 	else if (characterNum == 3) {
 		VecX = VecY = 0;
 		playerRect.w = 33;
 		playerRect.h = 33;
-		if (mana < 100 && time.getElapsedTime() > 0.5) {
+		if (mana < 100 && time.getElapsedTime() > 0.5 && attack != 1) {
 			if (mana + manaRegen > 100) {
 				mana = 100;
 			}
@@ -853,6 +1161,7 @@ void Player::update()
 			m_textureID = "assets/char3/Idle2.png";
 			frame = 13;
 			damage = 20;
+			attackSpeed = 0.5;
 		}
 		int tick = 100;
 		run = 0;
@@ -862,7 +1171,7 @@ void Player::update()
 		lightningBird = 0;
 
 
-		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_A) == true && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
+		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_A) == true && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false && cnt2 != 1) {
 			m_position.setX(m_position.getX() - speed);
 			VecX -= speed;
 			//chieu am
@@ -877,7 +1186,7 @@ void Player::update()
 			}
 			run = 1;
 		}
-		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_W) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
+		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_W) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false && cnt2 != 1) {
 			m_position.setY(m_position.getY() - speed);
 			VecY -= speed;
 			if (state == 1) {
@@ -892,7 +1201,7 @@ void Player::update()
 			//move();
 
 		}
-		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_S) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
+		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_S) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false && cnt2 != 1) {
 			m_position.setY(m_position.getY() + speed);
 			VecY += speed;
 			if (state == 1) {
@@ -905,7 +1214,7 @@ void Player::update()
 			}
 			run = 1;
 		}
-		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_D) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false) {
+		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_D) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) == false && cnt2 != 1) {
 			m_position.setX(m_position.getX() + speed);
 			VecX += speed;
 			//chieu duong
@@ -945,8 +1254,6 @@ void Player::update()
 		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_K) && mana >= 40) {
 			if (skillTime.getElapsedTime() < 1) {
 				skill = 1;
-				m_currentRow = 3;
-				frame = 6;
 				attack = 1;
 				if (time.getElapsedTime() > attackSpeed) {
 					mana -= 40;
@@ -988,21 +1295,31 @@ void Player::update()
 		else {
 			skill2 = false;
 		}
-		std::cout << state << std::endl;
-		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_I) && mana >= 60) {
-			state = 2;
-			mana -= 60;
+
+		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_I)) {
+			if (lightningBirdTime.getElapsedTime() < 0.1) {
+				state = 2;
+				cnt2 = 1;
+			}
 			if (lightningBirdTime.getElapsedTime() > 30)
 			{
 				lightningBirdTime.reset();
 			}
 		}
 
-		if (lightningBirdTime.getElapsedTime() > 10) {
+		if (cnt2 == 1) {
+			m_textureID = "assets/char3/Casting.png";
+			frame = 6;
+			if (lightningBirdTime.getElapsedTime() > 2) {
+				cnt2 = 0;
+			}
+		}
+
+		if (lightningBirdTime.getElapsedTime() > 12) {
 			state = 1;
 		}
 
-		if (lightningBirdTime.getElapsedTime() > 30 && mana >= 60)
+		if (lightningBirdTime.getElapsedTime() > 30)
 		{
 			skill3 = true;
 		}
@@ -1194,10 +1511,10 @@ void Player::update()
 
 		}
 		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_J) && mana >= 5) {
-			if (moveCnt == 0) {
+			if(moveCnt == 0){
 				m_position.setX(m_position.getX() - 30);
 				m_position.setY(m_position.getY() - 30);
-				moveCnt = 1;
+				moveCnt = 1;		
 			}
 			m_textureID = "assets/meguminAttack.png";
 			m_width = 81;
@@ -1214,7 +1531,7 @@ void Player::update()
 			//move();
 			if (time.getElapsedTime() > attackSpeed) {
 				mana -= 10;
-				playerFireBall* newFireBall = new playerFireBall(new LoaderParams(m_position.getX(), m_position.getY() + 25, 64, 64, "assets/meguminFireBall.png"), direction);
+				playerFireBall* newFireBall = new playerFireBall(new LoaderParams(m_position.getX(), m_position.getY()+25, 64, 64, "assets/meguminFireBall.png"), direction);
 				m_fireBalls.push_back(newFireBall);
 				time.reset();
 			}
@@ -1228,7 +1545,7 @@ void Player::update()
 		}
 
 		//Skill
-		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_K) && mana >= 40) {
+		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_K)  && mana >= 40) {
 			if (skillTime.getElapsedTime() < 1) {
 				skill = 1;
 				m_currentRow = 3;
@@ -1276,7 +1593,7 @@ void Player::update()
 
 		if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_I) && mana >= 100 && lightningBirdTime.getElapsedTime() > 7) {
 			explosion = 1;
-			mana -= 300;
+			mana -= 200;
 			lightningBirdTime.reset();
 		}
 
@@ -1285,7 +1602,7 @@ void Player::update()
 			explosion = 0;
 		}
 
-		if (lightningBirdTime.getElapsedTime() > 7 && mana >= 100)
+		if (lightningBirdTime.getElapsedTime() > 40 && mana >= 100)
 		{
 			skill3 = true;
 		}
@@ -1407,18 +1724,21 @@ void Player::update()
 			{
 				m_fireBalls[i]->move(1);
 			}
+			else if (lvl3 == true) {
+				m_fireBalls[i]->move(3);
+			}
 		}
 
 		SDLGameObject::update();
-	}
+		}
 }
 
 
 void Player::move() {
 	if (lvl1 == true) {
 		if (characterNum == 1) {
-			playerRect.x = m_position.m_x + 66 /* + playerRect.w */;
-			playerRect.y = m_position.m_y + 80/*+ playerRect.h*/;
+			playerRect.x = m_position.m_x+66 /* + playerRect.w */ ;
+			playerRect.y = m_position.m_y+80/*+ playerRect.h*/;
 		}
 		else if (characterNum == 2) {
 			playerRect.x = m_position.m_x + playerRect.w;
@@ -1427,7 +1747,7 @@ void Player::move() {
 		else if (characterNum == 3) {
 			if (attack == 1) {
 				playerRect.w = 100;
-				playerRect.x = m_position.m_x + 45;
+				playerRect.x = m_position.m_x+45;
 			}
 			else {
 				playerRect.x = m_position.m_x + 80;
@@ -1539,8 +1859,14 @@ void Player::move() {
 			playerRect.y = m_position.m_y + playerRect.h;
 		}
 		else if (characterNum == 3) {
-			playerRect.x = m_position.m_x + 80;
-			playerRect.y = m_position.m_y + 120;
+			if (attack == 1) {
+				playerRect.w = 100;
+				playerRect.x = m_position.m_x + 45;
+			}
+			else {
+				playerRect.x = m_position.m_x + 80;
+				playerRect.y = m_position.m_y + 120;
+			}
 		}
 		else if (characterNum == 4) {
 			if (moveCnt == 1) {
@@ -1561,7 +1887,83 @@ void Player::move() {
 
 		}
 		if (mana > 0) {
-			if (characterNum == 1) {
+			if (characterNum == 3) {
+				SDL_Rect nextPosition;
+				if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_D)) {
+					nextPosition = { int(m_position.m_x) + 10 + 80,int(m_position.m_y) + 120, 33,33 };
+					if (!Map_lv2::getInstance()->iswall(nextPosition)) {
+						if (dashTime.getElapsedTime() < 0.2) {
+							m_position.m_x += 10;
+							playerRect.x = m_position.m_x + playerRect.w;
+							playerRect.y = m_position.m_y + playerRect.h;
+							//m_currentRow = 2;
+							//frame = 6;
+							mana -= 1;
+							dash = 1;
+							run = 0;
+						}
+					}
+					if (dashTime.getElapsedTime() > 2) {
+						dashTime.reset();
+					}
+
+				}
+				else if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_W)) {
+					nextPosition = { int(m_position.m_x) + 80,int(m_position.m_y) - 10 + 120, 33,33 };
+					if (!Map_lv2::getInstance()->iswall(nextPosition)) {
+						if (dashTime.getElapsedTime() < 0.2) {
+							m_position.m_y -= 10;
+							//m_currentRow = 8;
+							playerRect.x = m_position.m_x + playerRect.w;
+							playerRect.y = m_position.m_y + playerRect.h;
+							//frame = 3;
+							mana -= 1;
+							dash = 1;
+							run = 0;
+						}
+					}
+					if (dashTime.getElapsedTime() > 2) {
+						dashTime.reset();
+					}
+				}
+				else if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_S)) {
+					nextPosition = { int(m_position.m_x) + 80,int(m_position.m_y) + 10 + 120, 33,33 };
+					if (!Map_lv2::getInstance()->iswall(nextPosition)) {
+						if (dashTime.getElapsedTime() < 0.2) {
+							m_position.m_y += 10;
+							playerRect.x = m_position.m_x + playerRect.w;
+							playerRect.y = m_position.m_y + playerRect.h;
+							//m_currentRow = 6;
+							//frame = 3;
+							mana -= 1;
+							dash = 1;
+							run = 0;
+						}
+					}
+					if (dashTime.getElapsedTime() > 2) {
+						dashTime.reset();
+					}
+				}
+				else if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_A)) {
+					nextPosition = { int(m_position.m_x) - 10 + 80,int(m_position.m_y) + 120, 33,33 };
+					if (!Map_lv2::getInstance()->iswall(nextPosition)) {
+						if (dashTime.getElapsedTime() < 0.2) {
+							m_position.m_x -= 10;
+							//m_currentRow = 2;
+							playerRect.x = m_position.m_x + playerRect.w;
+							playerRect.y = m_position.m_y + playerRect.h;
+							//frame = 6;
+							mana -= 1;
+							dash = 1;
+							run = 0;
+						}
+					}
+					if (dashTime.getElapsedTime() > 2) {
+						dashTime.reset();
+					}
+				}
+			}
+			else if (characterNum == 1) {
 				SDL_Rect nextPosition;
 				if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_D)) {
 					nextPosition = { int(m_position.m_x) + 10 + 66,int(m_position.m_y) + 80, 33,33 };
@@ -1697,6 +2099,353 @@ void Player::move() {
 				else if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_A)) {
 					nextPosition = { int(m_position.m_x) - 10 + 32,int(m_position.m_y) + 32, 33,33 };
 					if (!Map_lv2::getInstance()->iswall(nextPosition)) {
+						if (dashTime.getElapsedTime() < 0.2) {
+							m_position.m_x -= 10;
+							//m_currentRow = 2;
+							playerRect.x = m_position.m_x + playerRect.w;
+							playerRect.y = m_position.m_y + playerRect.h;
+							//frame = 6;
+							mana -= 1;
+							dash = 1;
+							run = 0;
+						}
+					}
+					if (dashTime.getElapsedTime() > 2) {
+						dashTime.reset();
+					}
+				}
+			}
+		}
+	}
+	else if (lvl3 == true) {
+		if (characterNum == 1) {
+			playerRect.x = m_position.m_x + 66 ;
+			playerRect.y = m_position.m_y + 80;
+		}
+		else if (characterNum == 2) {
+			playerRect.x = m_position.m_x + playerRect.w;
+			playerRect.y = m_position.m_y + playerRect.h;
+		}
+		else if (characterNum == 3) {
+			if (attack == 1) {
+				playerRect.w = 100;
+				playerRect.x = m_position.m_x + 45;
+			}
+			else {
+				playerRect.x = m_position.m_x + 80;
+				playerRect.y = m_position.m_y + 120;
+			}
+		}
+		else if (characterNum == 4) {
+			if (moveCnt == 1) {
+				playerRect.x = m_position.m_x + playerRect.w + 30;
+				playerRect.y = m_position.m_y + playerRect.h + 30;
+			}
+			else {
+				playerRect.x = m_position.getX() + playerRect.w;
+				playerRect.y = m_position.getY() + playerRect.h;
+			}
+		}
+		if (Map_lv3::getInstance()->iswall(playerRect)) {
+			m_position.m_x -= VecX;
+
+		}
+		if (Map_lv3::getInstance()->iswall(playerRect)) {
+			m_position.m_y -= VecY;
+
+		}
+		if (mana > 0) {
+			if (characterNum == 3) {
+				SDL_Rect nextPosition;
+				if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_D)) {
+					nextPosition = { int(m_position.m_x) + 10 + 80,int(m_position.m_y) + 120, 33,33 };
+					if (!Map_lv3::getInstance()->iswall(nextPosition)) {
+						if (dashTime.getElapsedTime() < 0.2) {
+							m_position.m_x += 10;
+							playerRect.x = m_position.m_x + playerRect.w;
+							playerRect.y = m_position.m_y + playerRect.h;
+							//m_currentRow = 2;
+							//frame = 6;
+							mana -= 1;
+							dash = 1;
+							run = 0;
+						}
+					}
+					if (dashTime.getElapsedTime() > 2) {
+						dashTime.reset();
+					}
+
+				}
+				else if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_W)) {
+					nextPosition = { int(m_position.m_x) + 80,int(m_position.m_y) - 10 + 120, 33,33 };
+					if (!Map_lv3::getInstance()->iswall(nextPosition)) {
+						if (dashTime.getElapsedTime() < 0.2) {
+							m_position.m_y -= 10;
+							//m_currentRow = 8;
+							playerRect.x = m_position.m_x + playerRect.w;
+							playerRect.y = m_position.m_y + playerRect.h;
+							//frame = 3;
+							mana -= 1;
+							dash = 1;
+							run = 0;
+						}
+					}
+					if (dashTime.getElapsedTime() > 2) {
+						dashTime.reset();
+					}
+				}
+				else if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_S)) {
+					nextPosition = { int(m_position.m_x) + 80,int(m_position.m_y) + 10 + 120, 33,33 };
+					if (!Map_lv3::getInstance()->iswall(nextPosition)) {
+						if (dashTime.getElapsedTime() < 0.2) {
+							m_position.m_y += 10;
+							playerRect.x = m_position.m_x + playerRect.w;
+							playerRect.y = m_position.m_y + playerRect.h;
+							//m_currentRow = 6;
+							//frame = 3;
+							mana -= 1;
+							dash = 1;
+							run = 0;
+						}
+					}
+					if (dashTime.getElapsedTime() > 2) {
+						dashTime.reset();
+					}
+				}
+				else if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_A)) {
+					nextPosition = { int(m_position.m_x) - 10 + 80,int(m_position.m_y) + 120, 33,33 };
+					if (!Map_lv3::getInstance()->iswall(nextPosition)) {
+						if (dashTime.getElapsedTime() < 0.2) {
+							m_position.m_x -= 10;
+							//m_currentRow = 2;
+							playerRect.x = m_position.m_x + playerRect.w;
+							playerRect.y = m_position.m_y + playerRect.h;
+							//frame = 6;
+							mana -= 1;
+							dash = 1;
+							run = 0;
+						}
+					}
+					if (dashTime.getElapsedTime() > 2) {
+						dashTime.reset();
+					}
+				}
+			}
+
+			else if (characterNum == 4) {
+				SDL_Rect nextPosition;
+				if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_D)) {
+					nextPosition = { int(m_position.m_x) + 10 + 30,int(m_position.m_y) + 30, 33,33 };
+					if (!Map_lv3::getInstance()->iswall(nextPosition)) {
+						if (dashTime.getElapsedTime() < 0.2) {
+							m_position.m_x += 10;
+							playerRect.x = m_position.m_x + playerRect.w;
+							playerRect.y = m_position.m_y + playerRect.h;
+							//m_currentRow = 2;
+							//frame = 6;
+							mana -= 1;
+							dash = 1;
+							run = 0;
+						}
+					}
+					if (dashTime.getElapsedTime() > 4) {
+						dashTime.reset();
+					}
+
+				}
+				else if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_W)) {
+					nextPosition = { int(m_position.m_x) + 30,int(m_position.m_y) - 10 + 30, 33,33 };
+					if (!Map_lv3::getInstance()->iswall(nextPosition)) {
+						if (dashTime.getElapsedTime() < 0.2) {
+							m_position.m_y -= 10;
+							//m_currentRow = 8;
+							playerRect.x = m_position.m_x + playerRect.w;
+							playerRect.y = m_position.m_y + playerRect.h;
+							//frame = 3;
+							mana -= 1;
+							dash = 1;
+							run = 0;
+						}
+					}
+					if (dashTime.getElapsedTime() > 4) {
+						dashTime.reset();
+					}
+				}
+				else if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_S)) {
+					nextPosition = { int(m_position.m_x) + 30,int(m_position.m_y) + 10 + 30, 33,33 };
+					if (!Map_lv3::getInstance()->iswall(nextPosition)) {
+						if (dashTime.getElapsedTime() < 0.2) {
+							m_position.m_y += 10;
+							playerRect.x = m_position.m_x + playerRect.w;
+							playerRect.y = m_position.m_y + playerRect.h;
+							//m_currentRow = 6;
+							//frame = 3;
+							mana -= 1;
+							dash = 1;
+							run = 0;
+						}
+					}
+					if (dashTime.getElapsedTime() > 4) {
+						dashTime.reset();
+					}
+				}
+				else if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_A)) {
+					nextPosition = { int(m_position.m_x) - 10 + 30,int(m_position.m_y) + 30, 33,33 };
+					if (!Map_lv3::getInstance()->iswall(nextPosition)) {
+						if (dashTime.getElapsedTime() < 0.2) {
+							m_position.m_x -= 10;
+							//m_currentRow = 2;
+							playerRect.x = m_position.m_x + playerRect.w;
+							playerRect.y = m_position.m_y + playerRect.h;
+							//frame = 6;
+							mana -= 1;
+							dash = 1;
+							run = 0;
+						}
+					}
+					if (dashTime.getElapsedTime() > 4) {
+						dashTime.reset();
+					}
+				}
+			}
+
+			else if (characterNum == 1) {
+				SDL_Rect nextPosition;
+				if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_D)) {
+					nextPosition = { int(m_position.m_x) + 10 + 66,int(m_position.m_y) + 80, 33,33 };
+					if (!Map_lv3::getInstance()->iswall(nextPosition)) {
+						if (dashTime.getElapsedTime() < 0.2) {
+							m_position.m_x += 10;
+							playerRect.x = m_position.m_x + playerRect.w;
+							playerRect.y = m_position.m_y + playerRect.h;
+							//m_currentRow = 2;
+							//frame = 6;
+							mana -= 1;
+							dash = 1;
+							run = 0;
+						}
+					}
+					if (dashTime.getElapsedTime() > 2) {
+						dashTime.reset();
+					}
+
+				}
+				else if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_W)) {
+					nextPosition = { int(m_position.m_x) + 66,int(m_position.m_y) - 10 + 80, 33,33 };
+					if (!Map_lv3::getInstance()->iswall(nextPosition)) {
+						if (dashTime.getElapsedTime() < 0.2) {
+							m_position.m_y -= 10;
+							//m_currentRow = 8;
+							playerRect.x = m_position.m_x + playerRect.w;
+							playerRect.y = m_position.m_y + playerRect.h;
+							//frame = 3;
+							mana -= 1;
+							dash = 1;
+							run = 0;
+						}
+					}
+					if (dashTime.getElapsedTime() > 2) {
+						dashTime.reset();
+					}
+				}
+				else if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_S)) {
+					nextPosition = { int(m_position.m_x) + 66,int(m_position.m_y) + 10 + 80, 33,33 };
+					if (!Map_lv3::getInstance()->iswall(nextPosition)) {
+						if (dashTime.getElapsedTime() < 0.2) {
+							m_position.m_y += 10;
+							playerRect.x = m_position.m_x + playerRect.w;
+							playerRect.y = m_position.m_y + playerRect.h;
+							//m_currentRow = 6;
+							//frame = 3;
+							mana -= 1;
+							dash = 1;
+							run = 0;
+						}
+					}
+					if (dashTime.getElapsedTime() > 2) {
+						dashTime.reset();
+					}
+				}
+				else if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_A)) {
+					nextPosition = { int(m_position.m_x) - 10 + 66,int(m_position.m_y) + 80, 33,33 };
+					if (!Map_lv3::getInstance()->iswall(nextPosition)) {
+						if (dashTime.getElapsedTime() < 0.2) {
+							m_position.m_x -= 10;
+							//m_currentRow = 2;
+							playerRect.x = m_position.m_x + playerRect.w;
+							playerRect.y = m_position.m_y + playerRect.h;
+							//frame = 6;
+							mana -= 1;
+							dash = 1;
+							run = 0;
+						}
+					}
+					if (dashTime.getElapsedTime() > 2) {
+						dashTime.reset();
+					}
+				}
+			}
+
+			else {
+				SDL_Rect nextPosition;
+				if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_D)) {
+					nextPosition = { int(m_position.m_x) + 10 + 32,int(m_position.m_y) + 32, 33,33 };
+					if (!Map_lv3::getInstance()->iswall(nextPosition)) {
+						if (dashTime.getElapsedTime() < 0.2) {
+							m_position.m_x += 10;
+							playerRect.x = m_position.m_x + playerRect.w;
+							playerRect.y = m_position.m_y + playerRect.h;
+							//m_currentRow = 2;
+							//frame = 6;
+							mana -= 1;
+							dash = 1;
+							run = 0;
+						}
+					}
+					if (dashTime.getElapsedTime() > 2) {
+						dashTime.reset();
+					}
+
+				}
+				else if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_W)) {
+					nextPosition = { int(m_position.m_x) + 32,int(m_position.m_y) - 10 + 32, 33,33 };
+					if (!Map_lv3::getInstance()->iswall(nextPosition)) {
+						if (dashTime.getElapsedTime() < 0.2) {
+							m_position.m_y -= 10;
+							//m_currentRow = 8;
+							playerRect.x = m_position.m_x + playerRect.w;
+							playerRect.y = m_position.m_y + playerRect.h;
+							//frame = 3;
+							mana -= 1;
+							dash = 1;
+							run = 0;
+						}
+					}
+					if (dashTime.getElapsedTime() > 2) {
+						dashTime.reset();
+					}
+				}
+				else if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_S)) {
+					nextPosition = { int(m_position.m_x) + 32,int(m_position.m_y) + 10 + 32, 33,33 };
+					if (!Map_lv3::getInstance()->iswall(nextPosition)) {
+						if (dashTime.getElapsedTime() < 0.2) {
+							m_position.m_y += 10;
+							playerRect.x = m_position.m_x + playerRect.w;
+							playerRect.y = m_position.m_y + playerRect.h;
+							//m_currentRow = 6;
+							//frame = 3;
+							mana -= 1;
+							dash = 1;
+							run = 0;
+						}
+					}
+					if (dashTime.getElapsedTime() > 2) {
+						dashTime.reset();
+					}
+				}
+				else if (InputHandler::Instance()->isKeyDown(SDL_SCANCODE_SPACE) && InputHandler::Instance()->isKeyDown(SDL_SCANCODE_A)) {
+					nextPosition = { int(m_position.m_x) - 10 + 32,int(m_position.m_y) + 32, 33,33 };
+					if (!Map_lv3::getInstance()->iswall(nextPosition)) {
 						if (dashTime.getElapsedTime() < 0.2) {
 							m_position.m_x -= 10;
 							//m_currentRow = 2;

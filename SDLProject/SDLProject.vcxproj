@@ -145,6 +145,7 @@
     <ClCompile Include="Enemy2.cpp" />
     <ClCompile Include="Enemy3.cpp" />
     <ClCompile Include="Enemy4.cpp" />
+    <ClCompile Include="finalBoss.cpp" />
     <ClCompile Include="FireBall.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -152,8 +153,6 @@
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameStateMachine.cpp" />
     <ClCompile Include="HelpState.cpp" />
-    <ClCompile Include="house.cpp" />
-    <ClCompile Include="housebot.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="lightningBird.cpp" />
     <ClCompile Include="LoaderParams.cpp" />
@@ -163,7 +162,6 @@
     <ClCompile Include="Map_lv3.cpp" />
     <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="MenuState.cpp" />
-    <ClCompile Include="mushroom.cpp" />
     <ClCompile Include="PauseState.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="playerFireBall.cpp" />
@@ -171,15 +169,14 @@
     <ClCompile Include="PlayState2.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Portal.cpp" />
-    <ClCompile Include="princess.cpp" />
     <ClCompile Include="SDLGameObject.cpp" />
-    <ClCompile Include="shot.cpp" />
     <ClCompile Include="SlimeEnemy.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="tower.cpp" />
     <ClCompile Include="Vector2D.cpp" />
+    <ClCompile Include="VictoryState.cpp" />
     <ClCompile Include="WriteOnScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -196,6 +193,7 @@
     <ClInclude Include="Enemy2.h" />
     <ClInclude Include="Enemy3.h" />
     <ClInclude Include="Enemy4.h" />
+    <ClInclude Include="finalBoss.h" />
     <ClInclude Include="FireBall.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
@@ -203,8 +201,6 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStateMachine.h" />
     <ClInclude Include="HelpState.h" />
-    <ClInclude Include="house.h" />
-    <ClInclude Include="housebot.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="lightningBird.h" />
     <ClInclude Include="LoaderParams.h" />
@@ -213,7 +209,6 @@
     <ClInclude Include="Map_lv3.h" />
     <ClInclude Include="MenuButton.h" />
     <ClInclude Include="MenuState.h" />
-    <ClInclude Include="mushroom.h" />
     <ClInclude Include="PauseState.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="playerFireBall.h" />
@@ -229,9 +224,9 @@
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Time.h" />
-    <ClInclude Include="TimeOnPlay.h" />
     <ClInclude Include="tower.h" />
     <ClInclude Include="Vector2D.h" />
+    <ClInclude Include="VictoryState.h" />
     <ClInclude Include="WriteOnScreen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

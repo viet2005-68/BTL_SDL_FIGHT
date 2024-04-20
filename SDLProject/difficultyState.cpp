@@ -15,7 +15,14 @@ void difficultyState::update1()
 	button1->update();
 }
 
+void difficultyState::update2()
+{
 
+}
+void difficultyState::update3()
+{
+
+}
 
 void difficultyState::render() {
 	TextureManager::Instance()->drawOG("assets/background3.png", Game::Instance()->getRenderer(), 0, 0, 1280, 800);
@@ -43,7 +50,7 @@ bool difficultyState::onEnter() {
 bool difficultyState::onExit() {
 	TextureManager::Instance()->clearFromTextureMap("assets/easyButton.png");
 	TextureManager::Instance()->clearFromTextureMap("assets/hardButton.png");
-	TextureManager::Instance()->clearFromTextureMap("assets/background.png");
+	TextureManager::Instance()->clearFromTextureMap("assets/background3.png");
 
 	Mix_HaltMusic();
 

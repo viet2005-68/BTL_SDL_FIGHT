@@ -17,7 +17,7 @@ Map_lv3::Map_lv3()
     TextureManager::Instance()->load("assets/lv3grass.png", Game::Instance()->getRenderer());
     TextureManager::Instance()->load("assets/lv3props.png", Game::Instance()->getRenderer());
     TextureManager::Instance()->load("assets/lv3struct.png", Game::Instance()->getRenderer());
-    TextureManager::Instance()->load("assets/lv3wall.png",Game::Instance()->getRenderer());
+    TextureManager::Instance()->load("assets/lv3wall.png", Game::Instance()->getRenderer());
     //tile_queue = new std::queue<Tile*>();
     for (int i = 0; i < 25; i++) {
         for (int j = 0; j < 40; j++) {
@@ -66,74 +66,73 @@ void Map_lv3::drawLayer3() {
                 TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 9, 0, des3.x, des3.y);
                 break;
             case 347:
-                TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(),10, 0, des3.x, des3.y);
+                TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 10, 0, des3.x, des3.y);
                 break;
             case 362:
                 TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 9, 1, des3.x, des3.y);
                 break;
             case 363:
                 TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 10, 1, des3.x, des3.y);
-                break;
-            case 994:
-                TextureManager::Instance()->drawMap("assets/lv3struct.png", Game::Instance()->getRenderer(), 1, 1, des3.x, des3.y);
-                break;
-            case 995:
-                TextureManager::Instance()->drawMap("assets/lv3struct.png", Game::Instance()->getRenderer(), 2, 1, des3.x, des3.y);
-                break;
-            case 1010:
-                TextureManager::Instance()->drawMap("assets/lv3struct.png", Game::Instance()->getRenderer(), 1, 2, des3.x, des3.y);
-                break;
-            case 1011:
-                TextureManager::Instance()->drawMap("assets/lv3struct.png", Game::Instance()->getRenderer(), 2, 2, des3.x, des3.y);
-                break;
-            case 1026:
-                TextureManager::Instance()->drawMap("assets/lv3struct.png", Game::Instance()->getRenderer(), 1, 3, des3.x, des3.y);
-                break;
-            case 1027:
-                TextureManager::Instance()->drawMap("assets/lv3struct.png", Game::Instance()->getRenderer(), 2, 3, des3.x, des3.y);
-                break;
-            case 376:
-                TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 11, 5, des3.x, des3.y);
-                break;
-            case 392:
-                TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 11, 6, des3.x, des3.y);
-                break;
-            case 408:
-                TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 11, 7, des3.x, des3.y);
-                break;
-            case 351:
-                TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(),14,0, des3.x, des3.y);
-                break;
-            case 367:
-                TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 14, 1, des3.x, des3.y);
-                break;
-            case 383:
-                TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 14, 2, des3.x, des3.y);
-                break;
-            case 378:
-                TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 9, 2, des3.x, des3.y);
-                break;
-            case 379:
-                TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 10, 2, des3.x, des3.y);
-                break;
-            case 394:
-                TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 9, 3, des3.x, des3.y);
-                break;
-            
-            case 395:
-                TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 10, 3, des3.x, des3.y);
-                break;
-            case 420:
-                TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 3, 5, des3.x, des3.y);
-                break;
-            case 488:
-                TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 7, 9, des3.x, des3.y);
-                break;
-            case 504:
-                TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 7, 10, des3.x, des3.y);
-                break;
-            default:
-                break;
+                break; case 994:
+                    TextureManager::Instance()->drawMap("assets/lv3struct.png", Game::Instance()->getRenderer(), 1, 1, des3.x, des3.y);
+                    break;
+                case 995:
+                    TextureManager::Instance()->drawMap("assets/lv3struct.png", Game::Instance()->getRenderer(), 2, 1, des3.x, des3.y);
+                    break;
+                case 1010:
+                    TextureManager::Instance()->drawMap("assets/lv3struct.png", Game::Instance()->getRenderer(), 1, 2, des3.x, des3.y);
+                    break;
+                case 1011:
+                    TextureManager::Instance()->drawMap("assets/lv3struct.png", Game::Instance()->getRenderer(), 2, 2, des3.x, des3.y);
+                    break;
+                case 1026:
+                    TextureManager::Instance()->drawMap("assets/lv3struct.png", Game::Instance()->getRenderer(), 1, 3, des3.x, des3.y);
+                    break;
+                case 1027:
+                    TextureManager::Instance()->drawMap("assets/lv3struct.png", Game::Instance()->getRenderer(), 2, 3, des3.x, des3.y);
+                    break;
+                case 376:
+                    TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 11, 5, des3.x, des3.y);
+                    break;
+                case 392:
+                    TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 11, 6, des3.x, des3.y);
+                    break;
+                case 408:
+                    TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 11, 7, des3.x, des3.y);
+                    break;
+                case 351:
+                    TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 14, 0, des3.x, des3.y);
+                    break;
+                case 367:
+                    TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 14, 1, des3.x, des3.y);
+                    break;
+                case 383:
+                    TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 14, 2, des3.x, des3.y);
+                    break;
+                case 378:
+                    TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 9, 2, des3.x, des3.y);
+                    break;
+                case 379:
+                    TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 10, 2, des3.x, des3.y);
+                    break;
+                case 394:
+                    TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 9, 3, des3.x, des3.y);
+                    break;
+
+                case 395:
+                    TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 10, 3, des3.x, des3.y);
+                    break;
+                case 420:
+                    TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 3, 5, des3.x, des3.y);
+                    break;
+                case 488:
+                    TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 7, 9, des3.x, des3.y);
+                    break;
+                case 504:
+                    TextureManager::Instance()->drawMap("assets/lv3props.png", Game::Instance()->getRenderer(), 7, 10, des3.x, des3.y);
+                    break;
+                default:
+                    break;
             }
         }
     }
@@ -277,7 +276,7 @@ void Map_lv3::drawLayer2() {
                 TextureManager::Instance()->drawMap("assets/lv3wall.png", Game::Instance()->getRenderer(), 2, 2, des3.x, des3.y);
                 break;
             case 100:
-                TextureManager::Instance()->drawMap("assets/lv3wall.png", Game::Instance()->getRenderer(),3 , 2, des3.x, des3.y);
+                TextureManager::Instance()->drawMap("assets/lv3wall.png", Game::Instance()->getRenderer(), 3, 2, des3.x, des3.y);
                 break;
             case 114:
                 TextureManager::Instance()->drawMap("assets/lv3wall.png", Game::Instance()->getRenderer(), 1, 3, des3.x, des3.y);
@@ -309,11 +308,11 @@ void Map_lv3::DrawMap()
 
     drawLayer2();
     drawLayer3();
-   
-    
-   
-    
-    
+
+
+
+
+
 }
 void Map_lv3::CleanMap()
 {
@@ -702,5 +701,3 @@ std::pair<int, int> Map_lv3::FindPathAStar(SDL_Rect& player, SDL_Rect& destinati
     // Nếu không tìm thấy đích, trả về {0, 0}
     return { 0, 0 };
 }
-
-

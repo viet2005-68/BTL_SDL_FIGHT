@@ -25,7 +25,7 @@ public:
         }
         return m_Instance;
     }
-    
+
     void draw() {
         filename = "assets/score.txt";
         std::ifstream file(filename);
@@ -37,7 +37,7 @@ public:
 
         best_score = new WriteOnScreen("assets/font.ttf", 18);
         std::string PrintScore = "HIGHEST SCORE: " + std::to_string(highScore);
-        best_score->displayText(PrintScore, 420, 660, 240, 40);
+        best_score->displayText(PrintScore, 90, 30, 220, 55);
     }
     void updateHighScore(int playerScore) {
         if (playerScore > highScore) {
@@ -50,7 +50,7 @@ public:
         }
     }
 
-    ~BestScore(){}
+    ~BestScore() {}
 
 private:
     static BestScore* m_Instance;
@@ -58,4 +58,3 @@ private:
     int highScore;
     WriteOnScreen* best_score;
 };
-

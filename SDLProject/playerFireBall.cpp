@@ -8,7 +8,7 @@ playerFireBall::playerFireBall(const LoaderParams* pParams, int a) : SDLGameObje
 {
 	direction = a;
 	fireRect.w = 64;
-	fireRect.h = 48;
+	fireRect.h = 24;
 	fireRect.x = m_position.getX();
 	fireRect.y = m_position.getY();
 
@@ -31,8 +31,8 @@ void playerFireBall::clean() {
 }
 
 void playerFireBall::move(int map) {
-	fireRect.x = m_position.getX() + 20;
-	fireRect.y = m_position.getY();
+	fireRect.x = m_position.getX()+20;
+	fireRect.y = m_position.getY()+30;
 	if (death) {
 		m_velocity.setX(0);
 		m_velocity.setY(0);
@@ -62,6 +62,12 @@ void playerFireBall::move(int map) {
 		}
 		else if (map == 1) {
 			if (Map::getInstance()->iswall(fireRect)) {
+				death = 1;
+				time.reset();
+			}
+		}
+		else if (map == 3) {
+			if (Map_lv3::getInstance()->iswall(fireRect)) {
 				death = 1;
 				time.reset();
 			}

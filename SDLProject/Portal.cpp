@@ -6,10 +6,16 @@ Portal::Portal(const LoaderParams* pParams) : SDLGameObject(pParams)
 {
 	m_currentRow = 2;
 	open = 0;
+	portalRect.w = 60;
+	portalRect.h = 128;
+	portalRect.x = m_position.m_x+50;
+	portalRect.y = m_position.m_y+40;
 }
 
 void Portal::draw() {
 	SDLGameObject::draw();
+	//SDL_RenderDrawRect(Game::Instance()->getRenderer(), &(portalRect));
+	//SDL_SetRenderDrawColor(Game::Instance()->getRenderer(), 255, 255, 255, 255);
 }
 
 void Portal::update() {
